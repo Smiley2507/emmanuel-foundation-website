@@ -11,10 +11,11 @@ export default function Footer() {
                     {/* Brand Section */}
                     <div className="space-y-8">
                         <Link href="/" className="flex items-center space-x-3 group w-fit">
-                            <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-                                <div className="w-5 h-5 bg-primary rounded-sm rotate-45" />
-                            </div>
-                            <span className="text-xl font-heading font-black tracking-tight">EMMANUEL</span>
+                            <img
+                                src="/logo.png"
+                                alt="Emmanuel Foundation"
+                                className="h-12 w-auto transition-transform group-hover:scale-105"
+                            />
                         </Link>
                         <p className="text-gray-300 font-sans font-medium leading-relaxed">
                             Dedicated to improving social wellbeing and safeguarding the environment for present and future generations in Rwanda.

@@ -32,6 +32,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Emanuel Foundation",
   description: "Empowering communities through nature and inspiration.",
+  icons: {
+    icon: '/Vector.png',
+  },
 };
 
 export default async function RootLayout(props: {

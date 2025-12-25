@@ -41,17 +41,11 @@ export default function Header() {
                 <div className="flex justify-between items-center h-full">
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-3 group">
-                        <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
-                            <div className="w-5 h-5 bg-primary rounded-sm rotate-45" />
-                        </div>
-                        <div className="flex flex-col">
-                            <span className="text-xl font-heading font-black tracking-tighter text-white leading-none">
-                                EMMANUEL
-                            </span>
-                            <span className="text-[10px] font-sans font-bold tracking-[0.3em] text-white/50 leading-snug uppercase">
-                                Foundation
-                            </span>
-                        </div>
+                        <img
+                            src="/logo.png"
+                            alt="Emmanuel Foundation"
+                            className="h-12 w-auto transition-transform group-hover:scale-105"
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}
