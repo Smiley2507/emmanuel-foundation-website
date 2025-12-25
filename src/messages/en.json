@@ -1,0 +1,21 @@
+{
+    "Index": {
+        "title": "Emanuel Foundation",
+        "description": "Empowering communities through nature and inspiration.",
+        "cta_join": "Join the Mission",
+        "cta_impact": "See Our Impact"
+    },
+    "Navigation": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "blog": "Blog",
+        "contact": "Contact"
+    },
+    "Hero": {
+        "title": "Empowering Communities. Protecting Our Environment. Shaping a Sustainable Future.",
+        "description": "Emmanuel Foundation is dedicated to improving social wellbeing and safeguarding the environment for present and future generations. Together, we can build a Rwanda where every community thrives and every natural resource is protected.",
+        "cta_donate": "Donate Now",
+        "cta_learn": "Learn More"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "Index": {
+        "title": "Fondation Emanuel",
+        "description": "Autonomiser les communautés grâce à la nature et à l'inspiration.",
+        "cta_join": "Rejoignez la Mission",
+        "cta_impact": "Découvrez notre Impact"
+    },
+    "Navigation": {
+        "home": "Accueil",
+        "about": "À propos",
+        "projects": "Projets",
+        "blog": "Blog",
+        "contact": "Contact"
+    },
+    "Hero": {
+        "slide1_title": "Protéger Notre Patrimoine Naturel",
+        "slide1_description": "Engagés à préserver les paysages luxuriants du Rwanda pour les générations futures.",
+        "slide2_title": "Inspiré par la Nature",
+        "slide2_description": "Chaque projet que nous entreprenons est ancré dans la sagesse de notre monde naturel.",
+        "slide3_title": "Chaleur au sein de la Communauté",
+        "slide3_description": "Bâtir ensemble un avenir durable, avec cœur et détermination."
+    }
+}

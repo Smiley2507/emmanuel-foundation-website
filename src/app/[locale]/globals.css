@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1e293b;
+  --primary: #1e3e8a;
+  /* Deep blue from UI */
+  --primary-foreground: #ffffff;
+  --secondary: #fbbf24;
+  /* Warm yellow/amber from UI */
+  --secondary-foreground: #1e293b;
+  --accent: #38bdf8;
+  /* Light blue/cyan for secondary buttons */
+}
+
+@theme {
+  --font-heading: var(--font-heading), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-inter), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #1e3e8a;
+  --color-secondary: #fbbf24;
+  --color-accent: #38bdf8;
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
+}
+
+body {
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .animate-ken-burns {
+    animation: ken-burns 20s ease infinite alternate;
+  }
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}

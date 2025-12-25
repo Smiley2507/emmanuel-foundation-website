@@ -1,0 +1,23 @@
+{
+    "Index": {
+        "title": "Emanuel Foundation",
+        "description": "Guharanira iterambere ry'abaturage binyuze mu rusobe rw'ibinyabuzima n'icyerekezo.",
+        "cta_join": "Fatanya natwe",
+        "cta_impact": "Reba ibyo twagezeho"
+    },
+    "Navigation": {
+        "home": "Ahabanza",
+        "about": "Turi bo",
+        "projects": "Imishinga",
+        "blog": "Amakuru",
+        "contact": "Twandikire"
+    },
+    "Hero": {
+        "slide1_title": "Kubungabunga Umurage wacu wa Kamere",
+        "slide1_description": "Twiyemeje kubungabunga ibidukikije byiza by'u Rwanda ku bw'ibice bizaza.",
+        "slide2_title": "Byasunitswe na Kamere",
+        "slide2_description": "Buri mushinga dukora ushingiye ku bwenge bw'isi yacu ya kimeza.",
+        "slide3_title": "Igisubizo mu Muryango",
+        "slide3_description": "Kubaka ejo hazaza heza dufatanije, tubikuye ku mutima kandi dufite intego."
+    }
+}
