@@ -12,24 +12,19 @@ export default function HeroSlideshow() {
 
     const slides = [
         {
-            image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2000&auto=format&fit=crop', // Lush nature
-            title: "Protecting Rwanda's Natural Beauty",
-            description: "We are committed to preserving our unique ecosystems, from rolling hills to lush forests, ensuring a greener tomorrow for all."
+            image: '/bg-1.jpeg', // Greenery/Rusizi
+            title: "Driven by Integrity",
+            description: "We act with transparency and responsibility, ensuring that every resource is used to build a better future for Rwanda."
         },
         {
-            image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2000&auto=format&fit=crop', // Group of people/community
-            title: "Empowering Rural Communities",
-            description: "Our mission is to uplift families through education, healthcare, and vocational training, breaking the cycle of poverty."
+            image: '/bg-2.jpeg', // Local community context
+            title: "Rooted in Community",
+            description: "We place people at the heart of our work, empowering families and vulnerable groups to thrive with dignity."
         },
         {
-            image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2000&auto=format&fit=crop', // Sustainable agriculture/green
-            title: "Sustainable Development for All",
-            description: "Implementing renewable energy and clean water solutions that foster economic growth without compromising our environment."
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=2000&auto=format&fit=crop', // Inspiring landscape/hope
-            title: "Building a Legacy of Hope",
-            description: "Join us in creating a future where every Rwandan has the opportunity to thrive in a healthy, vibrant environment."
+            image: '/bg-3.jpeg', // Nature/Water
+            title: "Focused on Impact",
+            description: "From environmental conservation to sustainable development, we deliver solutions that create lasting change."
         }
     ];
 

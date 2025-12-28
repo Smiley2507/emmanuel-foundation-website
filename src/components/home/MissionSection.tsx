@@ -18,7 +18,7 @@ export function MissionSection() {
                     >
                         <div className="absolute -inset-4 bg-secondary/10 rounded-2xl group-hover:bg-secondary/20 transition-all duration-500" />
                         <img
-                            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80"
+                            src="/hands.jpg"
                             alt="Mission"
                             className="relative w-full aspect-[4/5] object-cover rounded-xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
                         />
@@ -38,7 +38,7 @@ export function MissionSection() {
                                 Building Stronger Communities. Restoring Nature. Inspiring Change.
                             </h2>
                             <p className="text-xl text-foreground/70 leading-relaxed font-sans font-medium">
-                                We believe that true development begins with dignity, opportunity, and care. Our programs focus on uplifting families, protecting natural resources, and creating sustainable solutions that last.
+                                To promote the well-being of communities, protect the environment, and support sustainable development. We envision a healthy, empowered, and environmentally responsible society where all people, especially the most vulnerable, have the opportunity to thrive.
                             </p>
                         </div>
 
@@ -68,10 +68,10 @@ export function MissionSection() {
                                 Changing Lives, One Community at a Time
                             </h2>
                             <p className="text-xl text-primary/80 font-sans font-bold italic border-l-4 border-secondary pl-8 leading-relaxed py-2">
-                                “Guteza imbere imibereho y’abaturage hagamijwe iterambere rirambye.”
+                                "Driven by integrity. Rooted in community. Focused on impact."
                             </p>
                             <p className="text-xl text-foreground/70 leading-relaxed font-sans font-medium">
-                                Founded with a vision for a better, greener, and more compassionate Rwanda, Emmanuel Foundation works to bring hope to vulnerable communities and protect the environment we all depend on.
+                                Emmanuel Foundation is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda. Guided by values of human dignity, integrity, and social responsibility, we work to empower vulnerable groups and generate lasting social impact.
                             </p>
                         </div>
                     </motion.div>
@@ -86,7 +86,7 @@ export function MissionSection() {
                     >
                         <div className="absolute -inset-4 bg-primary/5 rounded-2xl group-hover:bg-primary/10 transition-all duration-500" />
                         <img
-                            src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?auto=format&fit=crop&q=80"
+                            src="/bg-3.jpeg"
                             alt="About"
                             className="relative w-full aspect-[4/5] object-cover rounded-xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
                         />

@@ -9,34 +9,40 @@ import { TeamSection } from '@/components/about/TeamSection';
 const values = [
     {
         icon: Heart,
-        title: 'Compassion',
-        description: 'Humanity First, Always.',
+        title: 'Integrity & Accountability',
+        description: 'We act with transparency, responsibility, and ethical integrity in all our programmes, partnerships, and resource use.',
         color: 'bg-red-50 text-red-500'
     },
     {
-        icon: Shield,
-        title: 'Integrity',
-        description: 'Transparent in everything we do.',
+        icon: Users,
+        title: 'Human Dignity',
+        description: 'We place people at the heart of our work, promoting compassion, respect, and dignity for all individuals and communities we serve.',
         color: 'bg-blue-50 text-blue-500'
     },
     {
-        icon: Leaf,
-        title: 'Sustainability',
-        description: 'Long-term solutions over temporary relief.',
+        icon: Target,
+        title: 'Social Responsibility',
+        description: 'We are committed to positive social impact by acting responsibly, promoting ethical practices, and contributing to community well‑being.',
         color: 'bg-green-50 text-green-500'
     },
     {
-        icon: Users,
-        title: 'Stewardship',
-        description: 'Protecting nature so nature can protect us.',
+        icon: Shield,
+        title: 'Partnership & Collaboration',
+        description: 'We work closely with communities, institutions, and development partners to deliver inclusive and locally driven solutions.',
         color: 'bg-amber-50 text-amber-500'
     },
+    {
+        icon: Leaf,
+        title: 'Equity & Inclusion',
+        description: 'We ensure equal opportunities and meaningful participation for all, with special focus on women, youth, children, and vulnerable groups.',
+        color: 'bg-purple-50 text-purple-500'
+    }
 ];
 
 export default function AboutPage() {
     return (
         <div className="flex flex-col min-h-screen font-sans">
-            <PageHeader title="About Us" subtitle="Love, Uplift, Protect, Grow." />
+            <PageHeader title="About Us" subtitle="Driven by integrity. Rooted in community. Focused on impact." />
 
             {/* Who We Are Section */}
             <section className="py-48 bg-white overflow-hidden">
@@ -61,7 +67,7 @@ export default function AboutPage() {
                             initial={{ scale: 1.1 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 1.5 }}
-                            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2000&auto=format&fit=crop"
+                            src="/bg-2.jpeg"
                             alt="Who we are"
                             className="w-full h-full object-cover"
                         />
@@ -70,13 +76,13 @@ export default function AboutPage() {
 
                     <div className="max-w-4xl mx-auto text-xl md:text-2xl text-foreground/70 leading-relaxed space-y-12 text-center font-sans font-medium">
                         <p>
-                            Emmanuel Foundation is a non-profit organization committed to enhancing community well-being and environmental protection in Rwanda.
+                            Emmanuel Foundation (EF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda.
                         </p>
                         <p>
-                            We believe that thriving people and a vibrant planet are inextricably linked, and our mission is to create a reality through sustainable, community-centered programs.
+                            Guided by values of human dignity, integrity, partnership and collaboration, social responsibility, and equity & inclusion, the Foundation works with vulnerable groups, including people with limited financial resources, women and children in poverty, youth, adolescents, and other socially disadvantaged groups.
                         </p>
-                        <p className="font-heading font-black text-primary text-3xl md:text-4xl leading-tight">
-                            "We exist to bridge gaps, empower families, restore nature, and build a severe culture of love."
+                        <p>
+                            EF carries out activities in humanitarian support, environmental conservation, water resource management, education and vocational training, and community well-being initiatives. The Foundation collaborates with public institutions, private-sector partners, and community groups to implement projects that generate lasting social impact.
                         </p>
                     </div>
                 </div>
@@ -102,7 +108,7 @@ export default function AboutPage() {
                             </div>
                             <h3 className="text-4xl font-heading font-black text-primary mb-8">Our Mission</h3>
                             <p className="text-foreground/70 leading-relaxed text-xl font-sans font-medium">
-                                To promote the social well-being of communities and protect the environment for present and future generations through sustainable initiatives.
+                                To promote the well-being of communities, protect the environment, and support sustainable development.
                             </p>
                         </motion.div>
 
@@ -119,12 +125,13 @@ export default function AboutPage() {
                             </div>
                             <h3 className="text-4xl font-heading font-black text-primary mb-8">Our Vision</h3>
                             <p className="text-foreground/70 leading-relaxed text-xl font-sans font-medium">
-                                A thriving Rwanda where people live in dignity, and nature is preserved for the benefit of all.
+                                A healthy, empowered, and environmentally responsible society where all people, especially the most vulnerable, have the opportunity to thrive and contribute to sustainable development.
                             </p>
                         </motion.div>
                     </div>
                 </div>
             </section>
+
 
             {/* Values */}
             <section className="py-48 bg-white">
@@ -134,7 +141,7 @@ export default function AboutPage() {
                         <h2 className="text-5xl md:text-7xl font-heading font-black text-primary mt-6">Our Values</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
                         {values.map((value, index) => (
                             <motion.div
                                 key={value.title}
@@ -148,7 +155,7 @@ export default function AboutPage() {
                                     <value.icon size={32} />
                                 </div>
                                 <h3 className="text-2xl font-heading font-black text-primary mb-6 group-hover:text-secondary transition-colors">{value.title}</h3>
-                                <p className="text-base text-foreground/60 font-sans font-bold uppercase tracking-wider">{value.description}</p>
+                                <p className="text-base text-foreground/60 font-sans font-medium tracking-wider">{value.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -164,7 +171,7 @@ export default function AboutPage() {
                         <div className="lg:w-1/2 relative">
                             <div className="absolute top-8 left-8 w-full h-full bg-secondary rounded-[3rem] -z-10" />
                             <img
-                                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1500&auto=format&fit=crop"
+                                src="/bg-1.jpeg"
                                 alt="Providing support"
                                 className="rounded-[3rem] shadow-2xl w-full"
                             />
@@ -185,7 +192,7 @@ export default function AboutPage() {
                         <div className="lg:w-1/2 relative">
                             <div className="absolute top-8 right-8 w-full h-full bg-primary/10 rounded-[3rem] -z-10" />
                             <img
-                                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1500&auto=format&fit=crop"
+                                src="/community-1.jpg"
                                 alt="Community driven"
                                 className="rounded-[3rem] shadow-2xl w-full"
                             />
@@ -219,7 +226,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 z-0">
                     <div
                         className="absolute inset-0 bg-fixed bg-center bg-cover"
-                        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2000&auto=format&fit=crop")' }}
+                        style={{ backgroundImage: 'url("/bg-3.jpeg")' }}
                     />
                     <div className="absolute inset-0 bg-primary/90" />
                 </div>

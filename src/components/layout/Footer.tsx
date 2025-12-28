@@ -12,7 +12,7 @@ export default function Footer() {
                     <div className="space-y-8">
                         <Link href="/" className="flex items-center space-x-3 group w-fit">
                             <img
-                                src="/logo.png"
+                                src="/logow.png"
                                 alt="Emmanuel Foundation"
                                 className="h-12 w-auto transition-transform group-hover:scale-105"
                             />

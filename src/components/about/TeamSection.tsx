@@ -4,25 +4,49 @@ import { motion } from 'framer-motion';
 
 const team = [
     {
-        name: 'John Doe',
-        role: 'Executive Director',
-        image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop',
+        name: 'Emmanuel NGENDAHAYO',
+        role: 'Founder & Guardian',
+        phone: '0788655112',
+        image: '/emanuel.png'
+    },
+    // Foundation Council
+    {
+        name: 'Marie Solange UWINEZA',
+        role: 'President',
+        phone: '0788917319',
+        image: '/solange.jpeg'
     },
     {
-        name: 'Jane Smith',
-        role: 'Program Manager',
-        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop',
+        name: 'Abbee Maurice TUYIZERE',
+        role: 'V/President',
+        phone: '0784927913',
+        image: '/maurice.jpeg'
     },
     {
-        name: 'Robert Wilson',
-        role: 'Community Outreach',
-        image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop',
+        name: 'Pie UKURIKIYIMFURA',
+        role: 'Treasurer',
+        phone: '0783130973',
+        image: '/pie.jpeg'
     },
     {
-        name: 'Sarah Connor',
-        role: 'Operations Lead',
-        image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop',
+        name: 'Valerie ISHIMWE',
+        role: 'Secretary',
+        phone: '0785466752',
+        image: '/valerie.jpeg'
     },
+    {
+        name: 'Poliphile NIZEYIMANA',
+        role: 'Advisor',
+        phone: '0788458719',
+        image: '/poliphile.jpeg'
+    },
+    // Executive Secretary
+    {
+        name: 'Janvier SINDIKUBWABO',
+        role: 'Executive Secretary',
+        phone: '0788519451',
+        image: '/janvier.png'
+    }
 ];
 
 export function TeamSection() {
@@ -52,7 +76,6 @@ export function TeamSection() {
                                 />
                                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 to-transparent p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                                     <p className="text-white font-sans text-sm font-medium">
-                                        "Dedicated to making a difference every single day."
                                     </p>
                                 </div>
                             </div>

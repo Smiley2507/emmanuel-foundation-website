@@ -6,37 +6,28 @@ import { Link } from '@/lib/navigation';
 
 const programs = [
     {
-        title: 'Community Wellbeing Programs',
-        description: 'Initiatives designed to uplift families, empower youth, and create equal opportunities for all.',
+        title: 'Environmental Protection & Sustainable Water Management',
+        description: 'Rusizi District faces environmental degradation, water resource stress, and sanitation challenges. We are implementing integrated projects to protect the environment and promote sustainable water use.',
         examples: [
-            'Health awareness campaigns',
-            'Community support programs',
-            'Education and youth development'
+            'Nature reserves & systematic restoration',
+            'Sustainable water management',
+            'Clean water and sanitation advocacy',
+            'Environmental conservation'
         ],
-        image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1500&auto=format&fit=crop',
+        image: '/bg-3.jpeg', // Nature/Water focus
         color: 'bg-green-50'
     },
     {
-        title: 'Environmental Conservation',
-        description: 'Protecting nature reserves, wetland restoration, and sustainable waste management.',
+        title: 'Strengthening Community Well‑Being',
+        description: 'We address limited livelihood opportunities for youth and vulnerable households through education, empowerment, and resilience-building programs. We focus on community health, sports, and hygiene.',
         examples: [
-            'Tree planting programs',
-            'Clean water and sanitation advocacy',
-            'Nature reserves & systematic restoration'
+            'Community health and nutrition',
+            'Youth empowerment',
+            'Sports and recreation',
+            'Local sustainability initiatives'
         ],
-        image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1500&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1500&auto=format&fit=crop', // Kept as "kids image" per user request
         color: 'bg-blue-50'
-    },
-    {
-        title: 'Sustainable Development Initiatives',
-        description: 'Projects that prioritize long-term development models, economic capability, and creating resilient community infrastructures.',
-        examples: [
-            'Eco-friendly infrastructure',
-            'Community-led sustainability initiatives',
-            'Partnerships for long-term growth'
-        ],
-        image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1500&auto=format&fit=crop',
-        color: 'bg-amber-50'
     }
 ];
 
@@ -59,7 +50,7 @@ export default function ProjectsPage() {
                     </div>
                     <div className="md:w-1/2 relative h-[500px] w-full rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
                         <img
-                            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2000&auto=format&fit=crop"
+                            src="/farmers.jpg"
                             alt="Programs overview"
                             className="w-full h-full object-cover"
                         />
