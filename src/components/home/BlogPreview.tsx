@@ -2,36 +2,34 @@
 
 import { motion } from 'framer-motion';
 import { Link } from '@/lib/navigation';
-import { Calendar, User, ArrowRight } from 'lucide-react';
+import { urlFor } from '@/sanity/lib/image';
+import { Calendar, ArrowRight } from 'lucide-react';
 
-const mockPosts = [
-    {
-        title: 'Empowering Women in Rural Communities',
-        excerpt: 'How our latest vocational training program is helping women in Eastern Province gain economic independence.',
-        date: 'Oct 12, 2025',
-        author: 'Foundation Team',
-        image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80',
-        category: 'Community'
-    },
-    {
-        title: 'The Green Initiative: 10,000 Trees Planted',
-        excerpt: 'Celebrating a major milestone in our mission to restore local ecosystems and combat climate change.',
-        date: 'Sep 28, 2025',
-        author: 'John Doe',
-        image: 'https://images.unsplash.com/photo-1511884642898-4c92249e20b6?auto=format&fit=crop&q=80',
-        category: 'Environment'
-    },
-    {
-        title: 'Sustainable Water Solutions for Schools',
-        excerpt: 'Providing clean, accessible water to three primary schools, ensuring a healthier future for our children.',
-        date: 'Sep 15, 2025',
-        author: 'Jane Smith',
-        image: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&q=80',
-        category: 'Sustainability'
-    }
-];
+interface Post {
+    title: string;
+    slug: { current: string };
+    mainImage: any;
+    publishedAt: string;
+    excerpt?: string;
+    body?: any[];
+    authorName?: string;
+    categories?: string[];
+}
 
-export function BlogPreview() {
+interface BlogPreviewProps {
+    posts: Post[];
+}
+
+export function BlogPreview({ posts }: BlogPreviewProps) {
+    // Helper to get excerpt from body if not explicitly provided
+    const getExcerpt = (post: Post) => {
+        if (post.excerpt) return post.excerpt;
+        if (post.body && post.body[0] && post.body[0].children && post.body[0].children[0]) {
+            return post.body[0].children[0].text.substring(0, 150) + '...';
+        }
+        return 'Read the full story to learn more about our latest updates.';
+    };
+
     return (
         <section className="py-48 bg-[#FAFAF8] overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,43 +65,67 @@ export function BlogPreview() {
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-                    {mockPosts.map((post, index) => (
-                        <motion.article
-                            key={post.title}
-                            initial={{ y: 30, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-gray-100 group"
-                        >
-                            <div className="aspect-[16/11] overflow-hidden relative">
-                                <img
-                                    src={post.image}
-                                    alt={post.title}
-                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                                />
-                                <div className="absolute top-8 left-8 bg-secondary text-primary px-6 py-2 rounded-md font-heading font-black text-sm uppercase tracking-wider shadow-xl">
-                                    {post.category}
-                                </div>
-                            </div>
+                {posts.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                        {posts.map((post, index) => (
+                            <motion.article
+                                key={post.slug.current}
+                                initial={{ y: 30, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.8, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100"
+                            >
+                                <Link href={`/blog/${post.slug.current}`}>
+                                    <div className="relative aspect-[4/3] overflow-hidden">
+                                        {post.mainImage ? (
+                                            <img
+                                                src={urlFor(post.mainImage).url()}
+                                                alt={post.title}
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full bg-gradient-to-br from-primary to-secondary" />
+                                        )}
+                                        {post.categories && post.categories.length > 0 && (
+                                            <div className="absolute top-4 left-4">
+                                                <span className="bg-secondary text-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                                                    {post.categories[0]}
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
 
-                            <div className="p-12 space-y-8">
-                                <div className="flex items-center space-x-6 text-sm text-foreground/40 font-sans font-bold uppercase tracking-widest">
-                                    <span>{post.date}</span>
-                                    <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                                    <span>{post.author}</span>
-                                </div>
-                                <h3 className="text-3xl font-heading font-black text-primary leading-tight group-hover:text-secondary transition-colors line-clamp-2">
-                                    {post.title}
-                                </h3>
-                                <p className="text-lg text-foreground/70 leading-relaxed line-clamp-2 font-sans font-medium">
-                                    {post.excerpt}
-                                </p>
-                            </div>
-                        </motion.article>
-                    ))}
-                </div>
+                                    <div className="p-8 space-y-6">
+                                        <h3 className="text-2xl font-heading font-black text-primary leading-tight group-hover:text-secondary transition-colors">
+                                            {post.title}
+                                        </h3>
+
+                                        <p className="text-foreground/70 leading-relaxed font-medium line-clamp-3">
+                                            {getExcerpt(post)}
+                                        </p>
+
+                                        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                                            <div className="flex items-center space-x-2 text-sm text-foreground/60 font-medium">
+                                                {/* Requires importing Calendar from lucide-react if not present, but it was removed in previous edit so I'll need to re-add imports if they are missing. I will check imports in next tool call or assume I need to fix them. */}
+                                                <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                                            </div>
+
+                                            <div className="flex items-center space-x-2 text-primary font-bold group-hover:text-secondary transition-colors">
+                                                <span className="text-sm">Read More</span>
+                                                {/* Requires ArrowRight */}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </motion.article>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="text-center py-24">
+                        <p className="text-xl text-gray-500 font-sans">No updates available at the moment. Check back soon!</p>
+                    </div>
+                )}
             </div>
         </section>
     );
