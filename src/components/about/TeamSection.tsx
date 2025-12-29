@@ -7,45 +7,52 @@ const team = [
         name: 'Emmanuel NGENDAHAYO',
         role: 'Founder & Guardian',
         phone: '0788655112',
-        image: '/emanuel.png'
+        image: '/emanuel.png',
+        on: null
     },
     // Foundation Council
     {
         name: 'Marie Solange UWINEZA',
         role: 'President',
         phone: '0788917319',
-        image: '/solange.jpeg'
+        image: '/solange.jpeg',
+        on: 'Foundation Council'
     },
     {
         name: 'Abbee Maurice TUYIZERE',
         role: 'V/President',
         phone: '0784927913',
-        image: '/maurice.jpeg'
+        image: '/maurice.jpeg',
+        on: 'Foundation Council'
     },
     {
         name: 'Pie UKURIKIYIMFURA',
         role: 'Treasurer',
         phone: '0783130973',
-        image: '/pie.jpeg'
+        image: '/pie.jpeg',
+        on: 'Foundation Council'
     },
     {
         name: 'Valerie ISHIMWE',
         role: 'Secretary',
         phone: '0785466752',
-        image: '/valerie.jpeg'
+        image: '/valerie.jpeg',
+        on: 'Foundation Council'
     },
     {
         name: 'Poliphile NIZEYIMANA',
         role: 'Advisor',
         phone: '0788458719',
-        image: '/poliphile.jpeg'
+        image: '/poliphile.jpeg',
+        on: 'Foundation Council'
     },
     // Executive Secretary
     {
         name: 'Janvier SINDIKUBWABO',
         role: 'Executive Secretary',
         phone: '0788519451',
-        image: '/janvier.png'
+        image: '/janvier.png',
+        on: 'Foundation Council'
     }
 ];
 
@@ -82,6 +89,8 @@ export function TeamSection() {
                             <div className="p-8 text-center bg-white relative z-10">
                                 <h3 className="text-2xl font-heading font-black text-primary mb-2">{member.name}</h3>
                                 <p className="text-sm font-sans font-bold uppercase tracking-widest text-secondary">{member.role}</p>
+                                <p className="font-sans uppercase tracking-widest text-secondary">{member.on}</p>
+
                             </div>
                         </motion.div>
                     ))}
