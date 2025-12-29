@@ -12,7 +12,7 @@ const team = [
     },
     // Foundation Council
     {
-        name: 'Marie Solange UWINEZA',
+        name: 'Dr. Marie Solange UWINEZA',
         role: 'President',
         phone: '0788917319',
         image: '/solange.jpeg',

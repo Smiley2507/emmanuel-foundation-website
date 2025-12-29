@@ -7,7 +7,7 @@ import { Link } from '@/lib/navigation';
 const programs = [
     {
         title: 'Environmental Protection & Sustainable Water Management',
-        description: 'Rusizi District faces environmental degradation, water resource stress, and sanitation challenges. We are implementing integrated projects to protect the environment and promote sustainable water use.',
+        description: 'Some part of Rwanda still face environmental degradation, water resource stress, and sanitation challenges. We are implementing integrated projects to protect the environment and promote sustainable water use.',
         examples: [
             'Nature reserves & systematic restoration',
             'Sustainable water management',
@@ -26,7 +26,7 @@ const programs = [
             'Sports and recreation',
             'Local sustainability initiatives'
         ],
-        image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1500&auto=format&fit=crop', // Kept as "kids image" per user request
+        image: '/3kids.jpg', 
         color: 'bg-blue-50'
     }
 ];
