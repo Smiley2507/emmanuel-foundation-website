@@ -14,7 +14,7 @@ export default function HeroSlideshow() {
         {
             image: '/bg-1.jpeg', // Greenery/Rusizi
             title: "Driven by Integrity",
-            description: "We act with transparency and responsibility, ensuring that every resource is used to build a better future for Rwanda."
+            description: "We act with transparency and responsibility, ensuring that every resource is used to benefit the beneficiaries."
         },
         {
             image: '/bg-2.jpeg', // Local community context

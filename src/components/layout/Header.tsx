@@ -126,7 +126,7 @@ export default function Header() {
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    className="text-5xl font-heading font-black text-white hover:text-secondary transition-colors"
+                                    className="text-4xl font-heading font-black text-white hover:text-secondary transition-colors"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {item.name}

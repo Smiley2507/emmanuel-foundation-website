@@ -57,8 +57,7 @@ export default function AboutPage() {
                         >
                             <span className="text-xs font-sans font-bold uppercase tracking-[0.4em] text-secondary block">Who We Are</span>
                             <h2 className="text-5xl md:text-7xl font-heading font-black text-primary leading-tight">
-                                A Foundation Built on Hope, Action, and Purpose
-                            </h2>
+                                A foundation built on compassion, action, and impact.                            </h2>
                         </motion.div>
                     </div>
 
