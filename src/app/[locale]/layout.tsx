@@ -30,7 +30,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Emanuel Foundation",
+  title: "Jeannine & Emmanuel Foundation",
   description: "Empowering communities through nature and inspiration.",
   icons: {
     icon: '/Vector.png',

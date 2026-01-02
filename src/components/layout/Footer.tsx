@@ -12,7 +12,7 @@ export default function Footer() {
                     <div className="space-y-8">
                         <Link href="/" className="flex items-center space-x-3 group w-fit">
                             <img
-                                src="/logow.png"
+                                src="/logov3.png"
                                 alt="Emmanuel Foundation"
                                 className="h-12 w-auto transition-transform group-hover:scale-105"
                             />
@@ -31,13 +31,19 @@ export default function Footer() {
                     <div className="lg:pl-10">
                         <h4 className="text-lg font-heading font-black mb-8 text-secondary">Quick Links</h4>
                         <ul className="space-y-4">
-                            {['Home', 'About', 'Projects', 'Blog', 'Contact'].map((item) => (
-                                <li key={item}>
+                            {[
+                                { name: 'Home', href: '/' },
+                                { name: 'About', href: '/about' },
+                                { name: 'Projects', href: '/projects' },
+                                { name: 'Blog', href: '/blog' },
+                                { name: 'Contact', href: '/contact' }
+                            ].map((item) => (
+                                <li key={item.name}>
                                     <Link
-                                        href={`/${item.toLowerCase()}`}
+                                        href={item.href}
                                         className="text-gray-400 hover:text-secondary transition-colors font-sans font-medium"
                                     >
-                                        {item}
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}
@@ -48,13 +54,18 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-heading font-black mb-8 text-secondary">Support Us</h4>
                         <ul className="space-y-4">
-                            {['Donate', 'Volunteer', 'Partnerships', 'Work with us'].map((item) => (
-                                <li key={item}>
+                            {[
+                                { name: 'Donate', href: '/donate' },
+                                { name: 'Volunteer', href: '/volunteer' },
+                                { name: 'Partnerships', href: '/partnerships' },
+                                { name: 'Work with us', href: '/work-with-us' }
+                            ].map((item) => (
+                                <li key={item.name}>
                                     <Link
-                                        href={`/${item.toLowerCase()}`}
+                                        href={item.href}
                                         className="text-gray-400 hover:text-secondary transition-colors font-sans font-medium"
                                     >
-                                        {item}
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}

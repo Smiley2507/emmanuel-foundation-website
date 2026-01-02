@@ -5,7 +5,7 @@ import { Leaf, Heart, Sun } from 'lucide-react';
 
 const focusAreas = [
     {
-        title: "Social Wellbeing",
+        title: "Social Well-being",
         description: "We support vulnerable groups with programs that promote health, education, and improved livelihoods.",
         icon: Heart,
         color: "bg-red-50 text-red-600 border-red-100"

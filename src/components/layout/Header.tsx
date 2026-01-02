@@ -42,9 +42,9 @@ export default function Header() {
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-3 group">
                         <img
-                            src="/logow.png"
+                            src="/logov3.png"
                             alt="Emmanuel Foundation"
-                            className="h-12 w-auto transition-transform group-hover:scale-105"
+                            className="h-14 w-auto transition-transform group-hover:scale-105"
                         />
                     </Link>
 
