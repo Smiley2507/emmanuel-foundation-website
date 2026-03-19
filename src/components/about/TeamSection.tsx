@@ -51,7 +51,7 @@ const team = [
         name: 'Janvier SINDIKUBWABO',
         role: 'Executive Secretary',
         phone: '0788519451',
-        image: '/janvier.png',
+        image: '/janvier.jpeg',
         on: 'Foundation Council'
     }
 ];
