@@ -8,14 +8,14 @@
     "Navigation": {
         "home": "Home",
         "about": "About",
-        "projects": "Projects",
+        "projects": "Programs",
         "blog": "Blog",
         "contact": "Contact"
     },
     "Hero": {
-        "title": "Empowering Communities. Protecting Our Environment. Shaping a Sustainable Future.",
-        "description": "Emmanuel Foundation is dedicated to improving social wellbeing and safeguarding the environment for present and future generations. Together, we can build a Rwanda where every community thrives and every natural resource is protected.",
+        "title": "Driven by Compassion. Empowering Communities. Creating Lasting Impact.",
+        "description": "Emmanuel Foundation works with vulnerable communities across Rwanda — protecting the environment, strengthening livelihoods, and building a more equitable future for those who need it most.",
         "cta_donate": "Donate Now",
-        "cta_learn": "Learn More"
+        "cta_learn": "See Our Work"
     }
 }

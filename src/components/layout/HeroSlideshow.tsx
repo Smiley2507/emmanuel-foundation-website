@@ -13,8 +13,8 @@ export default function HeroSlideshow() {
     const slides = [
         {
             image: '/bg-1.jpeg', // Greenery/Rusizi
-            title: "Driven by Integrity",
-            description: "We act with transparency and responsibility, ensuring that every resource is used to benefit the beneficiaries."
+            title: "Driven by Compassion. Empowering Communities. Creating Lasting Impact.",
+            description: "Emmanuel Foundation works with vulnerable communities across Rwanda — protecting the environment, strengthening livelihoods, and building a more equitable future for those who need it most."
         },
         {
             image: '/bg-2.jpeg', // Local community context
@@ -83,7 +83,7 @@ export default function HeroSlideshow() {
                                         {t('cta_donate')}
                                     </button>
                                 </Link>
-                                <Link href="/about" className="w-full sm:w-auto">
+                                <Link href="/projects" className="w-full sm:w-auto">
                                     <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white px-12 py-5 rounded-md font-heading font-bold text-xl hover:bg-white/10 transition-all shadow-xl active:scale-95">
                                         {t('cta_learn')}
                                     </button>

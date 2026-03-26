@@ -34,7 +34,7 @@ export default function Footer() {
                             {[
                                 { name: 'Home', href: '/' },
                                 { name: 'About', href: '/about' },
-                                { name: 'Projects', href: '/projects' },
+                                { name: 'Programs', href: '/projects' },
                                 { name: 'Blog', href: '/blog' },
                                 { name: 'Contact', href: '/contact' }
                             ].map((item) => (
@@ -79,18 +79,7 @@ export default function Footer() {
                             Kigali, Rwanda<br />
                             info@emmanuelfoundation.org
                         </p>
-                        <div className="flex space-x-5">
-                            {/* Social Icons would go here */}
-                            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:bg-secondary hover:text-primary hover:border-secondary transition-all cursor-pointer">
-                                <span className="text-xs font-bold font-sans">FB</span>
-                            </div>
-                            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:bg-secondary hover:text-primary hover:border-secondary transition-all cursor-pointer">
-                                <span className="text-xs font-bold font-sans">X</span>
-                            </div>
-                            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:bg-secondary hover:text-primary hover:border-secondary transition-all cursor-pointer">
-                                <span className="text-xs font-bold font-sans">IG</span>
-                            </div>
-                        </div>
+                        {/* Social links will be added when official handles are confirmed */}
                     </div>
                 </div>
 

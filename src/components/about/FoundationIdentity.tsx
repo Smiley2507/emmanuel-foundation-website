@@ -7,7 +7,7 @@ export default function FoundationIdentity() {
                 {/* Tagline */}
                 <div className="text-center mb-12">
                     <h2 className="text-4xl md:text-5xl font-heading font-black text-primary">
-                        Driven by integrity. Rooted in community. Focused on impact.
+                        Driven by compassion. Rooted in community. Focused on lasting impact.
                     </h2>
                 </div>
                 {/* Mission */}
