@@ -2,14 +2,33 @@
 
 import { PageHeader } from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
+import { Heart, Handshake, Users } from 'lucide-react';
+
+const intentOptions = [
+    {
+        icon: Heart,
+        title: 'Donate or Fund a Programme',
+        description: 'Support our work in Rusizi District financially.',
+    },
+    {
+        icon: Handshake,
+        title: 'Partner or Collaborate',
+        description: 'Explore institutional or community partnerships.',
+    },
+    {
+        icon: Users,
+        title: 'Volunteer or Get Involved',
+        description: 'Join our growing network of community supporters.',
+    },
+];
 
 export default function ContactPage() {
     return (
         <div className="flex flex-col min-h-screen">
             <PageHeader title="Contact Us" />
 
-            <section className="relative lg:h-[900px] bg-primary">
-                {/* Background Section (Bottom/Left) */}
+            <section className="relative lg:h-[1000px] bg-primary">
+                {/* Background Section */}
                 <div className="absolute inset-0 z-0">
                     <img
                         src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2000&auto=format&fit=crop"
@@ -27,11 +46,29 @@ export default function ContactPage() {
                             initial={{ x: -30, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.8 }}
-                            className="text-white space-y-16"
+                            className="text-white space-y-12"
                         >
                             <h2 className="text-5xl md:text-6xl font-heading font-black leading-tight text-secondary">
-                                We would love to hear from you — whether you want to partner with us, support our mission, or learn more.
+                                Let&apos;s Build Something Together
                             </h2>
+                            <p className="text-xl text-white/80 leading-relaxed font-sans font-medium">
+                                Whether you&apos;re a potential donor, a community partner, a volunteer, or a journalist — we welcome every conversation. Reach out and let&apos;s explore how we can work together.
+                            </p>
+
+                            {/* Intent Options */}
+                            <div className="grid grid-cols-1 gap-4">
+                                {intentOptions.map((option) => (
+                                    <div key={option.title} className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm p-5 rounded-2xl border border-white/20">
+                                        <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-primary shrink-0">
+                                            <option.icon size={22} />
+                                        </div>
+                                        <div>
+                                            <p className="font-heading font-bold text-white text-lg">{option.title}</p>
+                                            <p className="text-white/60 text-sm font-sans">{option.description}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
 
                             <div className="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20 text-white max-w-lg shadow-2xl">
                                 <div className="space-y-8 text-xl font-sans font-medium">
@@ -50,7 +87,7 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <span className="font-bold text-secondary uppercase tracking-widest text-sm block mb-1">Phone</span>
-                                            +250 123 456 789
+                                            +250 788 655 112
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-4">
@@ -96,7 +133,22 @@ export default function ContactPage() {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="block text-sm font-sans font-bold text-primary uppercase tracking-wider mb-3">Your message</label>
+                                    <label htmlFor="subject" className="block text-sm font-sans font-bold text-primary uppercase tracking-wider mb-3">Subject</label>
+                                    <select
+                                        id="subject"
+                                        className="w-full px-6 py-4 rounded-xl bg-gray-50 border-2 border-transparent focus:border-secondary focus:bg-white focus:outline-none transition-all text-lg font-medium text-gray-700 appearance-none cursor-pointer"
+                                    >
+                                        <option value="">Select a subject...</option>
+                                        <option value="donation">Donation Inquiry</option>
+                                        <option value="partnership">Partnership</option>
+                                        <option value="volunteering">Volunteering</option>
+                                        <option value="media">Media</option>
+                                        <option value="general">General</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label htmlFor="message" className="block text-sm font-sans font-bold text-primary uppercase tracking-wider mb-3">Your Message</label>
                                     <textarea
                                         id="message"
                                         rows={5}
