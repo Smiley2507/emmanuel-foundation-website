@@ -42,7 +42,7 @@ const values = [
 export default function AboutPage() {
     return (
         <div className="flex flex-col min-h-screen font-sans">
-            <PageHeader title="About Us" subtitle="Driven by integrity. Rooted in community. Focused on impact." />
+            <PageHeader title="About Us" subtitle="Driven by compassion. Rooted in community. Focused on lasting impact." />
 
             {/* Who We Are Section */}
             <section className="py-48 bg-white overflow-hidden">
@@ -81,7 +81,7 @@ export default function AboutPage() {
                             Guided by values of human dignity, integrity, partnership and collaboration, social responsibility, and equity & inclusion, the Foundation works with vulnerable groups, including people with limited financial resources, women and children in poverty, youth, adolescents, and other socially disadvantaged groups.
                         </p>
                         <p>
-                            EF carries out activities in humanitarian support, environmental conservation, water resource management, education and vocational training, and community well-being initiatives. The Foundation collaborates with public institutions, private-sector partners, and community groups to implement projects that generate lasting social impact.
+                            EF carries out activities in humanitarian support, environmental conservation, water resource management, education and vocational training, and community well-being initiatives, including sports, nutrition, and hygiene awareness. The Foundation collaborates with public institutions, private-sector partners, civil society, and community groups to implement projects that generate lasting social impact and contribute directly to Rwanda&apos;s development goals.
                         </p>
                     </div>
                 </div>
@@ -181,8 +181,7 @@ export default function AboutPage() {
                                 Addressing Today's Challenges with Tomorrow's Solutions
                             </h2>
                             <p className="text-xl text-foreground/70 leading-relaxed font-medium font-sans">
-                                Communities across Rwanda face challenges rooted in poverty, lack of resources, and environmental degradation.
-                                We work to address these issues not through temporary relief, but through enduring systems providing long-term guidance and sustainable development.
+                                Communities across Rwanda — particularly in areas like Rusizi District — face overlapping challenges: environmental degradation, water stress, limited educational and economic opportunities, and insufficient social protection for the most vulnerable. Emmanuel Foundation was created not to offer temporary relief, but to build lasting systems that empower communities to sustain their own progress long after our programmes conclude.
                             </p>
                         </div>
                     </div>
@@ -203,14 +202,14 @@ export default function AboutPage() {
                             </h2>
                             <ul className="space-y-6">
                                 {[
-                                    'Bottom-up solutions',
-                                    'Holistic sustainability',
-                                    'Empowering vulnerable populations',
-                                    'Promoting gender equality and coverage for all',
-                                    'Development and inclusive management'
+                                    'Bottom-up solutions — We design programs with communities, not just for them.',
+                                    'Holistic sustainability — Every intervention is designed to create lasting change, not dependency.',
+                                    'Protecting the vulnerable — Women, children, youth, and the elderly are at the center of all we do.',
+                                    'Gender equality — We actively promote women\u2019s participation and leadership in all programs.',
+                                    'Inclusive management — Local voices shape how programs are run and measured.'
                                 ].map((item) => (
-                                    <li key={item} className="flex items-center space-x-4 text-xl text-foreground/70 font-medium">
-                                        <div className="w-3 h-3 rounded-full bg-secondary shadow-lg" />
+                                    <li key={item} className="flex items-start space-x-4 text-xl text-foreground/70 font-medium">
+                                        <div className="w-3 h-3 mt-2 rounded-full bg-secondary shadow-lg shrink-0" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -231,9 +230,9 @@ export default function AboutPage() {
                 </div>
 
                 <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white space-y-8">
-                    <h2 className="text-4xl md:text-6xl font-heading font-black text-secondary">Join Our Early Supporters</h2>
+                    <h2 className="text-4xl md:text-6xl font-heading font-black text-secondary">Be Part of Our Foundation</h2>
                     <p className="text-xl md:text-2xl opacity-90 leading-relaxed font-sans font-medium">
-                        As a young Foundation, we are building a foundation of impact — and your early support helps us transform pixels into programs and ideas into realized action.
+                        Emmanuel Foundation is at the beginning of its journey. Your early support — financial or otherwise — directly shapes what we are able to build. Join us now, when your contribution has the most impact.
                     </p>
                     <div className="pt-8">
                         <Link href="/donate">
