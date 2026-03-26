@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion';
 
 const stats = [
-    { label: 'Trees Planted', value: '10,000+', delay: 0 },
-    { label: 'Lives Touched', value: '5,000+', delay: 0.1 },
-    { label: 'Communities Served', value: '12', delay: 0.2 },
-    { label: 'Volunteers', value: '250+', delay: 0.3 },
+    { label: 'Across health, environment, education & more', value: '7 Programs', delay: 0 },
+    { label: 'Our first operational focus area', value: 'Rusizi District', delay: 0.1 },
+    { label: 'Targeted direct beneficiaries in first project', value: '12,000+', delay: 0.2 },
+    { label: 'A young foundation with a long-term vision', value: 'Est. 2024', delay: 0.3 },
 ];
 
 export default function StatsSection() {

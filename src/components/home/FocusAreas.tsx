@@ -1,26 +1,32 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Leaf, Heart, Sun } from 'lucide-react';
+import { Heart, Leaf, GraduationCap, Droplets } from 'lucide-react';
 
 const focusAreas = [
     {
-        title: "Social Well-being",
-        description: "We support vulnerable groups with programs that promote health, education, and improved livelihoods.",
+        title: "Community & Social Protection",
+        description: "Supporting vulnerable groups — teen mothers, the elderly, and low-income households — through humanitarian support, capacity-building, and livelihood initiatives.",
         icon: Heart,
         color: "bg-red-50 text-red-600 border-red-100"
     },
     {
         title: "Environmental Protection",
-        description: "Through conservation, awareness, and community-led initiatives, we protect nature for generations to come.",
+        description: "Protecting Rwanda's rivers, wetlands, and ecosystems through tree planting, buffer zone conservation, and community-led climate awareness.",
         icon: Leaf,
         color: "bg-green-50 text-green-600 border-green-100"
     },
     {
-        title: "Sustainable Development",
-        description: "We invest in projects that empower communities to grow in a responsible and sustainable way.",
-        icon: Sun,
+        title: "Education & Vocational Training",
+        description: "Expanding access to education and practical skills for youth and disadvantaged groups through scholarships, mentorship, and partnerships with training institutions.",
+        icon: GraduationCap,
         color: "bg-amber-50 text-amber-600 border-amber-100"
+    },
+    {
+        title: "Water & Community Resilience",
+        description: "Protecting and sustainably managing water resources through community water projects, conservation training, and safe water access support.",
+        icon: Droplets,
+        color: "bg-blue-50 text-blue-600 border-blue-100"
     }
 ];
 
@@ -42,7 +48,7 @@ export function FocusAreas() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
                     {focusAreas.map((area, index) => (
                         <motion.div
                             key={area.title}

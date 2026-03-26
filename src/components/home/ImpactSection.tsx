@@ -26,10 +26,10 @@ export function ImpactSection() {
                         <div className="space-y-8">
                             <span className="text-xs font-sans font-bold uppercase tracking-[0.5em] text-secondary">Become Part of the Impact</span>
                             <h2 className="text-5xl md:text-8xl font-heading font-black text-white leading-tight text-balance">
-                                Your Support Makes Everything Possible
+                                Your Support Helps Us Begin
                             </h2>
                             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed font-sans font-medium text-balance">
-                                Join us in building a sustainable future for Rwanda. Whether through donations, volunteering, or spreading the word, every action counts toward a bigger mission.
+                                As a new foundation, every contribution matters. Whether you donate, volunteer, or simply share our mission — you are helping build the foundation of something that will outlast all of us. Join us in Rusizi District and beyond.
                             </p>
                         </div>
 

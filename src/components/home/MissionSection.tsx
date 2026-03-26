@@ -35,10 +35,10 @@ export function MissionSection() {
                         <div className="space-y-8">
                             <span className="text-xs font-sans font-bold uppercase tracking-[0.4em] text-secondary">Our Impact in Action</span>
                             <h2 className="text-4xl md:text-6xl font-heading font-black text-primary leading-[1.15]">
-                                Building Stronger Communities. Restoring Nature. Inspiring Change.
+                                Serving Communities. Protecting Nature. Building Futures.
                             </h2>
                             <p className="text-xl text-foreground/70 leading-relaxed font-sans font-medium">
-                                To promote the well-being of communities, protect the environment, and support sustainable development. We envision a healthy, empowered, and environmentally responsible society where all people, especially the most vulnerable, have the opportunity to thrive.
+                                Emmanuel Foundation was established to serve Rwanda&apos;s most vulnerable — those living in poverty, women and children, youth, the elderly, and socially disadvantaged groups. We work across environmental conservation, education, community health, and sustainable water management, always in partnership with the communities we serve.
                             </p>
                         </div>
 
@@ -68,10 +68,10 @@ export function MissionSection() {
                                 Changing Lives, One Community at a Time
                             </h2>
                             <p className="text-xl text-primary/80 font-sans font-bold italic border-l-4 border-secondary pl-8 leading-relaxed py-2">
-                                "Driven by integrity. Rooted in community. Focused on impact."
+                                &ldquo;Driven by compassion. Rooted in community. Focused on lasting impact.&rdquo;
                             </p>
                             <p className="text-xl text-foreground/70 leading-relaxed font-sans font-medium">
-                                Emmanuel Foundation is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda. Guided by values of human dignity, integrity, and social responsibility, we work to empower vulnerable groups and generate lasting social impact.
+                                Emmanuel Foundation (EF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda. Guided by values of human dignity, integrity, partnership, and equity, we work with vulnerable groups — including people with limited financial resources, women and children in poverty, youth, adolescents, and socially disadvantaged communities — to generate lasting social impact.
                             </p>
                         </div>
                     </motion.div>
