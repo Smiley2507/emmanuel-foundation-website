@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 export default function Header() {
     const t = useTranslations('Navigation');
@@ -22,8 +22,18 @@ export default function Header() {
         { name: t('contact'), href: '/contact' },
     ];
 
+    const { scrollY } = useScroll();
+    const navShadow = useTransform(
+        scrollY,
+        [0, 60],
+        ['0 0 0 0 rgba(0,0,0,0)', '0 2px 16px rgba(0,0,0,0.08)']
+    );
+
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[var(--color-bg-white)] border-b border-[var(--color-border)] h-[64px] md:h-[72px]">
+        <motion.header 
+            style={{ boxShadow: navShadow }} 
+            className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg-white)] h-[64px] md:h-[72px]"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
                 <div className="flex justify-between items-center h-full">
                     {/* Logo */}
@@ -182,6 +192,6 @@ export default function Header() {
                     </>
                 )}
             </AnimatePresence>
-        </header>
+        </motion.header>
     );
 }

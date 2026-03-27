@@ -3,6 +3,8 @@
 import { PageHeader } from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import { Link } from '@/lib/navigation';
+import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import { slideInLeft, slideInRight, fadeUp } from '@/lib/animations';
 
 const programmes = [
     {
@@ -132,12 +134,7 @@ export default function ProjectsPage() {
                                 </div>
                                 <div className="w-full lg:w-1/2 flex items-center">
                                     <div className="py-[40px] px-[24px] lg:py-[80px] lg:px-[64px] max-w-[720px] mx-auto">
-                                        <motion.div
-                                            initial={{ x: isEven ? 50 : -50, opacity: 0 }}
-                                            whileInView={{ x: 0, opacity: 1 }}
-                                            transition={{ duration: 0.8 }}
-                                            viewport={{ once: true }}
-                                        >
+                                        <AnimateOnScroll variants={isEven ? slideInRight : slideInLeft}>
                                             <span className="text-[20px] font-heading font-black text-[var(--color-primary-light)] mb-[16px] block tracking-wider">0{index + 1}</span>
                                             <h2 className="h2 mb-[24px] text-[var(--color-text-primary)]">
                                                 {programme.title}
@@ -157,7 +154,7 @@ export default function ProjectsPage() {
                                                     ))}
                                                 </ul>
                                             </div>
-                                        </motion.div>
+                                        </AnimateOnScroll>
                                     </div>
                                 </div>
                             </div>
@@ -176,13 +173,8 @@ export default function ProjectsPage() {
                         </h2>
                     </div>
 
-                    <motion.div
-                        initial={{ y: 30, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="bg-white/10 rounded-[12px] border border-white/20 overflow-hidden"
-                    >
+                    <AnimateOnScroll variants={fadeUp}>
+                        <div className="bg-white/10 rounded-[12px] border border-white/20 overflow-hidden">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                             <div className="p-[48px] space-y-[40px]">
                                 <p className="body-large text-white/85">
@@ -231,7 +223,8 @@ export default function ProjectsPage() {
                                 <div className="absolute inset-0 bg-black/40" />
                             </div>
                         </div>
-                    </motion.div>
+                        </div>
+                    </AnimateOnScroll>
                 </div>
             </section>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { staggerContainer, fadeUp } from '@/lib/animations';
 
 const organGroups = [
     {
@@ -70,14 +71,17 @@ export function TeamSection() {
                             <h3 className="text-center text-[18px] font-sans font-bold uppercase tracking-[0.2em] text-[var(--color-text-primary)] mb-[48px] border-b border-gray-200 pb-[16px]">
                                 {group.organ}
                             </h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[32px] justify-center">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: '-60px' }}
+                                variants={staggerContainer}
+                                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[32px] justify-center"
+                            >
                                 {group.members.map((member, index) => (
                                     <motion.div
                                         key={member.name}
-                                        initial={{ y: 30, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                                        viewport={{ once: true }}
+                                        variants={fadeUp}
                                         className="group flex flex-col items-center"
                                     >
                                         <div className="w-full aspect-[4/5] overflow-hidden rounded-[6px] mb-[16px]">
@@ -93,7 +97,7 @@ export function TeamSection() {
                                         </div>
                                     </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
                     ))}
                 </div>

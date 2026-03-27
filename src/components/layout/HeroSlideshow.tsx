@@ -3,11 +3,17 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { Link } from '@/lib/navigation';
+import { staggerContainer, fadeUp } from '@/lib/animations';
 
 export default function HeroSlideshow() {
     return (
         <section className="relative h-[80vh] md:h-[90vh] w-full overflow-hidden">
-            <div className="absolute inset-0">
+            <motion.div 
+                initial={{ scale: 1.06 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1.8, ease: 'easeOut' }}
+                className="absolute inset-0"
+            >
                 <img
                     src="/bg-1.jpeg"
                     alt="Emmanuel Foundation Community"
@@ -18,30 +24,31 @@ export default function HeroSlideshow() {
                     className="absolute inset-0 pointer-events-none"
                     style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.1) 100%)' }}
                 />
-            </div>
+            </motion.div>
 
             <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
                 <motion.div
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    initial="hidden"
+                    animate="visible"
+                    variants={staggerContainer}
                     className="flex flex-col items-start w-full max-w-[640px]"
                 >
-                    <span 
+                    <motion.span 
+                        variants={fadeUp}
                         className="text-[12px] font-medium tracking-[0.1em] uppercase mb-[12px] text-white/85"
                     >
                         Emmanuel Foundation · Rusizi District, Rwanda
-                    </span>
+                    </motion.span>
 
-                    <h1 className="h1 text-white mb-6 max-w-[580px] text-balance">
+                    <motion.h1 variants={fadeUp} className="h1 text-white mb-6 max-w-[580px] text-balance">
                         Driven by Compassion. Empowering Communities. Creating Lasting Impact.
-                    </h1>
+                    </motion.h1>
 
-                    <p className="text-[18px] text-white/85 font-sans leading-relaxed mb-10 text-balance">
+                    <motion.p variants={fadeUp} className="text-[18px] text-white/85 font-sans leading-relaxed mb-10 text-balance">
                         We work with Rwanda's most vulnerable communities — protecting the environment, strengthening livelihoods, and building a more equitable future.
-                    </p>
+                    </motion.p>
 
-                    <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                    <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                         <Link href="/donate" className="w-full sm:w-auto">
                             <button className="btn-inverse w-full flex justify-center !text-[15px]">
                                 Donate Now
@@ -52,7 +59,7 @@ export default function HeroSlideshow() {
                                 See Our Work
                             </button>
                         </Link>
-                    </div>
+                    </motion.div>
                 </motion.div>
             </div>
 

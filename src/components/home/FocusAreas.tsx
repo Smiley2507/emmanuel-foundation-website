@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Heart, Leaf, GraduationCap, Droplets } from 'lucide-react';
 import { Link } from '@/lib/navigation';
+import { staggerContainer, scaleIn } from '@/lib/animations';
 
 const focusAreas = [
     {
@@ -35,34 +36,40 @@ export function FocusAreas() {
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: '-40px' }}
                     className="mb-[64px]"
                 >
                     <span className="overline-label">Our Pillars</span>
                     <h2 className="h2 text-[var(--color-text-primary)] mt-2">What We Stand For</h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px] text-left">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-60px' }}
+                    variants={staggerContainer}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-[32px] text-left"
+                >
                     {focusAreas.map((area, index) => (
-                        <Link href="/projects" key={index} className="block">
-                            <motion.div
-                                initial={{ y: 30, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="ui-card flex flex-col items-start p-[32px] h-full"
-                            >
-                                <div className="w-[56px] h-[56px] rounded-full bg-[var(--color-primary-light)] flex items-center justify-center mb-[24px]">
-                                    <area.icon size={32} className="text-[var(--color-primary)]" strokeWidth={1.5} />
-                                </div>
-                                <h3 className="h3 mb-[16px] text-[var(--color-text-primary)]">{area.title}</h3>
-                                <p className="body-base text-[var(--color-text-secondary)]">
-                                    {area.description}
-                                </p>
-                            </motion.div>
-                        </Link>
+                        <motion.div key={index} variants={scaleIn}>
+                            <Link href="/projects" className="block h-full">
+                                <motion.div
+                                    whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }}
+                                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                                    className="ui-card flex flex-col items-start p-[32px] h-full"
+                                >
+                                    <div className="w-[56px] h-[56px] rounded-full bg-[var(--color-primary-light)] flex items-center justify-center mb-[24px]">
+                                        <area.icon size={32} className="text-[var(--color-primary)]" strokeWidth={1.5} />
+                                    </div>
+                                    <h3 className="h3 mb-[16px] text-[var(--color-text-primary)]">{area.title}</h3>
+                                    <p className="body-base text-[var(--color-text-secondary)]">
+                                        {area.description}
+                                    </p>
+                                </motion.div>
+                            </Link>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

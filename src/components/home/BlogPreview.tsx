@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Link } from '@/lib/navigation';
 import { urlFor } from '@/sanity/lib/image';
+import { staggerContainer, fadeUp } from '@/lib/animations';
 
 interface Post {
     title: string;
@@ -66,14 +67,17 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[32px]">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-60px' }}
+                    variants={staggerContainer}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[32px]"
+                >
                     {realPosts.map((post, index) => (
                         <motion.article
                             key={post.slug.current}
-                            initial={{ y: 30, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                            variants={fadeUp}
                             className="ui-card h-full"
                         >
                             <Link href={`/blog/${post.slug.current}`} className="flex flex-col h-full">
@@ -112,7 +116,7 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
                             </Link>
                         </motion.article>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
