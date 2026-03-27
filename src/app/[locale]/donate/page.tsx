@@ -40,7 +40,7 @@ export default function DonatePage() {
         <div className="flex flex-col min-h-screen font-sans">
             <PageHeader title="Donate" subtitle="Every contribution builds something real." />
 
-            <section className="relative min-h-[800px] lg:h-[900px] bg-white">
+            <section className="relative min-h-[800px] bg-white">
                 {/* Background Image Section */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -51,8 +51,8 @@ export default function DonatePage() {
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 h-full items-center py-24 lg:py-0">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 py-20 lg:py-32 items-center">
 
                         {/* Left Column: Impact Message */}
                         <motion.div

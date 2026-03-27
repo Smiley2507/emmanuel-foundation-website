@@ -13,18 +13,21 @@ export default function HeroSlideshow() {
     const slides = [
         {
             image: '/bg-1.jpeg', // Greenery/Rusizi
-            title: "Driven by Compassion. Empowering Communities. Creating Lasting Impact.",
+            title: "Driven by Compassion.",
+            subtitle: "Empowering Communities. Creating Lasting Impact.",
             description: "Emmanuel Foundation works with vulnerable communities across Rwanda — protecting the environment, strengthening livelihoods, and building a more equitable future for those who need it most."
         },
         {
             image: '/bg-2.jpeg', // Local community context
-            title: "Rooted in Community",
-            description: "We place people at the heart of our work, empowering families and vulnerable groups to thrive with dignity."
+            title: "Rooted in Community.",
+            subtitle: "People-Centered Solutions. Local Leadership.",
+            description: "We place people at the heart of our work, empowering women, youth, and the elderly to lead their own development in Rusizi District and beyond."
         },
         {
             image: '/bg-3.jpeg', // Nature/Water
-            title: "Focused on Impact",
-            description: "From environmental conservation to sustainable development, we deliver solutions that create lasting change."
+            title: "Focused on Impact.",
+            subtitle: "Sustainable Growth. Environmental Resilience.",
+            description: "From protecting ecosystems to ensuring water security, we deliver bottom-up solutions that create lasting change for generations to come."
         }
     ];
 
@@ -69,11 +72,17 @@ export default function HeroSlideshow() {
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             className="flex flex-col items-center"
                         >
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white leading-[1.1] tracking-tight drop-shadow-2xl mb-10 text-balance">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-tight tracking-tight drop-shadow-2xl mb-4 text-balance">
                                 {slides[current].title}
                             </h1>
 
-                            <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-sans font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-md mb-14 text-balance">
+                            {slides[current].subtitle && (
+                                <p className="text-2xl md:text-3xl font-heading font-bold text-secondary mb-8 text-balance drop-shadow-md">
+                                    {slides[current].subtitle}
+                                </p>
+                            )}
+
+                            <p className="text-lg md:text-xl text-white/90 font-sans font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-md mb-14 text-balance">
                                 {slides[current].description}
                             </p>
 

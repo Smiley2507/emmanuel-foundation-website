@@ -53,7 +53,7 @@ export function MissionSection() {
                     </motion.div>
                 </div>
 
-                <div className="mt-64 grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+                <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
                     {/* About Text */}
                     <motion.div
                         initial={{ x: -50, opacity: 0 }}
