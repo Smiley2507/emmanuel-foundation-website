@@ -65,6 +65,9 @@ export default function HeroSlideshow() {
                     <ArrowDown size={24} />
                 </motion.div>
             </div>
+
+            {/* Gradient separator at the bottom of the hero */}
+            <div className="absolute bottom-0 left-0 right-0 h-[80px] bg-gradient-to-b from-transparent to-white pointer-events-none z-20" />
         </section>
     );
 }

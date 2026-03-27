@@ -5,7 +5,7 @@ import { Link } from '@/lib/navigation';
 
 export function ImpactSection() {
     return (
-        <section className="py-[96px] bg-[var(--color-primary)] relative overflow-hidden">
+        <section className="py-[96px] bg-[var(--color-bg-dark)] relative overflow-hidden">
             {/* Subtle background overlay to darken further if needed */}
             <div className="absolute inset-0 bg-black/20" />
             

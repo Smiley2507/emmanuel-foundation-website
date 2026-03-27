@@ -29,7 +29,7 @@ const focusAreas = [
 
 export function FocusAreas() {
     return (
-        <section className="py-[96px] bg-[var(--color-bg-light)]">
+        <section className="py-[96px] bg-[var(--color-bg-white)]">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
