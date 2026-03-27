@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
+import { Geist, Geist_Mono, DM_Sans, Fraunces } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import "./globals.css";
@@ -12,6 +12,15 @@ const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-dm-sans',
   weight: ['400', '500', '600'],
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+  display: 'swap',
+  axes: ['opsz'],
 });
 
 const geistSans = Geist({
@@ -51,7 +60,7 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale}>
       <body
-        className={`${dmSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--color-bg-white)] text-[var(--color-text-primary)]`}
+        className={`${dmSans.variable} ${fraunces.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--color-bg-white)] text-[var(--color-text-primary)]`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
