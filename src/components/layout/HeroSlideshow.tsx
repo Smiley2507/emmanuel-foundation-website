@@ -1,134 +1,69 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { ArrowDown } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 
 export default function HeroSlideshow() {
-    const t = useTranslations('Hero');
-    const [current, setCurrent] = useState(0);
-
-    const slides = [
-        {
-            image: '/bg-1.jpeg', // Greenery/Rusizi
-            title: "Driven by Compassion.",
-            subtitle: "Empowering Communities. Creating Lasting Impact.",
-            description: "Emmanuel Foundation works with vulnerable communities across Rwanda — protecting the environment, strengthening livelihoods, and building a more equitable future for those who need it most."
-        },
-        {
-            image: '/bg-2.jpeg', // Local community context
-            title: "Rooted in Community.",
-            subtitle: "People-Centered Solutions. Local Leadership.",
-            description: "We place people at the heart of our work, empowering women, youth, and the elderly to lead their own development in Rusizi District and beyond."
-        },
-        {
-            image: '/bg-3.jpeg', // Nature/Water
-            title: "Focused on Impact.",
-            subtitle: "Sustainable Growth. Environmental Resilience.",
-            description: "From protecting ecosystems to ensuring water security, we deliver bottom-up solutions that create lasting change for generations to come."
-        }
-    ];
-
-    const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
-    const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-
-    useEffect(() => {
-        const timer = setInterval(nextSlide, 8000);
-        return () => clearInterval(timer);
-    }, []);
-
     return (
-        <section className="relative h-screen w-full overflow-hidden bg-primary">
-            <AnimatePresence mode="wait">
+        <section className="relative h-[80vh] md:h-[90vh] w-full overflow-hidden">
+            <div className="absolute inset-0">
+                <img
+                    src="/bg-1.jpeg"
+                    alt="Emmanuel Foundation Community"
+                    className="h-full w-full object-cover"
+                    loading="eager"
+                />
+                <div 
+                    className="absolute inset-0 pointer-events-none"
+                    style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.1) 100%)' }}
+                />
+            </div>
+
+            <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
                 <motion.div
-                    key={current}
-                    initial={{ scale: 1.1, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 1, opacity: 0 }}
-                    transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
-                    className="absolute inset-0 bg-primary"
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="flex flex-col items-start w-full max-w-[640px]"
                 >
-                    <img
-                        src={slides[current].image}
-                        alt=""
-                        className="h-full w-full object-cover"
-                    />
-                    {/* Balanced overlay - not too dark, but enough for readability */}
-                    <div className="absolute inset-0 bg-primary/40 mix-blend-multiply" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-primary/40" />
+                    <span 
+                        className="text-[12px] font-medium tracking-[0.1em] uppercase mb-[12px] text-white/85"
+                    >
+                        Emmanuel Foundation · Rusizi District, Rwanda
+                    </span>
+
+                    <h1 className="h1 text-white mb-6 max-w-[580px] text-balance">
+                        Driven by Compassion. Empowering Communities. Creating Lasting Impact.
+                    </h1>
+
+                    <p className="text-[18px] text-white/85 font-sans leading-relaxed mb-10 text-balance">
+                        We work with Rwanda's most vulnerable communities — protecting the environment, strengthening livelihoods, and building a more equitable future.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                        <Link href="/donate" className="w-full sm:w-auto">
+                            <button className="btn-inverse w-full flex justify-center !text-[15px]">
+                                Donate Now
+                            </button>
+                        </Link>
+                        <Link href="/projects" className="w-full sm:w-auto">
+                            <button className="btn-ghost !border-white !text-white hover:!bg-white hover:!text-[var(--color-primary)] w-full flex justify-center !text-[15px]">
+                                See Our Work
+                            </button>
+                        </Link>
+                    </div>
                 </motion.div>
-            </AnimatePresence>
-
-            <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
-                <div className="max-w-5xl">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={current}
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -30, opacity: 0 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="flex flex-col items-center"
-                        >
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-tight tracking-tight drop-shadow-2xl mb-4 text-balance">
-                                {slides[current].title}
-                            </h1>
-
-                            {slides[current].subtitle && (
-                                <p className="text-2xl md:text-3xl font-heading font-bold text-secondary mb-8 text-balance drop-shadow-md">
-                                    {slides[current].subtitle}
-                                </p>
-                            )}
-
-                            <p className="text-lg md:text-xl text-white/90 font-sans font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-md mb-14 text-balance">
-                                {slides[current].description}
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
-                                <Link href="/donate" className="w-full sm:w-auto">
-                                    <button className="w-full sm:w-auto bg-secondary text-primary px-12 py-5 rounded-md font-heading font-bold text-xl hover:bg-white hover:text-primary transition-all shadow-2xl active:scale-95">
-                                        {t('cta_donate')}
-                                    </button>
-                                </Link>
-                                <Link href="/projects" className="w-full sm:w-auto">
-                                    <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white px-12 py-5 rounded-md font-heading font-bold text-xl hover:bg-white/10 transition-all shadow-xl active:scale-95">
-                                        {t('cta_learn')}
-                                    </button>
-                                </Link>
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
-                </div>
             </div>
 
-            {/* Controls - Bottom Right */}
-            <div className="absolute bottom-12 right-12 z-20 flex space-x-4 hidden md:flex">
-                <button
-                    onClick={prevSlide}
-                    className="p-4 border border-white/20 rounded-full text-white hover:bg-white hover:text-primary transition-all backdrop-blur-sm"
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+                <motion.div
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    className="text-white/60"
                 >
-                    <ChevronLeft className="w-6 h-6" />
-                </button>
-                <button
-                    onClick={nextSlide}
-                    className="p-4 border border-white/20 rounded-full text-white hover:bg-white hover:text-primary transition-all backdrop-blur-sm"
-                >
-                    <ChevronRight className="w-6 h-6" />
-                </button>
-            </div>
-
-            {/* Slide Indicators - Bottom Center */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
-                {slides.map((_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setCurrent(i)}
-                        className={`h-1.5 transition-all duration-700 rounded-full ${current === i ? 'w-16 bg-secondary' : 'w-6 bg-white/30'
-                            }`}
-                    />
-                ))}
+                    <ArrowDown size={24} />
+                </motion.div>
             </div>
         </section>
     );
