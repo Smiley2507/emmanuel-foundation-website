@@ -3,93 +3,86 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname, useRouter } from '@/lib/navigation';
 import { useState, useEffect } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-
 
 export default function Header() {
     const t = useTranslations('Navigation');
     const pathname = usePathname();
     const currentLocale = useLocale();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const navItems = [
         { name: t('home'), href: '/' },
         { name: t('about'), href: '/about' },
-        { name: t('projects'), href: '/projects' },
+        { name: t('projects'), href: '/projects' }, // Keeping standard URL structure
         { name: t('blog'), href: '/blog' },
         { name: t('contact'), href: '/contact' },
     ];
 
     return (
-        <header className={cn(
-            "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-            isScrolled ? "bg-primary shadow-xl h-20" : "bg-transparent h-24"
-        )}>
+        <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[var(--color-bg-white)] border-b border-[var(--color-border)] h-[64px] md:h-[72px]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
                 <div className="flex justify-between items-center h-full">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-3 group">
+                    <Link href="/" className="flex items-center group">
                         <img
                             src="/logov3.png"
                             alt="Emmanuel Foundation"
-                            className="h-14 w-auto transition-transform group-hover:scale-105"
+                            className="h-10 w-auto"
                         />
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-8">
-                        <nav className="flex items-center space-x-8">
-                            {navItems.map((item) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className={cn(
-                                        "text-sm font-bold transition-all hover:text-secondary",
-                                        pathname === item.href
-                                            ? "text-secondary border-b-2 border-secondary pb-1"
-                                            : isScrolled ? "text-white" : "text-gray-100"
-                                    )}
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
+                    <div className="hidden md:flex items-center">
+                        <nav className="flex items-center space-x-[32px]">
+                            {navItems.map((item) => {
+                                const isActive = pathname === item.href;
+                                return (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        className={cn(
+                                            "font-sans text-[15px] font-medium transition-colors h-[72px] flex items-center border-b-2",
+                                            isActive 
+                                                ? "text-[var(--color-text-primary)] border-[var(--color-primary)]" 
+                                                : "text-[var(--color-text-secondary)] border-transparent hover:text-[var(--color-primary)]"
+                                        )}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                );
+                            })}
                         </nav>
 
                         {/* Language Switcher */}
-                        <div className="flex items-center space-x-3 border-l border-white/20 pl-8">
-                            <Globe className="w-4 h-4 text-white/50" />
-                            <div className="flex space-x-3 text-[11px] font-bold uppercase tracking-wider">
-                                {routing.locales.map((l) => (
+                        <div className="flex items-center space-x-2 border-l border-[var(--color-border)] ml-[32px] pl-[32px]">
+                            {routing.locales.map((l, idx) => (
+                                <div key={l} className="flex items-center">
                                     <Link
-                                        key={l}
                                         href={pathname}
                                         locale={l}
                                         className={cn(
-                                            "hover:text-secondary transition-colors",
-                                            currentLocale === l ? "text-secondary" : "text-white/40"
+                                            "text-[13px] transition-colors",
+                                            currentLocale === l 
+                                                ? "font-bold text-[var(--color-text-primary)]" 
+                                                : "font-medium text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
                                         )}
                                     >
-                                        {l}
+                                        {l.toUpperCase()}
                                     </Link>
-                                ))}
-                            </div>
+                                    {idx < routing.locales.length - 1 && (
+                                        <span className="text-[var(--color-border)] mx-2 text-[13px]">|</span>
+                                    )}
+                                </div>
+                            ))}
                         </div>
 
-                        {/* Donate Button - Solid Primary or Secondary */}
-                        <Link href="/donate">
-                            <button className="bg-secondary text-primary px-7 py-3 rounded-md font-heading font-bold text-sm hover:bg-white hover:text-primary transition-all shadow-lg active:scale-95">
+                        {/* Donate Button */}
+                        <Link href="/donate" className="ml-6">
+                            <button className="btn-primary flex items-center justify-center !py-[10px] !px-[22px]">
                                 Donate Now
                             </button>
                         </Link>
@@ -97,10 +90,11 @@ export default function Header() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-white p-2 focus:outline-none"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="md:hidden text-[var(--color-text-primary)] p-2 focus-visible:outline-none"
+                        onClick={() => setIsMenuOpen(true)}
+                        aria-label="Open menu"
                     >
-                        {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+                        <Menu size={24} />
                     </button>
                 </div>
             </div>
@@ -108,59 +102,84 @@ export default function Header() {
             {/* Mobile Navigation overlay */}
             <AnimatePresence>
                 {isMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        className="md:hidden fixed inset-0 z-50 bg-primary flex flex-col p-8 pt-24"
-                    >
-                        <button
+                    <>
+                        {/* Overlay backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 bg-[var(--color-bg-overlay)] z-[60] md:hidden"
                             onClick={() => setIsMenuOpen(false)}
-                            className="absolute top-8 right-8 text-white p-2"
+                        />
+                        
+                        {/* Drawer */}
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="fixed inset-y-0 right-0 w-full max-w-sm bg-[var(--color-bg-white)] z-[70] shadow-2xl flex flex-col md:hidden overflow-y-auto"
                         >
-                            <X size={32} />
-                        </button>
-
-                        <nav className="flex flex-col space-y-10">
-                            {navItems.map((item) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className="text-4xl font-heading font-black text-white hover:text-secondary transition-colors"
+                            <div className="flex justify-end p-4 border-b border-[var(--color-border)] h-[64px] items-center">
+                                <button
                                     onClick={() => setIsMenuOpen(false)}
+                                    className="p-2 text-[var(--color-text-primary)]"
+                                    aria-label="Close menu"
                                 >
-                                    {item.name}
-                                </Link>
-                            ))}
-                        </nav>
+                                    <X size={24} />
+                                </button>
+                            </div>
 
-                        <div className="mt-auto pb-12 flex flex-col space-y-8">
-                            <div className="flex items-center space-x-6">
-                                <Globe className="text-white/30" />
-                                <div className="flex space-x-6">
-                                    {routing.locales.map((l) => (
+                            <nav className="flex flex-col px-6 py-4">
+                                {navItems.map((item) => {
+                                    const isActive = pathname === item.href;
+                                    return (
                                         <Link
-                                            key={l}
-                                            href={pathname}
-                                            locale={l}
+                                            key={item.href}
+                                            href={item.href}
                                             className={cn(
-                                                "text-xl uppercase font-bold",
-                                                currentLocale === l ? "text-secondary underline underline-offset-8" : "text-white/40"
+                                                "flex items-center h-12 text-[16px] font-medium transition-colors border-b border-[var(--color-border)]",
+                                                isActive ? "text-[var(--color-primary)] font-semibold" : "text-[var(--color-text-secondary)]"
                                             )}
                                             onClick={() => setIsMenuOpen(false)}
                                         >
-                                            {l}
+                                            {item.name}
                                         </Link>
+                                    );
+                                })}
+                            </nav>
+
+                            <div className="mt-auto p-6 flex flex-col space-y-6 bg-[var(--color-bg-light)]">
+                                <div className="flex justify-center items-center space-x-4">
+                                    {routing.locales.map((l, idx) => (
+                                        <div key={l} className="flex items-center">
+                                            <Link
+                                                href={pathname}
+                                                locale={l}
+                                                className={cn(
+                                                    "text-[14px] transition-colors",
+                                                    currentLocale === l 
+                                                        ? "font-bold text-[var(--color-text-primary)]" 
+                                                        : "font-medium text-[var(--color-text-muted)]"
+                                                )}
+                                                onClick={() => setIsMenuOpen(false)}
+                                            >
+                                                {l.toUpperCase()}
+                                            </Link>
+                                            {idx < routing.locales.length - 1 && (
+                                                <span className="text-[var(--color-border-strong)] mx-4">|</span>
+                                            )}
+                                        </div>
                                     ))}
                                 </div>
+                                <Link href="/donate" className="w-[100%] block">
+                                    <button className="btn-primary w-full shadow-md">
+                                        Donate Now
+                                    </button>
+                                </Link>
                             </div>
-                            <Link href="/donate" className="w-full">
-                                <button className="w-full bg-secondary text-primary py-5 rounded-md font-heading font-bold text-xl shadow-2xl active:scale-95 transition-transform">
-                                    Donate Now
-                                </button>
-                            </Link>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
         </header>
