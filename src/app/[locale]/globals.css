@@ -6,11 +6,12 @@
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
 
   /* Color System */
-  --color-primary: #1e5631;
-  --color-primary-dark: #143d22;
-  --color-primary-light: rgba(30, 86, 49, 0.1);
+  --color-primary: #1e3e8a;
+  --color-primary-dark: #14295c;
+  --color-primary-light: rgba(30, 62, 138, 0.1);
   
   --color-accent: #fbbf24;
+  --color-accent-dark: #d97706;
 
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #4a4a4a;
@@ -19,7 +20,7 @@
 
   --color-bg-white: #ffffff;
   --color-bg-light: #f7f6f2;
-  --color-bg-dark: #1c2b1e;
+  --color-bg-dark: #111827;
   --color-bg-overlay: rgba(0, 0, 0, 0.52);
 
   --color-border: #e4e4e0;
