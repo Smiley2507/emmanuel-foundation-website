@@ -35,5 +35,10 @@
     "eslint-config-next": "16.1.1",
     "tailwindcss": "^4",
     "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "undici": "^6.24.0",
+    "yaml": "^2.6.1",
+    "minimatch": "^10.0.0"
   }
 }

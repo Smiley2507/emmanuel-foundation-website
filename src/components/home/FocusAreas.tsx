@@ -48,7 +48,7 @@ export function FocusAreas() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {focusAreas.map((area, index) => (
                         <motion.div
                             key={area.title}
@@ -56,14 +56,14 @@ export function FocusAreas() {
                             whileInView={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="group p-14 bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all border border-gray-100 flex flex-col items-center text-center relative"
+                            className="group p-8 bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all border border-gray-100 flex flex-col items-center text-center relative"
                         >
-                            <div className="absolute top-0 right-10 w-24 h-24 bg-primary/5 rounded-full -translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
-                            <div className={`w-24 h-24 ${area.color} border-none rounded-2xl flex items-center justify-center mb-12 transform group-hover:scale-110 transition-transform duration-500 shadow-xl relative z-10`}>
-                                <area.icon size={48} />
+                            <div className="absolute top-0 right-6 w-16 h-16 bg-primary/5 rounded-full -translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
+                            <div className={`w-16 h-16 ${area.color} border-none rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-500 shadow-md relative z-10`}>
+                                <area.icon size={32} />
                             </div>
-                            <h3 className="text-3xl font-heading font-black text-primary mb-8 underline underline-offset-8 decoration-secondary/30">{area.title}</h3>
-                            <p className="text-foreground/70 leading-relaxed font-sans font-medium text-lg">
+                            <h3 className="text-lg font-heading font-black text-primary mb-4 underline underline-offset-4 decoration-secondary/30">{area.title}</h3>
+                            <p className="text-foreground/70 leading-relaxed font-sans font-medium text-sm">
                                 {area.description}
                             </p>
                         </motion.div>

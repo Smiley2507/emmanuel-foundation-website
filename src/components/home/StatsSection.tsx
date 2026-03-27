@@ -13,7 +13,7 @@ export default function StatsSection() {
     return (
         <section className="py-20 bg-secondary">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-primary/10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-primary/10">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={stat.label}
@@ -26,7 +26,7 @@ export default function StatsSection() {
                             <span className="text-4xl md:text-5xl font-heading font-black text-primary mb-2">
                                 {stat.value}
                             </span>
-                            <span className="text-sm md:text-base font-sans font-bold uppercase tracking-widest text-primary/80">
+                            <span className="text-sm font-sans font-semibold text-primary/70 leading-snug mt-1">
                                 {stat.label}
                             </span>
                         </motion.div>

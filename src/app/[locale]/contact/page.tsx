@@ -27,7 +27,7 @@ export default function ContactPage() {
         <div className="flex flex-col min-h-screen">
             <PageHeader title="Contact Us" />
 
-            <section className="relative lg:h-[1000px] bg-primary">
+            <section className="relative bg-primary">
                 {/* Background Section */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -38,8 +38,8 @@ export default function ContactPage() {
                     <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent" />
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 h-full items-center py-24 lg:py-0">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 py-20 items-start">
 
                         {/* Left Column: Text & Info */}
                         <motion.div
