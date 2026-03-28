@@ -28,10 +28,15 @@ export function ImpactSection() {
                             As a new foundation, every contribution matters. Whether you donate, volunteer, or simply share our mission — you are helping build the foundation of something that will outlast all of us. Join us in Rusizi District and beyond.
                         </motion.p>
                         
-                        <motion.div variants={fadeUp}>
+                        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-[16px]">
                             <Link href="/donate">
-                                <button className="btn-inverse">
+                                <button className="btn-primary">
                                     Support Our Mission
+                                </button>
+                            </Link>
+                            <Link href="/contact">
+                                <button className="btn-inverse !bg-transparent !border-white !text-white hover:!bg-white/10">
+                                    Partner With Us
                                 </button>
                             </Link>
                         </motion.div>

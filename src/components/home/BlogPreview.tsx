@@ -60,7 +60,7 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
                     >
                         <Link href="/blog">
                             <button className="btn-ghost">
-                                View All News
+                                View News
                             </button>
                         </Link>
                     </motion.div>
@@ -81,12 +81,12 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
                             className="ui-card h-full"
                         >
                             <Link href={`/blog/${post.slug.current}`} className="flex flex-col h-full">
-                                <div className="aspect-[16/9] overflow-hidden rounded-t-[5px]">
+                                <div className="aspect-[16/9] overflow-hidden">
                                     {post.mainImage ? (
                                         <img
                                             src={urlFor(post.mainImage).url()}
                                             alt={post.title}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
                                     ) : (
                                         <div className="w-full h-full bg-[var(--color-primary-light)]" />
@@ -96,7 +96,7 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
                                 <div className="p-[24px] flex flex-col flex-grow">
                                     {post.categories && post.categories.length > 0 && (
                                         <div className="mb-[12px]">
-                                            <span className="overline-label !mb-0 !text-[11px]">
+                                            <span className="overline-label !mb-0 !text-[11px] !text-[var(--color-primary-vibrant)]">
                                                 {post.categories[0]}
                                             </span>
                                         </div>

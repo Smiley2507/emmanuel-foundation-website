@@ -95,8 +95,9 @@ export default function ProjectsPage() {
             <PageHeader title="Our Programs" subtitle="Seven programmes. One mission: to uplift the vulnerable and protect the environment." />
 
             {/* Intro Section */}
-            <section className="bg-[var(--color-bg-light)]">
-                <div className="flex flex-col lg:flex-row-reverse">
+            <section className="bg-[var(--color-primary)] relative overflow-hidden">
+                <div className="absolute rounded-full blur-[140px] opacity-40 mix-blend-screen pointer-events-none z-0 bg-[var(--color-primary-light)] top-[-20%] left-[10%] w-[600px] h-[600px]" />
+                <div className="flex flex-col lg:flex-row-reverse relative z-10">
                     <div className="w-full lg:w-1/2 min-h-[480px]">
                         <img
                             src="/farmers.jpg"
@@ -106,12 +107,12 @@ export default function ProjectsPage() {
                     </div>
                     <div className="w-full lg:w-1/2 flex items-center">
                         <div className="py-[40px] px-[24px] lg:py-[80px] lg:px-[64px] max-w-[720px] ml-auto">
-                            <span className="overline-label">Our Focus</span>
-                            <h2 className="h2 mb-[24px] text-[var(--color-text-primary)] mt-2">
+                            <span className="overline-label text-white/70">Our Focus</span>
+                            <h2 className="h2 mb-[24px] text-white mt-2">
                                 Our Work, Grounded in Rwanda's Reality
                             </h2>
-                            <p className="body-large text-[var(--color-text-secondary)]">
-                                Emmanuel Foundation operates across seven programme areas, each designed to address a specific and interconnected challenge facing Rwanda's most vulnerable communities. Our work in Rusizi District represents our first integrated project — bringing these programmes to life simultaneously to maximize impact for at least 12,000 direct beneficiaries.
+                            <p className="body-large text-white/70">
+                                Jeanine and Emmanuel Foundation operates across seven programme areas, each designed to address a specific and interconnected challenge facing Rwanda's most vulnerable communities. Our work in Rusizi District represents our first integrated project — bringing these programmes to life simultaneously to maximize impact for at least 12,000 direct beneficiaries.
                             </p>
                         </div>
                     </div>
@@ -125,17 +126,18 @@ export default function ProjectsPage() {
                     return (
                         <section key={programme.title} className="bg-[var(--color-bg-white)] border-b border-gray-200">
                             <div className={`flex flex-col lg:flex-row ${isEven ? '' : 'lg:flex-row-reverse'}`}>
-                                <div className="w-full lg:w-1/2 min-h-[480px] lg:border-x border-gray-100">
+                                <div className="w-full lg:w-1/2 min-h-[480px] lg:border-x border-gray-100 overflow-hidden relative group">
                                     <img
                                         src={programme.image}
                                         alt={programme.title}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                                     />
+                                    <div className="absolute inset-0 bg-[var(--color-primary-dark)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-[800ms] pointer-events-none" />
                                 </div>
                                 <div className="w-full lg:w-1/2 flex items-center">
                                     <div className="py-[40px] px-[24px] lg:py-[80px] lg:px-[64px] max-w-[720px] mx-auto">
                                         <AnimateOnScroll variants={isEven ? slideInRight : slideInLeft}>
-                                            <span className="text-[20px] font-heading font-black text-[var(--color-primary-light)] mb-[16px] block tracking-wider">0{index + 1}</span>
+                                            <span className="text-[20px] font-sans font-bold text-[var(--color-primary-vibrant)] mb-[16px] block tracking-wider drop-shadow-sm">0{index + 1}</span>
                                             <h2 className="h2 mb-[24px] text-[var(--color-text-primary)]">
                                                 {programme.title}
                                             </h2>
@@ -143,17 +145,22 @@ export default function ProjectsPage() {
                                                 {programme.description}
                                             </p>
                                             
-                                            <div className="bg-[var(--color-bg-light)] p-[32px] rounded-[12px] border border-gray-100">
+                                            <motion.div
+                                                whileInView={{ y: 0, opacity: 1 }}
+                                                initial={{ y: 20, opacity: 0 }}
+                                                viewport={{ once: true }}
+                                                className="bg-[var(--color-bg-light)] p-[32px] rounded-[var(--radius-ui)] border border-[var(--color-border)]"
+                                            >
                                                 <h4 className="overline-label mb-[16px]">Key Activities</h4>
                                                 <ul className="space-y-[16px]">
                                                     {programme.activities.map((activity) => (
                                                         <li key={activity} className="flex items-start text-[16px] text-[var(--color-text-secondary)] font-medium">
-                                                            <div className="w-[8px] h-[8px] mt-[8px] rounded-full bg-[var(--color-primary)] shrink-0 mr-[16px]" />
+                                                            <div className="w-[8px] h-[8px] mt-[8px] rounded-full bg-[var(--color-primary-vibrant)] shrink-0 mr-[16px]" />
                                                             <span>{activity}</span>
                                                         </li>
                                                     ))}
                                                 </ul>
-                                            </div>
+                                            </motion.div>
                                         </AnimateOnScroll>
                                     </div>
                                 </div>
@@ -178,7 +185,7 @@ export default function ProjectsPage() {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                             <div className="p-[48px] space-y-[40px]">
                                 <p className="body-large text-white/85">
-                                    Rusizi District faces environmental degradation, water stress, sanitation challenges, and limited livelihood opportunities for youth and vulnerable households. Emmanuel Foundation is implementing a 24-month integrated project to protect the environment, promote sustainable water use, and strengthen community well-being through education, empowerment, and resilience-building.
+                                    Rusizi District faces environmental degradation, water stress, sanitation challenges, and limited livelihood opportunities for youth and vulnerable households. Jeanine and Emmanuel Foundation is implementing a 24-month integrated project to protect the environment, promote sustainable water use, and strengthen community well-being through education, empowerment, and resilience-building.
                                 </p>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-[24px]">
                                     {[
@@ -193,9 +200,9 @@ export default function ProjectsPage() {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="bg-[var(--color-primary)] p-[24px] rounded-[8px]">
-                                    <span className="overline-label text-white/80 block mb-[8px]">Focus Areas</span>
-                                    <p className="text-white font-medium text-[16px]">Environmental conservation, WASH, youth empowerment, community health, sports, and local sustainability</p>
+                                <div className="bg-[var(--color-primary-vibrant)] p-[24px] rounded-[var(--radius-ui)]">
+                                    <span className="overline-label !text-white/80 block mb-[8px]">Focus Areas</span>
+                                    <p className="text-white font-bold text-[16px]">Environmental conservation, WASH, youth empowerment, community health, sports, and local sustainability</p>
                                 </div>
                                 <div className="bg-white/10 p-[24px] rounded-[8px] border border-white/10">
                                     <span className="overline-label text-white/80 block mb-[8px]">Funding</span>

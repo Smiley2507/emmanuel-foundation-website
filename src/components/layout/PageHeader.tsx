@@ -9,7 +9,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, subtitle }: PageHeaderProps) {
     return (
-        <section className="bg-[#111] text-white pt-[160px] pb-[96px] relative overflow-hidden">
+        <section className="bg-[var(--color-bg-dark)] text-white pt-[160px] pb-[96px] relative overflow-hidden">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
                 <div className="max-w-[800px]">
                     <motion.h1

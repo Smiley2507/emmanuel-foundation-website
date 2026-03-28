@@ -54,14 +54,14 @@ export function FocusAreas() {
                         <motion.div key={index} variants={scaleIn}>
                             <Link href="/projects" className="block h-full">
                                 <motion.div
-                                    whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }}
-                                    transition={{ duration: 0.2, ease: 'easeOut' }}
-                                    className="ui-card flex flex-col items-start p-[32px] h-full"
+                                    whileHover={{ y: -4 }}
+                                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                                    className="ui-card flex flex-col items-start p-[32px] h-full group/card"
                                 >
-                                    <div className="w-[56px] h-[56px] rounded-full bg-[var(--color-primary-light)] flex items-center justify-center mb-[24px]">
-                                        <area.icon size={32} className="text-[var(--color-primary)]" strokeWidth={1.5} />
+                                    <div className="w-[56px] h-[56px] rounded-[var(--radius-ui)] bg-[var(--color-primary-light)] flex items-center justify-center mb-[24px] group-hover/card:bg-[var(--color-primary-vibrant)] transition-colors duration-300">
+                                        <area.icon size={28} className="text-[var(--color-primary-vibrant)] group-hover/card:text-white transition-colors duration-300" strokeWidth={1.5} />
                                     </div>
-                                    <h3 className="h3 mb-[16px] text-[var(--color-text-primary)]">{area.title}</h3>
+                                    <h3 className="h4 mb-[12px] text-[var(--color-text-primary)]">{area.title}</h3>
                                     <p className="body-base text-[var(--color-text-secondary)]">
                                         {area.description}
                                     </p>

@@ -7,8 +7,8 @@ import { staggerContainer, fadeUp } from '@/lib/animations';
 
 export default function HeroSlideshow() {
     return (
-        <section className="relative h-[80vh] md:h-[90vh] w-full overflow-hidden">
-            <motion.div 
+        <section className="relative min-h-[100dvh] md:min-h-[90vh] w-full overflow-hidden flex items-center pt-28 pb-20">
+            <motion.div
                 initial={{ scale: 1.06 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 1.8, ease: 'easeOut' }}
@@ -16,17 +16,17 @@ export default function HeroSlideshow() {
             >
                 <img
                     src="/bg-1.jpeg"
-                    alt="Emmanuel Foundation Community"
+                    alt="Jeanine and Emmanuel Foundation Community"
                     className="h-full w-full object-cover"
                     loading="eager"
                 />
-                <div 
+                <div
                     className="absolute inset-0 pointer-events-none"
                     style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.1) 100%)' }}
                 />
             </motion.div>
 
-            <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
                 <motion.div
                     initial="hidden"
                     animate="visible"
@@ -35,16 +35,16 @@ export default function HeroSlideshow() {
                 >
                     <motion.span 
                         variants={fadeUp}
-                        className="text-[12px] font-medium tracking-[0.1em] uppercase mb-[12px] text-white/85"
+                        className="text-[10px] sm:text-[12px] font-bold tracking-[0.15em] uppercase mb-[8px] sm:mb-[12px] text-white/90"
                     >
-                        Emmanuel Foundation · Rusizi District, Rwanda
+                        Jeanine and Emmanuel Foundation · Rusizi, Rwanda
                     </motion.span>
 
-                    <motion.h1 variants={fadeUp} className="h1 text-white mb-6 max-w-[580px] text-balance">
+                    <motion.h1 variants={fadeUp} className="h1 text-white mb-4 sm:mb-6 max-w-[580px] text-balance">
                         Driven by Compassion. Empowering Communities. Creating Lasting Impact.
                     </motion.h1>
 
-                    <motion.p variants={fadeUp} className="text-[18px] text-white/85 font-sans leading-relaxed mb-10 text-balance">
+                    <motion.p variants={fadeUp} className="text-[16px] sm:text-[18px] text-white/85 font-sans leading-relaxed mb-8 sm:mb-10 text-balance">
                         We work with Rwanda's most vulnerable communities — protecting the environment, strengthening livelihoods, and building a more equitable future.
                     </motion.p>
 
@@ -73,8 +73,6 @@ export default function HeroSlideshow() {
                 </motion.div>
             </div>
 
-            {/* Gradient separator at the bottom of the hero */}
-            <div className="absolute bottom-0 left-0 right-0 h-[80px] bg-gradient-to-b from-transparent to-white pointer-events-none z-20" />
         </section>
     );
 }

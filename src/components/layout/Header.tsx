@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 
 export default function Header() {
     const t = useTranslations('Navigation');
@@ -23,25 +23,47 @@ export default function Header() {
     ];
 
     const { scrollY } = useScroll();
-    const navShadow = useTransform(
-        scrollY,
-        [0, 60],
-        ['0 0 0 0 rgba(0,0,0,0)', '0 2px 16px rgba(0,0,0,0.08)']
-    );
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setIsScrolled(latest > 60);
+    });
+
+    const isBlogPage = pathname.startsWith('/blog');
+    const isTransparent = !isScrolled && !isBlogPage;
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen]);
 
     return (
-        <motion.header 
-            style={{ boxShadow: navShadow }} 
-            className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg-white)] h-[64px] md:h-[72px]"
+        <>
+            <header 
+                className={cn(
+                    "fixed top-0 left-0 right-0 z-50 h-[64px] md:h-[72px] transition-all duration-300",
+                isTransparent 
+                    ? "bg-transparent" 
+                    : "bg-white/85 shadow-md backdrop-blur-md"
+            )}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
                 <div className="flex justify-between items-center h-full">
                     {/* Logo */}
                     <Link href="/" className="flex items-center group">
                         <img
-                            src="/logov3.png"
-                            alt="Emmanuel Foundation"
-                            className="h-10 w-auto"
+                            src={isTransparent ? "/logov3.png" : "/logov3-black.png"}
+                            alt="Jeanine and Emmanuel Foundation"
+                            className={cn(
+                                "h-8 sm:h-10 w-auto max-w-[60vw] sm:max-w-none object-contain transition-all",
+                                isTransparent ? "brightness-0 invert" : ""
+                            )}
                         />
                     </Link>
 
@@ -57,8 +79,8 @@ export default function Header() {
                                         className={cn(
                                             "font-sans text-[15px] font-medium transition-colors h-[72px] flex items-center border-b-2",
                                             isActive 
-                                                ? "text-[var(--color-text-primary)] border-[var(--color-primary)]" 
-                                                : "text-[var(--color-text-secondary)] border-transparent hover:text-[var(--color-primary)]"
+                                                ? (isTransparent ? "text-white border-white" : "text-[var(--color-text-primary)] border-[var(--color-primary)]")
+                                                : (isTransparent ? "text-white/80 border-transparent hover:text-white" : "text-[var(--color-text-secondary)] border-transparent hover:text-[var(--color-primary)]")
                                         )}
                                     >
                                         {item.name}
@@ -68,7 +90,7 @@ export default function Header() {
                         </nav>
 
                         {/* Language Switcher */}
-                        <div className="flex items-center space-x-2 border-l border-[var(--color-border)] ml-[32px] pl-[32px]">
+                        <div className={cn("flex items-center space-x-2 border-l ml-[32px] pl-[32px] transition-colors", isTransparent ? "border-white/30" : "border-[var(--color-border)]")}>
                             {routing.locales.map((l, idx) => (
                                 <div key={l} className="flex items-center">
                                     <Link
@@ -77,14 +99,14 @@ export default function Header() {
                                         className={cn(
                                             "text-[13px] transition-colors",
                                             currentLocale === l 
-                                                ? "font-bold text-[var(--color-text-primary)]" 
-                                                : "font-medium text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
+                                                ? (isTransparent ? "font-bold text-white" : "font-bold text-[var(--color-text-primary)]") 
+                                                : (isTransparent ? "font-medium text-white/70 hover:text-white" : "font-medium text-[var(--color-text-muted)] hover:text-[var(--color-primary)]")
                                         )}
                                     >
                                         {l.toUpperCase()}
                                     </Link>
                                     {idx < routing.locales.length - 1 && (
-                                        <span className="text-[var(--color-border)] mx-2 text-[13px]">|</span>
+                                        <span className={cn("mx-2 text-[13px] transition-colors", isTransparent ? "text-white/30" : "text-[var(--color-border)]")}>|</span>
                                     )}
                                 </div>
                             ))}
@@ -92,7 +114,7 @@ export default function Header() {
 
                         {/* Donate Button */}
                         <Link href="/donate" className="ml-6">
-                            <button className="btn-primary flex items-center justify-center !py-[10px] !px-[22px]">
+                            <button className={cn("flex items-center justify-center !py-[10px] !px-[22px]", isTransparent ? "btn-inverse" : "btn-primary")}>
                                 Donate Now
                             </button>
                         </Link>
@@ -100,7 +122,7 @@ export default function Header() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-[var(--color-text-primary)] p-2 focus-visible:outline-none"
+                        className={cn("md:hidden p-2 -mr-2 sm:mr-0 focus-visible:outline-none transition-colors", isTransparent ? "text-white" : "text-[var(--color-text-primary)]")}
                         onClick={() => setIsMenuOpen(true)}
                         aria-label="Open menu"
                     >
@@ -108,17 +130,18 @@ export default function Header() {
                     </button>
                 </div>
             </div>
+        </header>
 
             {/* Mobile Navigation overlay */}
             <AnimatePresence>
                 {isMenuOpen && (
-                    <>
+                    <div className="md:hidden">
                         {/* Overlay backdrop */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-[var(--color-bg-overlay)] z-[60] md:hidden"
+                            className="fixed inset-0 bg-[var(--color-bg-overlay)] z-[60]"
                             onClick={() => setIsMenuOpen(false)}
                         />
                         
@@ -128,7 +151,7 @@ export default function Header() {
                             animate={{ x: 0 }}
                             exit={{ x: '100%' }}
                             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                            className="fixed inset-y-0 right-0 w-full max-w-sm bg-[var(--color-bg-white)] z-[70] shadow-2xl flex flex-col md:hidden overflow-y-auto"
+                            className="fixed inset-y-0 right-0 w-full max-w-sm bg-[var(--color-bg-white)] z-[70] shadow-2xl flex flex-col overflow-y-auto"
                         >
                             <div className="flex justify-end p-4 border-b border-[var(--color-border)] h-[64px] items-center">
                                 <button
@@ -182,16 +205,16 @@ export default function Header() {
                                         </div>
                                     ))}
                                 </div>
-                                <Link href="/donate" className="w-[100%] block">
+                                <Link href="/donate" className="w-full block" onClick={() => setIsMenuOpen(false)}>
                                     <button className="btn-primary w-full shadow-md">
                                         Donate Now
                                     </button>
                                 </Link>
                             </div>
                         </motion.div>
-                    </>
+                    </div>
                 )}
             </AnimatePresence>
-        </motion.header>
+        </>
     );
 }

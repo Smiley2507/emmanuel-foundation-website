@@ -41,9 +41,9 @@ export default function ContactPage() {
                                 whileInView={{ y: 0, opacity: 1 }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="ui-card p-[32px] text-center flex flex-col items-center hover:border-[var(--color-primary)] transition-colors cursor-pointer"
+                                className="ui-card p-[32px] text-center flex flex-col items-center hover:border-[var(--color-primary-vibrant)] transition-colors cursor-pointer group"
                             >
-                                <div className="w-[64px] h-[64px] rounded-[16px] bg-[var(--color-primary-light)] flex items-center justify-center text-[var(--color-primary)] mb-[24px]">
+                                <div className="w-[64px] h-[64px] rounded-[var(--radius-ui)] bg-[var(--color-primary-light)] flex items-center justify-center text-[var(--color-primary-vibrant)] mb-[24px] group-hover:bg-[var(--color-primary-vibrant)] group-hover:text-white transition-colors duration-300">
                                     <option.icon size={28} />
                                 </div>
                                 <h3 className="h4 text-[var(--color-text-primary)] mb-[12px]">{option.title}</h3>
@@ -133,7 +133,7 @@ export default function ContactPage() {
                                     <input
                                         type="text"
                                         id="fullname"
-                                        className="w-full px-[24px] py-[16px] rounded-[8px] bg-[var(--color-bg-light)] border border-transparent focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[16px] font-medium text-[var(--color-text-primary)] placeholder:text-gray-400"
+                                        className="input-field"
                                         placeholder="John Doe"
                                     />
                                 </div>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                                     <input
                                         type="email"
                                         id="email"
-                                        className="w-full px-[24px] py-[16px] rounded-[8px] bg-[var(--color-bg-light)] border border-transparent focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[16px] font-medium text-[var(--color-text-primary)] placeholder:text-gray-400"
+                                        className="input-field"
                                         placeholder="john@example.com"
                                     />
                                 </div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                                     <label htmlFor="subject" className="overline-label mb-[12px] block">Subject</label>
                                     <select
                                         id="subject"
-                                        className="w-full px-[24px] py-[16px] rounded-[8px] bg-[var(--color-bg-light)] border border-transparent focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[16px] font-medium text-[var(--color-text-primary)] appearance-none cursor-pointer"
+                                        className="input-field appearance-none cursor-pointer"
                                     >
                                         <option value="">Select a subject...</option>
                                         <option value="donation">Donation Inquiry</option>
@@ -168,14 +168,14 @@ export default function ContactPage() {
                                     <textarea
                                         id="message"
                                         rows={5}
-                                        className="w-full px-[24px] py-[16px] rounded-[8px] bg-[var(--color-bg-light)] border border-transparent focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[16px] font-medium text-[var(--color-text-primary)] placeholder:text-gray-400 resize-none"
+                                        className="input-field h-[160px] resize-none"
                                         placeholder="How can we help you?"
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="btn-primary w-full py-[16px] text-[18px]"
+                                    className="btn-primary w-full"
                                 >
                                     Send Message
                                 </button>

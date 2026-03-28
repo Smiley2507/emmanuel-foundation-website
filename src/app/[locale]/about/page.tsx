@@ -63,7 +63,7 @@ export default function AboutPage() {
                                 </h2>
                                 <div className="body-large text-[var(--color-text-secondary)] space-y-[24px]">
                                     <p>
-                                        Emmanuel Foundation (EF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda.
+                                        Jeanine and Emmanuel Foundation (EF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda.
                                     </p>
                                     <p>
                                         Guided by values of human dignity, integrity, partnership and collaboration, social responsibility, and equity & inclusion, the Foundation works with vulnerable groups, including people with limited financial resources, women and children in poverty, youth, adolescents, and other socially disadvantaged groups.
@@ -79,8 +79,10 @@ export default function AboutPage() {
             </section>
 
             {/* Mission & Vision */}
-            <section className="py-[96px] bg-[var(--color-bg-light)]">
-                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="py-[96px] bg-[var(--color-bg-light)] relative overflow-hidden">
+                <div className="bg-blob bg-blob-primary top-[-10%] right-[-5%] w-[400px] h-[400px]" />
+                <div className="bg-blob bg-blob-accent bottom-[-10%] left-[-5%] w-[500px] h-[500px]" />
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px]">
                         <motion.div
                             initial={{ y: 30, opacity: 0 }}
@@ -89,7 +91,7 @@ export default function AboutPage() {
                             viewport={{ once: true }}
                             className="ui-card p-[48px]"
                         >
-                            <div className="w-[56px] h-[56px] bg-[var(--color-primary-light)] rounded-full flex items-center justify-center mb-[24px] text-[var(--color-primary)]">
+                            <div className="w-[64px] h-[64px] bg-[var(--color-primary-light)] rounded-[var(--radius-ui)] flex items-center justify-center mb-[24px] text-[var(--color-primary-vibrant)]">
                                 <Target size={32} />
                             </div>
                             <h3 className="h3 mb-[16px] text-[var(--color-text-primary)]">Our Mission</h3>
@@ -105,7 +107,7 @@ export default function AboutPage() {
                             viewport={{ once: true }}
                             className="ui-card p-[48px]"
                         >
-                            <div className="w-[56px] h-[56px] bg-[var(--color-primary-light)] rounded-full flex items-center justify-center mb-[24px] text-[var(--color-primary)]">
+                            <div className="w-[64px] h-[64px] bg-[var(--color-primary-light)] rounded-[var(--radius-ui)] flex items-center justify-center mb-[24px] text-[var(--color-primary-vibrant)]">
                                 <Eye size={32} />
                             </div>
                             <h3 className="h3 mb-[16px] text-[var(--color-text-primary)]">Our Vision</h3>
@@ -118,8 +120,9 @@ export default function AboutPage() {
             </section>
 
             {/* Core Values */}
-            <section className="py-[96px] bg-[var(--color-bg-white)]">
-                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <section className="py-[96px] bg-[var(--color-bg-white)] relative overflow-hidden">
+                <div className="bg-blob bg-blob-accent top-[20%] right-[10%] w-[600px] h-[600px] opacity-20" />
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <div className="mb-[64px]">
                         <span className="overline-label">Core Principles</span>
                         <h2 className="h2 text-[var(--color-text-primary)] mt-2">Our Values</h2>
@@ -133,9 +136,9 @@ export default function AboutPage() {
                                 whileInView={{ y: 0, opacity: 1 }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="ui-card flex flex-col items-start p-[32px] border-l-[3px] border-[var(--color-primary)]"
+                                className="ui-card flex flex-col items-start p-[32px] group"
                             >
-                                <div className="w-[56px] h-[56px] bg-[var(--color-primary-light)] rounded-full flex items-center justify-center text-[var(--color-primary)] mb-[24px]">
+                                <div className="w-[64px] h-[64px] bg-[var(--color-primary-light)] rounded-[var(--radius-ui)] flex items-center justify-center text-[var(--color-primary-vibrant)] mb-[24px] group-hover:bg-[var(--color-primary-vibrant)] group-hover:text-white transition-colors duration-300">
                                     <value.icon size={32} />
                                 </div>
                                 <h3 className="h3 text-[var(--color-text-primary)] mb-[16px]">{value.title}</h3>
@@ -171,7 +174,7 @@ export default function AboutPage() {
                                     Addressing Today's Challenges with Tomorrow's Solutions
                                 </h2>
                                 <p className="body-large text-[var(--color-text-secondary)]">
-                                    Communities across Rwanda — particularly in areas like Rusizi District — face overlapping challenges: environmental degradation, water stress, limited educational and economic opportunities, and insufficient social protection for the most vulnerable. Emmanuel Foundation was created not to offer temporary relief, but to build lasting systems that empower communities to sustain their own progress long after our programmes conclude.
+                                    Communities across Rwanda — particularly in areas like Rusizi District — face overlapping challenges: environmental degradation, water stress, limited educational and economic opportunities, and insufficient social protection for the most vulnerable. Jeanine and Emmanuel Foundation was created not to offer temporary relief, but to build lasting systems that empower communities to sustain their own progress long after our programmes conclude.
                                 </p>
                             </motion.div>
                         </div>
@@ -203,7 +206,7 @@ export default function AboutPage() {
                                         'Inclusive management — Local voices shape how programs are run and measured.'
                                     ].map((item) => (
                                         <li key={item} className="flex items-start text-[16px] text-[var(--color-text-secondary)] font-medium">
-                                            <div className="w-[8px] h-[8px] mt-[8px] rounded-full bg-[var(--color-primary)] shrink-0 mr-[16px]" />
+                                            <div className="w-[8px] h-[8px] mt-[8px] rounded-full bg-[var(--color-primary-vibrant)] shrink-0 mr-[16px]" />
                                             <span>{item}</span>
                                         </li>
                                     ))}
@@ -225,9 +228,9 @@ export default function AboutPage() {
             <section className="py-[96px] bg-[var(--color-primary)] relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="relative z-10 max-w-[800px] mx-auto px-4 text-center text-white space-y-[40px]">
-                    <h2 className="h2">Be Part of Our Foundation</h2>
+                    <h2 className="h2 pb-4">Be Part of Our Foundation</h2>
                     <p className="body-large text-white/85">
-                        Emmanuel Foundation is at the beginning of its journey. Your early support — financial or otherwise — directly shapes what we are able to build. Join us now, when your contribution has the most impact.
+                        Jeanine and Emmanuel Foundation is at the beginning of its journey. Your early support — financial or otherwise — directly shapes what we are able to build. Join us now, when your contribution has the most impact.
                     </p>
                     <div>
                         <Link href="/donate">

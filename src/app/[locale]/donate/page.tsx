@@ -3,19 +3,19 @@
 import { PageHeader } from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Heart, Shield, CheckCircle } from 'lucide-react';
+import { Heart, Shield, CheckCircle, Clock } from 'lucide-react';
 
-const presetAmounts = [5000, 10000, 25000, 50000, 100000];
+const presetAmounts = [25, 50, 100, 250, 500];
 
 const equivalencies = [
-    { amount: '10,000 RWF', impact: 'Supports a family\'s hygiene kit for one month' },
-    { amount: '25,000 RWF', impact: 'Plants 50 trees in Rusizi District' },
-    { amount: '50,000 RWF', impact: 'Sponsors one youth vocational training session' },
-    { amount: '100,000 RWF', impact: 'Funds one community health outreach day' },
+    { amount: '$25', impact: 'Supports a family\'s hygiene kit for one month' },
+    { amount: '$50', impact: 'Plants 50 trees in Rusizi District' },
+    { amount: '$100', impact: 'Sponsors one youth vocational training session' },
+    { amount: '$500', impact: 'Funds one community health outreach day' },
 ];
 
 export default function DonatePage() {
-    const [selectedAmount, setSelectedAmount] = useState<number | null>(25000);
+    const [selectedAmount, setSelectedAmount] = useState<number | null>(50);
     const [customAmount, setCustomAmount] = useState('');
     const [email, setEmail] = useState('');
 
@@ -33,7 +33,7 @@ export default function DonatePage() {
         e.preventDefault();
         const finalAmount = selectedAmount || parseFloat(customAmount);
         console.log('Donation:', { amount: finalAmount, email });
-        // TODO: Integrate with Flutterwave payment gateway
+        // TODO: Integrate with Stripe Checkout
     };
 
     return (
@@ -57,8 +57,8 @@ export default function DonatePage() {
                         
                         <div className="relative z-10 max-w-[600px] text-white space-y-[40px]">
                             <div className="inline-flex items-center space-x-[12px] bg-white/10 px-[24px] py-[12px] rounded-full border border-white/20">
-                                <Heart className="text-[var(--color-primary-light)]" size={24} />
-                                <span className="text-[var(--color-primary-light)] font-heading font-black text-[18px]">Make an Impact Today</span>
+                                <Heart className="text-[var(--color-primary-accent)]" size={24} />
+                                <span className="text-white font-serif font-bold text-[18px]">Make an Impact Today</span>
                             </div>
 
                             <h2 className="h1 text-white">
@@ -66,27 +66,25 @@ export default function DonatePage() {
                             </h2>
 
                             <p className="body-large text-white/90">
-                                Emmanuel Foundation is at the start of its journey. Your donation directly funds our first integrated programme in Rusizi District — reaching over 12,000 people through environmental conservation, community health, education, and water resilience initiatives. Early supporters like you are the reason this work begins.
+                                Jeanine and Emmanuel Foundation is at the start of its journey. Your donation directly funds our first integrated programme in Rusizi District — reaching over 12,000 people through environmental conservation, community health, education, and water resilience initiatives. Early supporters like you are the reason this work begins.
                             </p>
 
-                            <div className="grid grid-cols-1 gap-[24px]">
-                                <div className="bg-white/10 p-[32px] rounded-[16px] border border-white/20">
-                                    <div className="flex items-center gap-[12px] mb-[16px]">
-                                        <Shield className="text-[var(--color-primary-light)]" size={28} />
-                                        <span className="h4 text-white">Transparent by Design</span>
-                                    </div>
-                                    <p className="body-base text-white/80">
-                                        We are committed to publishing how every franc donated is spent. Our operational costs are funded separately so your donation goes directly to programme activities.
-                                    </p>
-                                </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
-                                    {equivalencies.map((eq) => (
-                                        <div key={eq.amount} className="bg-white/10 p-[24px] rounded-[12px] border border-white/20">
-                                            <div className="h4 text-[var(--color-primary-light)] mb-[8px]">{eq.amount}</div>
-                                            <div className="body-small text-white/80">{eq.impact}</div>
+                            <div className="space-y-[32px] pt-[24px]">
+                                {[
+                                    { icon: Shield, title: 'Secure & Private', text: 'All transactions are encrypted and processed by Stripe.' },
+                                    { icon: Heart, title: 'Direct Impact', text: '100% of your donation goes directly to our local programmes.' },
+                                    { icon: Clock, title: 'Recurring Options', text: 'Support our long-term sustainability with monthly gifts.' }
+                                ].map((item, i) => (
+                                    <div key={i} className="flex gap-[20px]">
+                                        <div className="w-[48px] h-[48px] bg-white/10 backdrop-blur-sm rounded-[var(--radius-ui)] flex items-center justify-center flex-shrink-0 text-white border border-white/20">
+                                            <item.icon size={24} />
                                         </div>
-                                    ))}
-                                </div>
+                                        <div>
+                                            <h4 className="font-bold text-white mb-[4px]">{item.title}</h4>
+                                            <p className="body-small text-white/80">{item.text}</p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -108,30 +106,30 @@ export default function DonatePage() {
                                                 key={amount}
                                                 type="button"
                                                 onClick={() => handleAmountSelect(amount)}
-                                                className={`py-[16px] px-[16px] rounded-[8px] font-heading font-black text-[18px] transition-all duration-300 border ${
+                                                className={`py-[16px] px-[16px] rounded-[var(--radius-ui)] font-serif font-bold text-[18px] transition-all duration-300 border ${
                                                     selectedAmount === amount
-                                                    ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)] shadow-md'
-                                                    : 'bg-white text-[var(--color-text-primary)] border-gray-200 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
+                                                    ? 'bg-[var(--color-primary-vibrant)] text-white border-[var(--color-primary-vibrant)] shadow-md'
+                                                    : 'bg-white text-[var(--color-text-primary)] border-gray-200 hover:border-[var(--color-primary-vibrant)] hover:text-[var(--color-primary-vibrant)]'
                                                 }`}
                                             >
-                                                {amount.toLocaleString()} RWF
+                                                {amount.toLocaleString()} USD
                                             </button>
                                         ))}
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label htmlFor="customAmount" className="overline-label mb-[12px] block">
+                                    <label htmlFor="customAmount" className="overline-label mb-[12px] block text-[var(--color-text-secondary)]">
                                         Enter your own Amount
                                     </label>
                                     <div className="relative">
-                                        <span className="absolute left-[24px] top-1/2 -translate-y-1/2 text-[18px] font-bold text-gray-400">RWF</span>
+                                        <span className="absolute left-[24px] top-1/2 -translate-y-1/2 text-[18px] font-bold text-gray-500">$</span>
                                         <input
                                             type="number"
                                             id="customAmount"
                                             value={customAmount}
                                             onChange={(e) => handleCustomAmountChange(e.target.value)}
-                                            className="w-full pl-[72px] pr-[24px] py-[16px] rounded-[8px] bg-[var(--color-bg-light)] border-2 border-transparent focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[18px] font-medium placeholder:text-gray-400 text-[var(--color-text-primary)]"
+                                            className="w-full pl-[52px] pr-[24px] py-[16px] rounded-[var(--radius-ui)] bg-[var(--color-bg-white)] border-2 border-gray-200 focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[18px] font-bold placeholder:font-medium placeholder:text-gray-400 text-[var(--color-text-primary)] shadow-sm"
                                             placeholder="Enter amount"
                                             min="1"
                                         />
@@ -164,9 +162,9 @@ export default function DonatePage() {
                                 {/* Trust Block */}
                                 <div className="border-t border-gray-200 pt-[24px] space-y-[12px]">
                                     {[
-                                        'Secure payment processed by Flutterwave',
-                                        'Donations accepted in RWF — international donors may contact us at info@emmanuelfoundation.org',
-                                        'Emmanuel Foundation is a registered public-interest foundation in Rwanda',
+                                        'Secure payment processed by Stripe',
+                                        'Donations accepted in USD — international donors may easily process payments through their local banks',
+                                        'Jeanine and Emmanuel Foundation is a registered public-interest foundation in Rwanda',
                                         'Questions? Write to us before donating — we\'re happy to answer',
                                     ].map((item) => (
                                         <div key={item} className="flex items-start gap-[8px] text-[14px] text-[var(--color-text-secondary)] font-medium">
@@ -197,8 +195,8 @@ export default function DonatePage() {
                         viewport={{ once: true }}
                         className="max-w-[800px] mx-auto ui-card p-[48px] text-center"
                     >
-                        <div className="w-[80px] h-[80px] bg-[var(--color-primary-light)] rounded-[16px] flex items-center justify-center mx-auto mb-[32px]">
-                            <Shield className="text-[var(--color-primary)]" size={40} />
+                        <div className="w-[80px] h-[80px] bg-[var(--color-primary-light)] rounded-[var(--radius-ui)] flex items-center justify-center mx-auto mb-[32px]">
+                            <Shield className="text-[var(--color-primary-vibrant)]" size={40} />
                         </div>
                         <p className="body-large text-[var(--color-text-secondary)]">
                             We are finalising our programme budget for Rusizi District. As soon as it is confirmed, we will publish a complete, transparent breakdown of how donations are allocated. In the meantime, all funds received are held in trust for programme activities.
