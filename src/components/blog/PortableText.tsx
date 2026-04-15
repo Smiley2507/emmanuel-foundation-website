@@ -5,33 +5,33 @@ import Image from 'next/image'
 const components: PortableTextComponents = {
     block: {
         h1: ({ children }) => (
-            <h1 className="text-5xl md:text-6xl font-heading font-black text-primary mt-16 mb-8 leading-tight">
+            <h1 className="h1 text-[var(--color-primary)] mt-16 mb-8">
                 {children}
             </h1>
         ),
         h2: ({ children }) => (
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary mt-16 mb-8 leading-tight">
+            <h2 className="h2 text-[var(--color-primary)] mt-16 mb-8">
                 {children}
             </h2>
         ),
         h3: ({ children }) => (
-            <h3 className="text-3xl md:text-4xl font-heading font-black text-primary mt-12 mb-6 leading-tight">
+            <h3 className="h3 text-[var(--color-primary)] mt-12 mb-6">
                 {children}
             </h3>
         ),
         h4: ({ children }) => (
-            <h4 className="text-2xl md:text-3xl font-heading font-black text-primary mt-10 mb-5 leading-tight">
+            <h4 className="h4 text-[var(--color-primary)] mt-10 mb-5">
                 {children}
             </h4>
         ),
         normal: ({ children }) => (
-            <p className="text-xl text-foreground/80 leading-relaxed mb-6">
+            <p className="body-large text-[var(--color-text-secondary)] mb-6">
                 {children}
             </p>
         ),
         blockquote: ({ children }) => (
-            <div className="bg-secondary/10 border-l-4 border-secondary p-8 rounded-r-2xl my-12">
-                <p className="text-2xl font-heading font-black text-primary italic">
+            <div className="bg-[var(--color-primary-light)] border-l-4 border-[var(--color-primary)] p-8 rounded-r-[var(--radius-ui)] my-12">
+                <p className="pull-quote text-2xl text-[var(--color-primary)]">
                     {children}
                 </p>
             </div>
@@ -90,7 +90,7 @@ const components: PortableTextComponents = {
             if (!value?.asset) return null
 
             return (
-                <div className="my-12 rounded-3xl overflow-hidden shadow-2xl">
+                <div className="my-12 rounded-[var(--radius-ui)] overflow-hidden shadow-lg border border-gray-100">
                     <img
                         src={getImageUrl(value, 1200)}
                         alt={value.alt || 'Blog post image'}

@@ -2,97 +2,77 @@
 
 import { motion } from 'framer-motion';
 import { Link } from '@/lib/navigation';
+import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import { slideInLeft, slideInRight } from '@/lib/animations';
 
 export function MissionSection() {
     return (
-        <section className="py-24 bg-background overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-                    {/* Mission Image */}
-                    <motion.div
-                        initial={{ scale: 0.95, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="relative group"
-                    >
-                        <div className="absolute -inset-4 bg-secondary/10 rounded-2xl group-hover:bg-secondary/20 transition-all duration-500" />
-                        <img
-                            src="/hands.jpg"
-                            alt="Mission"
-                            className="relative w-full aspect-[4/5] object-cover rounded-xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
-                        />
-                    </motion.div>
-
-                    {/* Mission Text */}
-                    <motion.div
-                        initial={{ x: 50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="space-y-16"
-                    >
-                        <div className="space-y-8">
-                            <span className="text-xs font-sans font-bold uppercase tracking-[0.4em] text-secondary">Our Impact in Action</span>
-                            <h2 className="text-4xl md:text-6xl font-heading font-black text-primary leading-[1.15]">
-                                Serving Communities. Protecting Nature. Building Futures.
-                            </h2>
-                            <p className="text-xl text-foreground/70 leading-relaxed font-sans font-medium">
-                                Emmanuel Foundation was established to serve Rwanda&apos;s most vulnerable — those living in poverty, women and children, youth, the elderly, and socially disadvantaged groups. We work across environmental conservation, education, community health, and sustainable water management, always in partnership with the communities we serve.
-                            </p>
+        <>
+            {/* Mission Section */}
+            <section className="py-[96px] bg-[var(--color-bg-white)] overflow-hidden relative">
+                <div className="bg-blob bg-blob-primary top-[-5%] left-[-5%] w-[400px] h-[400px]" />
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-[48px] items-center relative z-10">
+                    {/* Image — contained */}
+                    <AnimateOnScroll variants={slideInLeft}>
+                        <div className="relative h-[280px] lg:h-[480px] rounded-[var(--radius-ui)] overflow-hidden w-full">
+                            <img
+                                src="/hands.jpg"
+                                alt="Mission"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
-
-                        <div className="pt-4">
+                    </AnimateOnScroll>
+                    {/* Content Right */}
+                    <AnimateOnScroll variants={slideInRight} delay={0.15}>
+                        <div className="flex flex-col gap-[24px] lg:pl-[32px]">
+                            <span className="overline-label">Our Mission</span>
+                            <h2 className="h2 mb-[24px] text-[var(--color-text-primary)]">Serving Communities. Protecting Nature. Building Futures.</h2>
+                            <p className="body-large text-[var(--color-text-secondary)] mb-[40px]">
+                                Jeanine and Emmanuel Foundation was established to serve Rwanda's most vulnerable — those living in poverty, women and children, youth, the elderly, and socially disadvantaged groups. We work across environmental conservation, education, community health, and sustainable water management, always in partnership with the communities we serve.
+                            </p>
                             <Link href="/about">
-                                <button className="group flex items-center space-x-6 text-primary font-heading font-bold text-xl hover:text-secondary transition-colors">
-                                    <span>Discover Our Story</span>
-                                    <div className="w-16 h-[2px] bg-secondary group-hover:w-24 transition-all duration-300" />
+                                <button className="btn-primary">
+                                    Discover Our Story
                                 </button>
                             </Link>
                         </div>
-                    </motion.div>
+                    </AnimateOnScroll>
                 </div>
+            </section>
 
-                <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-                    {/* About Text */}
-                    <motion.div
-                        initial={{ x: -50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="space-y-16 order-2 lg:order-1"
-                    >
-                        <div className="space-y-8">
-                            <span className="text-xs font-sans font-bold uppercase tracking-[0.4em] text-secondary">About Emmanuel Foundation</span>
-                            <h2 className="text-4xl md:text-6xl font-heading font-black text-primary leading-[1.15]">
-                                Changing Lives, One Community at a Time
-                            </h2>
-                            <p className="text-xl text-primary/80 font-sans font-bold italic border-l-4 border-secondary pl-8 leading-relaxed py-2">
-                                &ldquo;Driven by compassion. Rooted in community. Focused on lasting impact.&rdquo;
+            {/* About Preview Section */}
+            <section className="py-[96px] bg-[var(--color-bg-light)] overflow-hidden relative">
+                <div className="bg-blob bg-blob-accent bottom-[-10%] right-[-5%] w-[500px] h-[500px]" />
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-[48px] items-center relative z-10">
+                    {/* Content Left */}
+                    <AnimateOnScroll variants={slideInLeft} delay={0.15}>
+                        <div className="flex flex-col gap-[24px] lg:pr-[32px] order-2 lg:order-1">
+                            <span className="overline-label">Who We Are</span>
+                            <blockquote className="pull-quote text-[22px] border-l-4 border-[var(--color-primary-vibrant)] pl-[20px] mb-[32px]">
+                                "Driven by compassion. Rooted in community. Focused on lasting impact."
+                            </blockquote>
+                            <p className="body-large text-[var(--color-text-secondary)] mb-[40px]">
+                                Jeanine and Emmanuel Foundation (EF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda. Guided by values of human dignity, integrity, partnership, and equity, we work with vulnerable groups — including people with limited financial resources, women and children in poverty, youth, adolescents, and socially disadvantaged communities — to generate lasting social impact.
                             </p>
-                            <p className="text-xl text-foreground/70 leading-relaxed font-sans font-medium">
-                                Emmanuel Foundation (EF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda. Guided by values of human dignity, integrity, partnership, and equity, we work with vulnerable groups — including people with limited financial resources, women and children in poverty, youth, adolescents, and socially disadvantaged communities — to generate lasting social impact.
-                            </p>
+                            <Link href="/about">
+                                <button className="btn-ghost">
+                                    Learn About the Foundation
+                                </button>
+                            </Link>
                         </div>
-                    </motion.div>
-
-                    {/* About Image */}
-                    <motion.div
-                        initial={{ scale: 0.95, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="relative group order-1 lg:order-2"
-                    >
-                        <div className="absolute -inset-4 bg-primary/5 rounded-2xl group-hover:bg-primary/10 transition-all duration-500" />
-                        <img
-                            src="/bg-3.jpeg"
-                            alt="About"
-                            className="relative w-full aspect-[4/5] object-cover rounded-xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
-                        />
-                    </motion.div>
+                    </AnimateOnScroll>
+                    {/* Image Right — contained */}
+                    <AnimateOnScroll variants={slideInRight}>
+                        <div className="relative h-[280px] lg:h-[480px] rounded-[12px] overflow-hidden w-full order-1 lg:order-2">
+                            <img
+                                src="/bg-3.jpeg"
+                                alt="About Jeanine and Emmanuel Foundation"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </AnimateOnScroll>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }

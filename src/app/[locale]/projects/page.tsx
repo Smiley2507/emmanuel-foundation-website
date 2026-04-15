@@ -3,6 +3,8 @@
 import { PageHeader } from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import { Link } from '@/lib/navigation';
+import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import { slideInLeft, slideInRight, fadeUp } from '@/lib/animations';
 
 const programmes = [
     {
@@ -14,8 +16,7 @@ const programmes = [
             'Livelihood and income-generation initiatives',
             'Social assistance programs for teen mothers and the elderly',
         ],
-        color: 'bg-red-50',
-        accent: 'border-red-200',
+        image: '/community-1.jpg',
     },
     {
         title: 'Mind the Environment',
@@ -28,8 +29,7 @@ const programmes = [
             'Climate change awareness campaigns',
             'Support for sustainable land and water management',
         ],
-        color: 'bg-green-50',
-        accent: 'border-green-200',
+        image: '/bg-2.jpeg',
     },
     {
         title: 'Education and Vocational Training',
@@ -41,8 +41,7 @@ const programmes = [
             'Mentorship programmes for youth',
             'Partnerships with training institutions to improve employability',
         ],
-        color: 'bg-amber-50',
-        accent: 'border-amber-200',
+        image: '/bg-1.jpeg',
     },
     {
         title: 'Water and Community Resilience',
@@ -53,8 +52,7 @@ const programmes = [
             'Training in safe water use and management',
             'Support for WASH (Water, Sanitation, and Hygiene) initiatives',
         ],
-        color: 'bg-blue-50',
-        accent: 'border-blue-200',
+        image: '/farmers.jpg',
     },
     {
         title: 'Community Health, Nutrition, and Hygiene',
@@ -65,8 +63,7 @@ const programmes = [
             'Community health outreach programs',
             'Initiatives promoting healthy lifestyles in vulnerable communities',
         ],
-        color: 'bg-purple-50',
-        accent: 'border-purple-200',
+        image: '/community-1.jpg',
     },
     {
         title: 'Youth Empowerment and Community Leadership',
@@ -77,8 +74,7 @@ const programmes = [
             'Entrepreneurship support and mentoring',
             'Civic engagement and community accountability programmes',
         ],
-        color: 'bg-indigo-50',
-        accent: 'border-indigo-200',
+        image: '/bg-2.jpeg',
     },
     {
         title: 'Sports, Recreation, and Social Well-Being',
@@ -89,132 +85,137 @@ const programmes = [
             'Awareness campaigns combining sports with health and social messaging',
             'Inclusive sports programmes for girls and youth with disabilities',
         ],
-        color: 'bg-orange-50',
-        accent: 'border-orange-200',
+        image: '/bg-1.jpeg',
     },
 ];
 
 export default function ProjectsPage() {
     return (
-        <div className="flex flex-col min-h-screen font-sans">
+        <div className="flex flex-col min-h-screen">
             <PageHeader title="Our Programs" subtitle="Seven programmes. One mission: to uplift the vulnerable and protect the environment." />
 
             {/* Intro Section */}
-            <section className="py-48 bg-secondary">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-24">
-                    <div className="md:w-1/2 space-y-10">
-                        <span className="text-xs font-sans font-bold uppercase tracking-[0.4em] text-primary/60">Our Focus</span>
-                        <h2 className="text-5xl md:text-7xl font-heading font-black text-primary leading-tight">
-                            Our Work, Grounded in Rwanda&apos;s Reality
-                        </h2>
-                        <p className="text-2xl font-medium text-primary/80 leading-relaxed font-sans">
-                            Emmanuel Foundation operates across seven programme areas, each designed to address a specific and interconnected challenge facing Rwanda&apos;s most vulnerable communities. Our work in Rusizi District represents our first integrated project — bringing these programmes to life simultaneously to maximize impact for at least 12,000 direct beneficiaries.
-                        </p>
-                    </div>
-                    <div className="md:w-1/2 relative h-[500px] w-full rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
+            <section className="bg-[var(--color-primary)] relative overflow-hidden">
+                <div className="absolute rounded-full blur-[140px] opacity-40 mix-blend-screen pointer-events-none z-0 bg-[var(--color-primary-light)] top-[-20%] left-[10%] w-[600px] h-[600px]" />
+                <div className="flex flex-col lg:flex-row-reverse relative z-10">
+                    <div className="w-full lg:w-1/2 min-h-[480px]">
                         <img
                             src="/farmers.jpg"
                             alt="Programs overview"
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-secondary/10 mix-blend-multiply" />
+                    </div>
+                    <div className="w-full lg:w-1/2 flex items-center">
+                        <div className="py-[40px] px-[24px] lg:py-[80px] lg:px-[64px] max-w-[720px] ml-auto">
+                            <span className="overline-label text-white/70">Our Focus</span>
+                            <h2 className="h2 mb-[24px] text-white mt-2">
+                                Our Work, Grounded in Rwanda's Reality
+                            </h2>
+                            <p className="body-large text-white/70">
+                                Jeanine and Emmanuel Foundation operates across seven programme areas, each designed to address a specific and interconnected challenge facing Rwanda's most vulnerable communities. Our work in Rusizi District represents our first integrated project — bringing these programmes to life simultaneously to maximize impact for at least 12,000 direct beneficiaries.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* All 7 Programmes */}
-            <section className="py-48 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-32">
-                        <span className="text-xs font-sans font-bold uppercase tracking-[0.4em] text-secondary">What We Do</span>
-                        <h2 className="text-5xl md:text-6xl font-heading font-black text-primary mt-6">Our Seven Programmes</h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        {programmes.map((programme, index) => (
-                            <motion.div
-                                key={programme.title}
-                                initial={{ y: 30, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.6, delay: (index % 2) * 0.1 }}
-                                viewport={{ once: true }}
-                                className={`${programme.color} border ${programme.accent} rounded-3xl p-10 space-y-6`}
-                            >
-                                <div className="flex items-start gap-4">
-                                    <span className="text-4xl font-heading font-black text-primary/20 leading-none">0{index + 1}</span>
-                                    <h3 className="text-2xl md:text-3xl font-heading font-black text-primary leading-tight">{programme.title}</h3>
+            <div className="flex flex-col border-t border-gray-200">
+                {programmes.map((programme, index) => {
+                    const isEven = index % 2 === 0;
+                    return (
+                        <section key={programme.title} className="bg-[var(--color-bg-white)] border-b border-gray-200">
+                            <div className={`flex flex-col lg:flex-row ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+                                <div className="w-full lg:w-1/2 min-h-[480px] lg:border-x border-gray-100 overflow-hidden relative group">
+                                    <img
+                                        src={programme.image}
+                                        alt={programme.title}
+                                        className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-[var(--color-primary-dark)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-[800ms] pointer-events-none" />
                                 </div>
-                                <p className="text-foreground/70 leading-relaxed font-sans font-medium text-lg">
-                                    {programme.description}
-                                </p>
-                                <div className="bg-white/60 p-6 rounded-2xl">
-                                    <h4 className="font-bold text-xs uppercase tracking-widest text-secondary mb-4 font-sans">Activities</h4>
-                                    <ul className="space-y-3">
-                                        {programme.activities.map((activity) => (
-                                            <li key={activity} className="flex items-start space-x-3 text-foreground/80 font-medium font-sans">
-                                                <div className="w-2 h-2 mt-2 rounded-full bg-primary shrink-0" />
-                                                <span>{activity}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                <div className="w-full lg:w-1/2 flex items-center">
+                                    <div className="py-[40px] px-[24px] lg:py-[80px] lg:px-[64px] max-w-[720px] mx-auto">
+                                        <AnimateOnScroll variants={isEven ? slideInRight : slideInLeft}>
+                                            <span className="text-[20px] font-sans font-bold text-[var(--color-primary-vibrant)] mb-[16px] block tracking-wider drop-shadow-sm">0{index + 1}</span>
+                                            <h2 className="h2 mb-[24px] text-[var(--color-text-primary)]">
+                                                {programme.title}
+                                            </h2>
+                                            <p className="body-large text-[var(--color-text-secondary)] mb-[32px]">
+                                                {programme.description}
+                                            </p>
+                                            
+                                            <motion.div
+                                                whileInView={{ y: 0, opacity: 1 }}
+                                                initial={{ y: 20, opacity: 0 }}
+                                                viewport={{ once: true }}
+                                                className="bg-[var(--color-bg-light)] p-[32px] rounded-[var(--radius-ui)] border border-[var(--color-border)]"
+                                            >
+                                                <h4 className="overline-label mb-[16px]">Key Activities</h4>
+                                                <ul className="space-y-[16px]">
+                                                    {programme.activities.map((activity) => (
+                                                        <li key={activity} className="flex items-start text-[16px] text-[var(--color-text-secondary)] font-medium">
+                                                            <div className="w-[8px] h-[8px] mt-[8px] rounded-full bg-[var(--color-primary-vibrant)] shrink-0 mr-[16px]" />
+                                                            <span>{activity}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </motion.div>
+                                        </AnimateOnScroll>
+                                    </div>
                                 </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+                            </div>
+                        </section>
+                    );
+                })}
+            </div>
 
             {/* Current Initiative — Rusizi District */}
-            <section className="py-48 bg-[#FAFAF8]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <span className="text-xs font-sans font-bold uppercase tracking-[0.4em] text-secondary">Current Initiative</span>
-                        <h2 className="text-4xl md:text-5xl font-heading font-black text-primary mt-6 max-w-4xl mx-auto leading-tight">
+            <section className="py-[96px] bg-[var(--color-bg-dark)] text-white">
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-[64px]">
+                        <span className="overline-label text-[var(--color-primary-light)]">Current Initiative</span>
+                        <h2 className="h2 mt-2 max-w-[800px] mx-auto text-white">
                             Strengthening Community Well-Being, Environmental Protection, and Sustainable Water Management in Rusizi District
                         </h2>
                     </div>
 
-                    <motion.div
-                        initial={{ y: 30, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="bg-white rounded-[3rem] shadow-sm border border-gray-100 overflow-hidden"
-                    >
+                    <AnimateOnScroll variants={fadeUp}>
+                        <div className="bg-white/10 rounded-[12px] border border-white/20 overflow-hidden">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                            <div className="p-14 space-y-8">
-                                <p className="text-xl text-foreground/70 leading-relaxed font-sans font-medium">
-                                    Rusizi District faces environmental degradation, water stress, sanitation challenges, and limited livelihood opportunities for youth and vulnerable households. Emmanuel Foundation is implementing a 24-month integrated project to protect the environment, promote sustainable water use, and strengthen community well-being through education, empowerment, and resilience-building.
+                            <div className="p-[48px] space-y-[40px]">
+                                <p className="body-large text-white/85">
+                                    Rusizi District faces environmental degradation, water stress, sanitation challenges, and limited livelihood opportunities for youth and vulnerable households. Jeanine and Emmanuel Foundation is implementing a 24-month integrated project to protect the environment, promote sustainable water use, and strengthen community well-being through education, empowerment, and resilience-building.
                                 </p>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-[24px]">
                                     {[
                                         { label: 'Location', value: 'Rusizi District, Rwanda' },
                                         { label: 'Duration', value: '24 months' },
                                         { label: 'Target Beneficiaries', value: 'At least 12,000 direct beneficiaries' },
                                         { label: 'Status', value: 'In development — seeking funding partners' },
                                     ].map((item) => (
-                                        <div key={item.label} className="bg-[#FAFAF8] p-6 rounded-2xl">
-                                            <span className="text-xs font-bold uppercase tracking-widest text-secondary block mb-2 font-sans">{item.label}</span>
-                                            <span className="text-primary font-heading font-black text-lg">{item.value}</span>
+                                        <div key={item.label} className="bg-white/5 p-[24px] rounded-[8px] border border-white/10">
+                                            <span className="overline-label text-white/60 block mb-[8px]">{item.label}</span>
+                                            <span className="h4 text-white">{item.value}</span>
                                         </div>
                                     ))}
                                 </div>
-                                <div className="bg-secondary/10 p-6 rounded-2xl">
-                                    <span className="text-xs font-bold uppercase tracking-widest text-secondary block mb-2 font-sans">Focus Areas</span>
-                                    <p className="text-primary font-medium">Environmental conservation, WASH, youth empowerment, community health, sports, and local sustainability</p>
+                                <div className="bg-[var(--color-primary-vibrant)] p-[24px] rounded-[var(--radius-ui)]">
+                                    <span className="overline-label !text-white/80 block mb-[8px]">Focus Areas</span>
+                                    <p className="text-white font-bold text-[16px]">Environmental conservation, WASH, youth empowerment, community health, sports, and local sustainability</p>
                                 </div>
-                                <div className="bg-primary/5 p-6 rounded-2xl">
-                                    <span className="text-xs font-bold uppercase tracking-widest text-secondary block mb-2 font-sans">Funding</span>
-                                    <p className="text-primary font-medium">Open to national, bilateral, multilateral donors, foundations, and private-sector partners</p>
+                                <div className="bg-white/10 p-[24px] rounded-[8px] border border-white/10">
+                                    <span className="overline-label text-white/80 block mb-[8px]">Funding</span>
+                                    <p className="text-white font-medium text-[16px]">Open to national, bilateral, multilateral donors, foundations, and private-sector partners</p>
                                 </div>
-                                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                                <div className="flex flex-col sm:flex-row gap-[16px] pt-[16px]">
                                     <Link href="/donate">
-                                        <button className="bg-primary text-white px-10 py-4 rounded-xl font-heading font-black text-lg hover:bg-secondary hover:text-primary transition-all shadow-lg active:scale-95">
+                                        <button className="btn-primary w-full sm:w-auto h-full px-[32px] py-[16px]">
                                             Support This Project
                                         </button>
                                     </Link>
                                     <Link href="/contact">
-                                        <button className="bg-transparent border-2 border-primary text-primary px-10 py-4 rounded-xl font-heading font-black text-lg hover:bg-primary hover:text-white transition-all active:scale-95">
+                                        <button className="btn-ghost text-white border-white hover:bg-white/10 w-full sm:w-auto px-[32px] py-[16px]">
                                             Partner With Us
                                         </button>
                                     </Link>
@@ -224,33 +225,27 @@ export default function ProjectsPage() {
                                 <img
                                     src="/bg-1.jpeg"
                                     alt="Rusizi District project"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover grayscale-[30%]"
                                 />
-                                <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
+                                <div className="absolute inset-0 bg-black/40" />
                             </div>
                         </div>
-                    </motion.div>
+                        </div>
+                    </AnimateOnScroll>
                 </div>
             </section>
 
             {/* CTA Section */}
-            <section className="py-48 relative overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <div
-                        className="absolute inset-0 bg-fixed bg-center bg-cover"
-                        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2000&auto=format&fit=crop")' }}
-                    />
-                    <div className="absolute inset-0 bg-primary/90 mix-blend-multiply" />
-                </div>
-
-                <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white space-y-12">
-                    <h2 className="text-5xl md:text-7xl font-heading font-black text-secondary leading-tight">Help Launch Our First Programs</h2>
-                    <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed font-sans font-medium">
+            <section className="py-[96px] bg-[var(--color-primary)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-black/20" />
+                <div className="relative z-10 max-w-[800px] mx-auto px-4 text-center text-white space-y-[40px]">
+                    <h2 className="h2 text-white">Help Launch Our First Programs</h2>
+                    <p className="body-large text-white/85">
                         As a new foundation with ambitious goals, we need partners, donors, and volunteers who believe in community-driven change. Your support — at any level — helps turn these programmes from plans into impact.
                     </p>
-                    <div className="pt-8">
+                    <div>
                         <Link href="/donate">
-                            <button className="bg-secondary text-primary px-16 py-6 rounded-xl font-heading font-black text-xl hover:bg-white transition-all shadow-2xl active:scale-95 hover:-translate-y-1">
+                            <button className="btn-inverse">
                                 Donate to Support Our Work
                             </button>
                         </Link>

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Link } from '@/lib/navigation';
 import { urlFor } from '@/sanity/lib/image';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { staggerContainer, fadeUp } from '@/lib/animations';
 
 interface Post {
     title: string;
@@ -21,12 +21,10 @@ interface BlogPreviewProps {
 }
 
 export function BlogPreview({ posts }: BlogPreviewProps) {
-    // Filter out placeholder/test articles
     const realPosts = posts.filter(
         (post) => !post.title.toLowerCase().includes('test') && !post.title.toLowerCase().includes('lorem')
-    );
+    ).slice(0, 3);
 
-    // Helper to get excerpt from body if not explicitly provided
     const getExcerpt = (post: Post) => {
         if (post.excerpt) return post.excerpt;
         if (post.body && post.body[0] && post.body[0].children && post.body[0].children[0]) {
@@ -35,27 +33,23 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
         return 'Read the full story to learn more about our latest updates.';
     };
 
-    // Hide entire section if no real blog posts exist
     if (realPosts.length === 0) return null;
 
     return (
-        <section className="py-48 bg-[#FAFAF8] overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-32 text-left">
+        <section className="py-[96px] bg-[var(--color-bg-white)]">
+            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Header Row */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-[24px] mb-[64px]">
                     <motion.div
                         initial={{ x: -50, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="space-y-10"
                     >
-                        <span className="text-xs font-sans font-bold uppercase tracking-[0.5em] text-secondary">Blog Preview</span>
-                        <h2 className="text-5xl md:text-7xl font-heading font-black text-primary leading-tight">
-                            Stories &amp; Updates
+                        <span className="overline-label">Latest Updates</span>
+                        <h2 className="h2 text-[var(--color-text-primary)] mt-2">
+                            News &amp; Stories
                         </h2>
-                        <p className="text-xl text-foreground/70 max-w-2xl font-sans font-medium leading-relaxed">
-                            Stay up to date with our journey, the lives we&apos;re touching, and the environmental milestones we&apos;re achieving together.
-                        </p>
                     </motion.div>
 
                     <motion.div
@@ -65,67 +59,64 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
                         viewport={{ once: true }}
                     >
                         <Link href="/blog">
-                            <button className="flex items-center space-x-6 text-primary font-heading font-bold text-xl group hover:text-secondary transition-colors">
-                                <span>Read More Articles</span>
-                                <div className="w-16 h-[2px] bg-secondary group-hover:w-24 transition-all duration-300" />
+                            <button className="btn-ghost">
+                                View News
                             </button>
                         </Link>
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                {/* Grid */}
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-60px' }}
+                    variants={staggerContainer}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[32px]"
+                >
                     {realPosts.map((post, index) => (
                         <motion.article
                             key={post.slug.current}
-                            initial={{ y: 30, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100"
+                            variants={fadeUp}
+                            className="ui-card h-full"
                         >
-                            <Link href={`/blog/${post.slug.current}`}>
-                                <div className="relative aspect-[4/3] overflow-hidden">
+                            <Link href={`/blog/${post.slug.current}`} className="flex flex-col h-full">
+                                <div className="aspect-[16/9] overflow-hidden">
                                     {post.mainImage ? (
                                         <img
                                             src={urlFor(post.mainImage).url()}
                                             alt={post.title}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
                                     ) : (
-                                        <div className="w-full h-full bg-gradient-to-br from-primary to-secondary" />
+                                        <div className="w-full h-full bg-[var(--color-primary-light)]" />
                                     )}
+                                </div>
+
+                                <div className="p-[24px] flex flex-col flex-grow">
                                     {post.categories && post.categories.length > 0 && (
-                                        <div className="absolute top-4 left-4">
-                                            <span className="bg-secondary text-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                                        <div className="mb-[12px]">
+                                            <span className="overline-label !mb-0 !text-[11px] !text-[var(--color-primary-vibrant)]">
                                                 {post.categories[0]}
                                             </span>
                                         </div>
                                     )}
-                                </div>
-
-                                <div className="p-8 space-y-6">
-                                    <h3 className="text-2xl font-heading font-black text-primary leading-tight group-hover:text-secondary transition-colors">
+                                    <h4 className="h4 text-[var(--color-text-primary)] mb-[16px]">
                                         {post.title}
-                                    </h3>
+                                    </h4>
 
-                                    <p className="text-foreground/70 leading-relaxed font-medium line-clamp-3">
+                                    <p className="body-base text-[var(--color-text-secondary)] mb-[24px] flex-grow">
                                         {getExcerpt(post)}
                                     </p>
 
-                                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                                        <div className="flex items-center space-x-2 text-sm text-foreground/60 font-medium">
-                                            <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-                                        </div>
-
-                                        <div className="flex items-center space-x-2 text-primary font-bold group-hover:text-secondary transition-colors">
-                                            <span className="text-sm">Read More</span>
-                                        </div>
+                                    <div className="flex items-center text-[13px] font-medium text-[var(--color-text-secondary)] mt-auto pt-[16px] border-t border-gray-100">
+                                        <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                                     </div>
                                 </div>
                             </Link>
                         </motion.article>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

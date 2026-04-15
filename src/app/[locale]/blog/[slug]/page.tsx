@@ -5,6 +5,7 @@ import { client } from '@/lib/sanity/client';
 import { postQuery, postPathsQuery, relatedPostsQuery } from '@/lib/sanity/queries';
 import { getImageUrl } from '@/lib/sanity/image';
 import { PortableText } from '@/components/blog/PortableText';
+import { ReadingProgress } from '@/components/blog/ReadingProgress';
 import { notFound } from 'next/navigation';
 
 interface BlogPostPageProps {
@@ -52,10 +53,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
         <div className="flex flex-col min-h-screen font-sans">
-            <PageHeader title="Blog Post" subtitle="Stories from the field" />
+            <ReadingProgress />
 
             {/* Back Button */}
-            <section className="py-8 bg-white border-b border-gray-100">
+            <section className="pt-24 pb-8 bg-white border-b border-gray-100">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <Link href="/blog" className="inline-flex items-center space-x-2 text-primary hover:text-secondary transition-colors font-bold">
                         <ArrowLeft size={20} />
@@ -71,13 +72,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <div className="space-y-8 mb-16">
                         {post.categories && post.categories[0] && (
                             <div className="inline-block">
-                                <span className={`${post.categories[0].color || 'bg-secondary text-primary'} px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider`}>
+                                <span className={`${post.categories[0].color || 'bg-[var(--color-primary-light)] text-[var(--color-primary)]'} px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider border border-[var(--color-primary-vibrant)]/20`}>
                                     {post.categories[0].title}
                                 </span>
                             </div>
                         )}
 
-                        <h1 className="text-5xl md:text-6xl font-heading font-black text-primary leading-tight">
+                        <h1 className="h1 text-[var(--color-primary)] leading-tight">
                             {post.title}
                         </h1>
 
@@ -97,7 +98,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                     {/* Featured Image */}
                     {post.mainImage?.asset && (
-                        <div className="relative aspect-[21/9] rounded-3xl overflow-hidden mb-16 shadow-2xl">
+                        <div className="relative aspect-[21/9] rounded-[var(--radius-ui)] overflow-hidden mb-16 shadow-lg border border-gray-100">
                             <img
                                 src={getImageUrl(post.mainImage, 1200)}
                                 alt={post.mainImage.alt || post.title}
@@ -114,7 +115,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     {/* Share Section */}
                     <div className="mt-24 pt-12 border-t border-gray-200">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-2xl font-heading font-black text-primary">Share this story</h3>
+                            <h3 className="h3 text-[var(--color-primary)]">Share this story</h3>
                             <div className="flex items-center space-x-4">
                                 <span className="text-foreground/60 font-medium">Coming soon</span>
                             </div>
@@ -125,30 +126,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
-                <section className="py-24 bg-[#FAFAF8]">
+                <section className="py-24 bg-[var(--color-bg-light)]">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-4xl font-heading font-black text-primary mb-16 text-center">Related Stories</h2>
+                        <h2 className="h2 mb-16 text-center text-[var(--color-primary)]">Related Stories</h2>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                             {relatedPosts.map((relatedPost: any) => (
                                 <Link key={relatedPost._id} href={`/blog/${relatedPost.slug.current}`} className="group">
-                                    <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
-                                        <div className="relative aspect-[4/3] overflow-hidden">
+                                    <div className="ui-card h-full">
+                                        <div className="relative aspect-[16/9] overflow-hidden">
                                             {relatedPost.mainImage?.asset ? (
                                                 <img
                                                     src={getImageUrl(relatedPost.mainImage, 600)}
                                                     alt={relatedPost.mainImage.alt || relatedPost.title}
-                                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                                 />
                                             ) : (
-                                                <div className="w-full h-full bg-gradient-to-br from-primary to-secondary" />
+                                                <div className="w-full h-full bg-[var(--color-primary-light)]" />
                                             )}
                                         </div>
                                         <div className="p-6">
-                                            <h3 className="text-xl font-heading font-black text-primary group-hover:text-secondary transition-colors">
+                                            <h3 className="h4 text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-primary-vibrant)] transition-colors">
                                                 {relatedPost.title}
                                             </h3>
-                                            <p className="text-sm text-foreground/60 mt-2">{formatDate(relatedPost.publishedAt)}</p>
+                                            <p className="text-sm text-[var(--color-text-secondary)] opacity-70">{formatDate(relatedPost.publishedAt)}</p>
                                         </div>
                                     </div>
                                 </Link>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, Inter } from "next/font/google";
+import { DM_Sans, Fraunces } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import "./globals.css";
@@ -8,30 +8,22 @@ import Footer from "@/components/layout/Footer";
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 
-const serif = Playfair_Display({
+const dmSans = DM_Sans({
+  variable: '--font-dm-sans',
   subsets: ['latin'],
-  variable: '--font-heading',
-  weight: ['400', '700', '900'],
+  display: 'swap',
 });
 
-const inter = Inter({
+const fraunces = Fraunces({
+  variable: '--font-fraunces',
   subsets: ['latin'],
-  variable: '--font-sans',
+  display: 'swap',
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "Emmanuel Foundation | Empowering Communities Across Rwanda",
-  description: "Emmanuel Foundation works with vulnerable communities across Rwanda — protecting the environment, strengthening livelihoods, and building a more equitable future.",
+  title: "Jeanine and Emmanuel Foundation | Empowering Communities Across Rwanda",
+  description: "Jeanine and Emmanuel Foundation works with vulnerable communities across Rwanda — protecting the environment, strengthening livelihoods, and building a more equitable future.",
   icons: {
     icon: '/Vector.png',
   },
@@ -56,7 +48,7 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale}>
       <body
-        className={`${serif.variable} ${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-[#FAFAF8]`}
+        className={`${dmSans.variable} ${fraunces.variable} antialiased bg-[var(--color-bg-white)] text-[var(--color-text-primary)]`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
