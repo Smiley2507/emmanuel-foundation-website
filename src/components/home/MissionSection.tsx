@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { Link } from '@/lib/navigation';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 import { slideInLeft, slideInRight } from '@/lib/animations';
+import { useTranslations } from 'next-intl';
 
 export function MissionSection() {
+    const t = useTranslations('Mission');
     return (
         <>
             {/* Mission Section */}
@@ -25,14 +27,14 @@ export function MissionSection() {
                     {/* Content Right */}
                     <AnimateOnScroll variants={slideInRight} delay={0.15}>
                         <div className="flex flex-col gap-[24px] lg:pl-[32px]">
-                            <span className="overline-label">Our Mission</span>
-                            <h2 className="h2 mb-[24px] text-[var(--color-text-primary)]">Serving Communities. Protecting Nature. Building Futures.</h2>
+                            <span className="overline-label">{t('label_mission')}</span>
+                            <h2 className="h2 mb-[24px] text-[var(--color-text-primary)]">{t('title_mission')}</h2>
                             <p className="body-large text-[var(--color-text-secondary)] mb-[40px]">
-                                Jeanine and Emmanuel Foundation was established to serve Rwanda's most vulnerable — those living in poverty, women and children, youth, the elderly, and socially disadvantaged groups. We work across environmental conservation, education, community health, and sustainable water management, always in partnership with the communities we serve.
+                                {t('desc_mission')}
                             </p>
                             <Link href="/about">
                                 <button className="btn-primary">
-                                    Discover Our Story
+                                    {t('btn_story')}
                                 </button>
                             </Link>
                         </div>
@@ -47,16 +49,16 @@ export function MissionSection() {
                     {/* Content Left */}
                     <AnimateOnScroll variants={slideInLeft} delay={0.15}>
                         <div className="flex flex-col gap-[24px] lg:pr-[32px] order-2 lg:order-1">
-                            <span className="overline-label">Who We Are</span>
+                            <span className="overline-label">{t('label_who')}</span>
                             <blockquote className="pull-quote text-[22px] border-l-4 border-[var(--color-primary-vibrant)] pl-[20px] mb-[32px]">
-                                "Driven by compassion. Rooted in community. Focused on lasting impact."
+                                {t('quote_who')}
                             </blockquote>
                             <p className="body-large text-[var(--color-text-secondary)] mb-[40px]">
-                                Jeanine and Emmanuel Foundation (EF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda. Guided by values of human dignity, integrity, partnership, and equity, we work with vulnerable groups — including people with limited financial resources, women and children in poverty, youth, adolescents, and socially disadvantaged communities — to generate lasting social impact.
+                                {t('desc_who')}
                             </p>
                             <Link href="/about">
                                 <button className="btn-ghost">
-                                    Learn About the Foundation
+                                    {t('btn_about')}
                                 </button>
                             </Link>
                         </div>
@@ -66,7 +68,7 @@ export function MissionSection() {
                         <div className="relative h-[280px] lg:h-[480px] rounded-[12px] overflow-hidden w-full order-1 lg:order-2">
                             <img
                                 src="/bg-3.jpeg"
-                                alt="About Jeanine and Emmanuel Foundation"
+                                alt="About Jeannine and Emmanuel Foundation"
                                 className="w-full h-full object-cover"
                             />
                         </div>

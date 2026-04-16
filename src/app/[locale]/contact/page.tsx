@@ -3,35 +3,37 @@
 import { PageHeader } from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import { Heart, Handshake, Users, Mail, Phone, MapPin } from 'lucide-react';
-
-const intentOptions = [
-    {
-        icon: Heart,
-        title: 'Donate or Fund a Programme',
-        description: 'Support our work in Rusizi District financially.',
-    },
-    {
-        icon: Handshake,
-        title: 'Partner or Collaborate',
-        description: 'Explore institutional or community partnerships.',
-    },
-    {
-        icon: Users,
-        title: 'Volunteer or Get Involved',
-        description: 'Join our growing network of community supporters.',
-    },
-];
+import { useTranslations } from 'next-intl';
 
 export default function ContactPage() {
+    const t = useTranslations('Contact');
+    
+    const intentOptions = [
+        {
+            icon: Heart,
+            title: t('intent1_title'),
+            description: t('intent1_desc'),
+        },
+        {
+            icon: Handshake,
+            title: t('intent2_title'),
+            description: t('intent2_desc'),
+        },
+        {
+            icon: Users,
+            title: t('intent3_title'),
+            description: t('intent3_desc'),
+        },
+    ];
     return (
         <div className="flex flex-col min-h-screen">
-            <PageHeader title="Contact Us" subtitle="Whether you're a potential donor, partner, or volunteer — we'd love to hear from you." />
+            <PageHeader title={t('header_title')} subtitle={t('header_subtitle')} />
 
             {/* Intent Cards */}
             <section className="py-[96px] bg-[var(--color-bg-white)] border-b border-gray-200">
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-[48px]">
-                        <h2 className="h2 text-[var(--color-text-primary)]">How Can We Help You?</h2>
+                        <h2 className="h2 text-[var(--color-text-primary)]">{t('intent_title')}</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-[32px]">
                         {intentOptions.map((option, index) => (
@@ -67,10 +69,10 @@ export default function ContactPage() {
                                 transition={{ duration: 0.8 }}
                                 viewport={{ once: true }}
                             >
-                                <span className="overline-label">Get in Touch</span>
-                                <h2 className="h2 text-[var(--color-text-primary)] mt-2 mb-[24px]">We're Here for You</h2>
+                                <span className="overline-label">{t('info_label')}</span>
+                                <h2 className="h2 text-[var(--color-text-primary)] mt-2 mb-[24px]">{t('info_title')}</h2>
                                 <p className="body-large text-[var(--color-text-secondary)]">
-                                    Have a specific question or want to explore an idea? Use the form to send us a direct message, or reach out using the contact details below. We aim to respond within 48 hours.
+                                    {t('info_desc')}
                                 </p>
                             </motion.div>
 
@@ -86,7 +88,7 @@ export default function ContactPage() {
                                         <Mail size={20} />
                                     </div>
                                     <div>
-                                        <span className="overline-label mb-[4px] block">Email</span>
+                                        <span className="overline-label mb-[4px] block">{t('info_email')}</span>
                                         <a href="mailto:info@emmanuelfoundation.org" className="text-[18px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors">
                                             info@emmanuelfoundation.org
                                         </a>
@@ -97,7 +99,7 @@ export default function ContactPage() {
                                         <Phone size={20} />
                                     </div>
                                     <div>
-                                        <span className="overline-label mb-[4px] block">Phone</span>
+                                        <span className="overline-label mb-[4px] block">{t('info_phone')}</span>
                                         <a href="tel:+250788655112" className="text-[18px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors">
                                             +250 788 655 112
                                         </a>
@@ -108,9 +110,9 @@ export default function ContactPage() {
                                         <MapPin size={20} />
                                     </div>
                                     <div>
-                                        <span className="overline-label mb-[4px] block">Location</span>
+                                        <span className="overline-label mb-[4px] block">{t('info_location')}</span>
                                         <span className="text-[18px] font-medium text-[var(--color-text-primary)]">
-                                            Kigali, Rwanda
+                                            {t('info_location_val')}
                                         </span>
                                     </div>
                                 </div>
@@ -129,47 +131,47 @@ export default function ContactPage() {
                         >
                             <form className="space-y-[32px]">
                                 <div>
-                                    <label htmlFor="fullname" className="overline-label mb-[12px] block">Full Name</label>
+                                    <label htmlFor="fullname" className="overline-label mb-[12px] block">{t('form_name')}</label>
                                     <input
                                         type="text"
                                         id="fullname"
                                         className="input-field"
-                                        placeholder="John Doe"
+                                        placeholder={t('form_name_ph')}
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="overline-label mb-[12px] block">Email Address</label>
+                                    <label htmlFor="email" className="overline-label mb-[12px] block">{t('form_email')}</label>
                                     <input
                                         type="email"
                                         id="email"
                                         className="input-field"
-                                        placeholder="john@example.com"
+                                        placeholder={t('form_email_ph')}
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="subject" className="overline-label mb-[12px] block">Subject</label>
+                                    <label htmlFor="subject" className="overline-label mb-[12px] block">{t('form_subject')}</label>
                                     <select
                                         id="subject"
                                         className="input-field appearance-none cursor-pointer"
                                     >
-                                        <option value="">Select a subject...</option>
-                                        <option value="donation">Donation Inquiry</option>
-                                        <option value="partnership">Partnership</option>
-                                        <option value="volunteering">Volunteering</option>
-                                        <option value="media">Media</option>
-                                        <option value="general">General</option>
+                                        <option value="">{t('form_subject_ph')}</option>
+                                        <option value="donation">{t('form_subject_opt1')}</option>
+                                        <option value="partnership">{t('form_subject_opt2')}</option>
+                                        <option value="volunteering">{t('form_subject_opt3')}</option>
+                                        <option value="media">{t('form_subject_opt4')}</option>
+                                        <option value="general">{t('form_subject_opt5')}</option>
                                     </select>
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="overline-label mb-[12px] block">Your Message</label>
+                                    <label htmlFor="message" className="overline-label mb-[12px] block">{t('form_message')}</label>
                                     <textarea
                                         id="message"
                                         rows={5}
                                         className="input-field h-[160px] resize-none"
-                                        placeholder="How can we help you?"
+                                        placeholder={t('form_message_ph')}
                                     />
                                 </div>
 
@@ -177,7 +179,7 @@ export default function ContactPage() {
                                     type="submit"
                                     className="btn-primary w-full"
                                 >
-                                    Send Message
+                                    {t('form_btn')}
                                 </button>
                             </form>
                         </motion.div>

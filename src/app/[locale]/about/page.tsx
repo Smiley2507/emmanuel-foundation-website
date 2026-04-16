@@ -5,39 +5,42 @@ import { motion } from 'framer-motion';
 import { Target, Eye, Heart, Shield, Leaf, Users } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { TeamSection } from '@/components/about/TeamSection';
-
-const values = [
-    {
-        icon: Heart,
-        title: 'Integrity & Accountability',
-        description: 'We act with transparency, responsibility, and ethical integrity in all our programmes, partnerships, and resource use.',
-    },
-    {
-        icon: Users,
-        title: 'Human Dignity',
-        description: 'We place people at the heart of our work, promoting compassion, respect, and dignity for all individuals and communities we serve.',
-    },
-    {
-        icon: Target,
-        title: 'Social Responsibility',
-        description: 'We are committed to positive social impact by acting responsibly, promoting ethical practices, and contributing to community well‑being.',
-    },
-    {
-        icon: Shield,
-        title: 'Partnership & Collaboration',
-        description: 'We work closely with communities, institutions, and development partners to deliver inclusive and locally driven solutions.',
-    },
-    {
-        icon: Leaf,
-        title: 'Equity & Inclusion',
-        description: 'We ensure equal opportunities and meaningful participation for all, with special focus on women, youth, children, and vulnerable groups.',
-    }
-];
+import { useTranslations } from 'next-intl';
 
 export default function AboutPage() {
+    const t = useTranslations('About');
+    
+    const values = [
+        {
+            icon: Heart,
+            title: t('v1_title'),
+            description: t('v1_desc'),
+        },
+        {
+            icon: Users,
+            title: t('v2_title'),
+            description: t('v2_desc'),
+        },
+        {
+            icon: Target,
+            title: t('v3_title'),
+            description: t('v3_desc'),
+        },
+        {
+            icon: Shield,
+            title: t('v4_title'),
+            description: t('v4_desc'),
+        },
+        {
+            icon: Leaf,
+            title: t('v5_title'),
+            description: t('v5_desc'),
+        }
+    ];
+
     return (
         <div className="flex flex-col min-h-screen">
-            <PageHeader title="About Us" subtitle="Driven by compassion. Rooted in community. Focused on lasting impact." />
+            <PageHeader title={t('header_title')} subtitle={t('header_subtitle')} />
 
             {/* Who We Are - Split Layout */}
             <section className="bg-[var(--color-bg-white)]">
@@ -57,19 +60,19 @@ export default function AboutPage() {
                                 transition={{ duration: 0.8 }}
                                 viewport={{ once: true }}
                             >
-                                <span className="overline-label">Who We Are</span>
+                                <span className="overline-label">{t('who_label')}</span>
                                 <h2 className="h2 mb-[24px] text-[var(--color-text-primary)]">
-                                    A foundation built on compassion, action, and impact.
+                                    {t('who_title')}
                                 </h2>
                                 <div className="body-large text-[var(--color-text-secondary)] space-y-[24px]">
                                     <p>
-                                        Jeanine and Emmanuel Foundation (EF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda.
+                                        {t('who_desc1')}
                                     </p>
                                     <p>
-                                        Guided by values of human dignity, integrity, partnership and collaboration, social responsibility, and equity & inclusion, the Foundation works with vulnerable groups, including people with limited financial resources, women and children in poverty, youth, adolescents, and other socially disadvantaged groups.
+                                        {t('who_desc2')}
                                     </p>
                                     <p>
-                                        EF carries out activities in humanitarian support, environmental conservation, water resource management, education and vocational training, and community well-being initiatives, including sports, nutrition, and hygiene awareness. The Foundation collaborates with public institutions, private-sector partners, civil society, and community groups to implement projects that generate lasting social impact and contribute directly to Rwanda's development goals.
+                                        {t('who_desc3')}
                                     </p>
                                 </div>
                             </motion.div>
@@ -94,9 +97,9 @@ export default function AboutPage() {
                             <div className="w-[64px] h-[64px] bg-[var(--color-primary-light)] rounded-[var(--radius-ui)] flex items-center justify-center mb-[24px] text-[var(--color-primary-vibrant)]">
                                 <Target size={32} />
                             </div>
-                            <h3 className="h3 mb-[16px] text-[var(--color-text-primary)]">Our Mission</h3>
+                            <h3 className="h3 mb-[16px] text-[var(--color-text-primary)]">{t('mission_title')}</h3>
                             <p className="body-large text-[var(--color-text-secondary)]">
-                                To promote the well-being of communities, protect the environment, and support sustainable development.
+                                {t('mission_desc')}
                             </p>
                         </motion.div>
 
@@ -110,9 +113,9 @@ export default function AboutPage() {
                             <div className="w-[64px] h-[64px] bg-[var(--color-primary-light)] rounded-[var(--radius-ui)] flex items-center justify-center mb-[24px] text-[var(--color-primary-vibrant)]">
                                 <Eye size={32} />
                             </div>
-                            <h3 className="h3 mb-[16px] text-[var(--color-text-primary)]">Our Vision</h3>
+                            <h3 className="h3 mb-[16px] text-[var(--color-text-primary)]">{t('vision_title')}</h3>
                             <p className="body-large text-[var(--color-text-secondary)]">
-                                A healthy, empowered, and environmentally responsible society where all people, especially the most vulnerable, have the opportunity to thrive and contribute to sustainable development.
+                                {t('vision_desc')}
                             </p>
                         </motion.div>
                     </div>
@@ -124,8 +127,8 @@ export default function AboutPage() {
                 <div className="bg-blob bg-blob-accent top-[20%] right-[10%] w-[600px] h-[600px] opacity-20" />
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <div className="mb-[64px]">
-                        <span className="overline-label">Core Principles</span>
-                        <h2 className="h2 text-[var(--color-text-primary)] mt-2">Our Values</h2>
+                        <span className="overline-label">{t('values_label')}</span>
+                        <h2 className="h2 text-[var(--color-text-primary)] mt-2">{t('values_title')}</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-[32px] text-left">
@@ -169,12 +172,12 @@ export default function AboutPage() {
                                 transition={{ duration: 0.8 }}
                                 viewport={{ once: true }}
                             >
-                                <span className="overline-label">Why We Exist</span>
+                                <span className="overline-label">{t('exist_label')}</span>
                                 <h2 className="h2 mb-[24px] text-[var(--color-text-primary)]">
-                                    Addressing Today's Challenges with Tomorrow's Solutions
+                                    {t('exist_title')}
                                 </h2>
                                 <p className="body-large text-[var(--color-text-secondary)]">
-                                    Communities across Rwanda — particularly in areas like Rusizi District — face overlapping challenges: environmental degradation, water stress, limited educational and economic opportunities, and insufficient social protection for the most vulnerable. Jeanine and Emmanuel Foundation was created not to offer temporary relief, but to build lasting systems that empower communities to sustain their own progress long after our programmes conclude.
+                                    {t('exist_desc')}
                                 </p>
                             </motion.div>
                         </div>
@@ -193,17 +196,17 @@ export default function AboutPage() {
                                 transition={{ duration: 0.8 }}
                                 viewport={{ once: true }}
                             >
-                                <span className="overline-label">Our Approach</span>
+                                <span className="overline-label">{t('approach_label')}</span>
                                 <h2 className="h2 mb-[24px] text-[var(--color-text-primary)]">
-                                    Community-First, Sustainability-Driven
+                                    {t('approach_title')}
                                 </h2>
                                 <ul className="space-y-[16px]">
                                     {[
-                                        'Bottom-up solutions — We design programs with communities, not just for them.',
-                                        'Holistic sustainability — Every intervention is designed to create lasting change, not dependency.',
-                                        'Protecting the vulnerable — Women, children, youth, and the elderly are at the center of all we do.',
-                                        'Gender equality — We actively promote women’s participation and leadership in all programs.',
-                                        'Inclusive management — Local voices shape how programs are run and measured.'
+                                        t('approach_item1'),
+                                        t('approach_item2'),
+                                        t('approach_item3'),
+                                        t('approach_item4'),
+                                        t('approach_item5')
                                     ].map((item) => (
                                         <li key={item} className="flex items-start text-[16px] text-[var(--color-text-secondary)] font-medium">
                                             <div className="w-[8px] h-[8px] mt-[8px] rounded-full bg-[var(--color-primary-vibrant)] shrink-0 mr-[16px]" />
@@ -228,14 +231,14 @@ export default function AboutPage() {
             <section className="py-[96px] bg-[var(--color-primary)] relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="relative z-10 max-w-[800px] mx-auto px-4 text-center text-white space-y-[40px]">
-                    <h2 className="h2 pb-4">Be Part of Our Foundation</h2>
+                    <h2 className="h2 pb-4">{t('cta_title')}</h2>
                     <p className="body-large text-white/85">
-                        Jeanine and Emmanuel Foundation is at the beginning of its journey. Your early support — financial or otherwise — directly shapes what we are able to build. Join us now, when your contribution has the most impact.
+                        {t('cta_desc')}
                     </p>
                     <div>
                         <Link href="/donate">
                             <button className="btn-inverse">
-                                Support Us Today
+                                {t('cta_btn')}
                             </button>
                         </Link>
                     </div>

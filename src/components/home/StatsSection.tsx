@@ -4,15 +4,18 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { staggerContainer, fadeUp } from '@/lib/animations';
 import { CountUp } from '@/components/CountUp';
 import { useRef } from 'react';
-
-const stats = [
-    { value: 7, label: 'Active Programmes' },
-    { value: 12000, suffix: '+', label: 'Targeted beneficiaries' },
-    { value: 24, suffix: ' months', label: 'Duration of first project' },
-    { value: 2024, prefix: 'Est. ', label: 'Founded in Rwanda' },
-];
+import { useTranslations } from 'next-intl';
 
 export default function StatsSection() {
+    const t = useTranslations('Stats');
+    
+    const stats = [
+        { value: 7, label: t('stat1_label') },
+        { value: 12000, suffix: '+', label: t('stat2_label') },
+        { value: 24, suffix: ' months', label: t('stat3_label') },
+        { value: 2024, prefix: t('stat4_prefix'), label: t('stat4_label') },
+    ];
+
     const sectionRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
