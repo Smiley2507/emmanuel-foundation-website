@@ -4,31 +4,34 @@ import { motion } from 'framer-motion';
 import { Heart, Leaf, GraduationCap, Droplets } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { staggerContainer, scaleIn } from '@/lib/animations';
-
-const focusAreas = [
-    {
-        title: "Community & Social Protection",
-        description: "Supporting vulnerable groups — teen mothers, the elderly, and low-income households — through humanitarian support, capacity-building, and livelihood initiatives.",
-        icon: Heart,
-    },
-    {
-        title: "Environmental Protection",
-        description: "Protecting Rwanda's rivers, wetlands, and ecosystems through tree planting, buffer zone conservation, and community-led climate awareness.",
-        icon: Leaf,
-    },
-    {
-        title: "Education & Vocational Training",
-        description: "Expanding access to education and practical skills for youth and disadvantaged groups through scholarships, mentorship, and partnerships with training institutions.",
-        icon: GraduationCap,
-    },
-    {
-        title: "Water & Community Resilience",
-        description: "Protecting and sustainably managing water resources through community water projects, conservation training, and safe water access support.",
-        icon: Droplets,
-    }
-];
+import { useTranslations } from 'next-intl';
 
 export function FocusAreas() {
+    const t = useTranslations('FocusAreas');
+    
+    const focusAreas = [
+        {
+            title: t('area1_title'),
+            description: t('area1_desc'),
+            icon: Heart,
+        },
+        {
+            title: t('area2_title'),
+            description: t('area2_desc'),
+            icon: Leaf,
+        },
+        {
+            title: t('area3_title'),
+            description: t('area3_desc'),
+            icon: GraduationCap,
+        },
+        {
+            title: t('area4_title'),
+            description: t('area4_desc'),
+            icon: Droplets,
+        }
+    ];
+
     return (
         <section className="py-[96px] bg-[var(--color-bg-white)]">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -39,8 +42,8 @@ export function FocusAreas() {
                     viewport={{ once: true, margin: '-40px' }}
                     className="mb-[64px]"
                 >
-                    <span className="overline-label">Our Pillars</span>
-                    <h2 className="h2 text-[var(--color-text-primary)] mt-2">What We Stand For</h2>
+                    <span className="overline-label">{t('top_label')}</span>
+                    <h2 className="h2 text-[var(--color-text-primary)] mt-2">{t('top_title')}</h2>
                 </motion.div>
 
                 <motion.div 

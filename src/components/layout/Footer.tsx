@@ -6,7 +6,7 @@ import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 
 export default function Footer() {
-    const t = useTranslations('Navigation');
+    const t = useTranslations('Footer');
     const pathname = usePathname();
     const currentLocale = useLocale();
 
@@ -17,23 +17,23 @@ export default function Footer() {
                 <div className="mb-20 bg-white/5 border border-white/10 rounded-[var(--radius-ui)] p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 right-0 -mr-24 -mt-24 w-72 h-72 bg-[var(--color-primary-vibrant)] rounded-full blur-[100px] opacity-40 pointer-events-none" />
                     <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-72 h-72 bg-[var(--color-primary)] rounded-full blur-[100px] opacity-30 pointer-events-none" />
-                    
+
                     <div className="relative z-10 max-w-xl text-center lg:text-left">
-                        <h3 className="h3 text-white mb-2 font-fraunces">Join Our Movement</h3>
+                        <h3 className="h3 text-white mb-2 font-fraunces">{t('newsletter_title')}</h3>
                         <p className="body-base text-white/70">
-                            Subscribe to our newsletter to receive updates on our programmes, impact stories, and opportunities to support communities across Rwanda.
+                            {t('newsletter_desc')}
                         </p>
                     </div>
                     <div className="relative z-10 w-full lg:w-auto flex-1 max-w-md">
                         <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
-                            <input 
-                                type="email" 
-                                placeholder="Your email address" 
+                            <input
+                                type="email"
+                                placeholder={t('newsletter_placeholder')}
                                 className="w-full px-5 py-4 bg-white/10 border border-white/10 rounded-[8px] text-white placeholder:text-white/40 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all"
                                 required
                             />
                             <button type="submit" className="bg-white text-[var(--color-primary-dark)] px-8 py-4 rounded-[8px] font-bold hover:bg-white/90 transition-all shrink-0 shadow-lg shadow-white/10">
-                                Subscribe
+                                {t('newsletter_btn')}
                             </button>
                         </form>
                     </div>
@@ -45,30 +45,30 @@ export default function Footer() {
                         <Link href="/" className="inline-block">
                             <img
                                 src="/logov3.png"
-                                alt="Jeanine and Emmanuel Foundation"
-                                className="h-12 w-auto" 
+                                alt="Jeannine and Emmanuel Foundation"
+                                className="h-12 w-auto"
                             />
                         </Link>
                         <p className="text-[15px] text-[#a1a1a1] leading-relaxed">
-                            Dedicated to improving social wellbeing and safeguarding the environment for present and future generations in Rwanda. Our work protects the vulnerable and builds lasting independence.
+                            {t('about_desc')}
                         </p>
                         <Link href="/donate" className="inline-block pt-2">
                             <button className="btn-inverse text-sm !px-6 !py-3">
-                                Donate Now
+                                {t('btn_donate')}
                             </button>
                         </Link>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="h4 !text-[14px] uppercase tracking-widest mb-6 opacity-90">Quick Links</h4>
+                        <h4 className="h4 !text-[14px] uppercase tracking-widest mb-6 opacity-90">{t('quick_links')}</h4>
                         <ul className="space-y-3">
                             {[
-                                { name: 'Home', href: '/' },
-                                { name: 'About Us', href: '/about' },
-                                { name: 'Programs', href: '/projects' },
-                                { name: 'Stories & Updates', href: '/blog' },
-                                { name: 'Contact', href: '/contact' }
+                                { name: t('link_home'), href: '/' },
+                                { name: t('link_about'), href: '/about' },
+                                { name: t('link_programs'), href: '/projects' },
+                                { name: t('link_stories'), href: '/blog' },
+                                { name: t('link_contact'), href: '/contact' }
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link
@@ -84,13 +84,13 @@ export default function Footer() {
 
                     {/* Support Us */}
                     <div>
-                        <h4 className="text-[14px] font-bold uppercase tracking-widest mb-6 opacity-90">Support Us</h4>
+                        <h4 className="text-[14px] font-bold uppercase tracking-widest mb-6 opacity-90">{t('support_us')}</h4>
                         <ul className="space-y-3">
                             {[
-                                { name: 'Donate', href: '/donate' },
-                                { name: 'Volunteer', href: '/contact' },
-                                { name: 'Partnerships', href: '/contact' },
-                                { name: 'Work with us', href: '/contact' }
+                                { name: t('link_support_donate'), href: '/donate' },
+                                { name: t('link_volunteer'), href: '/contact' },
+                                { name: t('link_partnerships'), href: '/contact' },
+                                { name: t('link_work'), href: '/contact' }
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link
@@ -106,9 +106,9 @@ export default function Footer() {
 
                     {/* Connect Info */}
                     <div>
-                        <h4 className="text-[14px] font-bold uppercase tracking-widest mb-6 opacity-90">Connect</h4>
+                        <h4 className="text-[14px] font-bold uppercase tracking-widest mb-6 opacity-90">{t('connect')}</h4>
                         <p className="text-[#a1a1a1] text-[15px] mb-4">
-                            Kigali, Rwanda<br />
+                            {t('connect_location')}<br />
                             <a href="mailto:info@emmanuelfoundation.org" className="hover:text-white transition-colors mt-2 inline-block">
                                 info@emmanuelfoundation.org
                             </a>
@@ -118,11 +118,11 @@ export default function Footer() {
 
                 <div className="mt-20 pt-6 border-t border-[rgba(255,255,255,0.1)] flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-[13px] text-white/50">
-                        © {new Date().getFullYear()} Jeanine and Emmanuel Foundation. All rights reserved.
+                        {t('rights', { year: new Date().getFullYear() })}
                     </p>
                     <div className="flex items-center space-x-6 text-[13px] text-white/50">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+                        <Link href="#" className="hover:text-white transition-colors">{t('policy')}</Link>
+                        <Link href="#" className="hover:text-white transition-colors">{t('terms')}</Link>
                         <div className="flex items-center space-x-2 border-l border-[rgba(255,255,255,0.2)] pl-6 ml-2">
                             {routing.locales.map((l, idx) => (
                                 <div key={l} className="flex items-center">

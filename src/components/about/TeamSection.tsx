@@ -2,59 +2,61 @@
 
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeUp } from '@/lib/animations';
-
-const teamMembers = [
-    {
-        name: 'Emmanuel NGENDAHAYO',
-        role: 'Founder & Guardian',
-        place: 'Founder & Guardian',
-        image: '/emanuel.png',
-    },
-    {
-        name: 'Dr. Marie Solange UWINEZA',
-        role: 'President',
-        place: 'Founding Council',
-        image: '/solange.jpeg',
-    },
-    {
-        name: 'Abbee Maurice TUYIZERE',
-        role: 'Vice President',
-        place: 'Founding Council',
-        image: '/maurice.jpeg',
-    },
-    {
-        name: 'Pie UKURIKIYIMFURA',
-        role: 'Treasurer',
-        place: 'Founding Council',
-        image: '/pie.jpeg',
-    },
-    {
-        name: 'Valerie ISHIMWE',
-        role: 'Secretary',
-        place: 'Founding Council',
-        image: '/valerie.jpeg',
-    },
-    {
-        name: 'Poliphile NIZEYIMANA',
-        role: 'Advisor',
-        place: 'Founding Council',
-        image: '/poliphile.jpeg',
-    },
-    {
-        name: 'Janvier SINDIKUBWABO',
-        role: 'Executive Secretary',
-        place: 'Executive Secretary',
-        image: '/janvier.jpeg',
-    },
-];
+import { useTranslations } from 'next-intl';
 
 export function TeamSection() {
+    const t = useTranslations('Team');
+    
+    const teamMembers = [
+        {
+            name: 'Emmanuel NGENDAHAYO',
+            role: t('role_founder'),
+            place: t('council_guardian'),
+            image: '/emanuel.png',
+        },
+        {
+            name: 'Dr. Marie Solange UWINEZA',
+            role: t('role_president'),
+            place: t('council_founding'),
+            image: '/solange.jpeg',
+        },
+        {
+            name: 'Abbee Maurice TUYIZERE',
+            role: t('role_vp'),
+            place: t('council_founding'),
+            image: '/maurice.jpeg',
+        },
+        {
+            name: 'Pie UKURIKIYIMFURA',
+            role: t('role_treasurer'),
+            place: t('council_founding'),
+            image: '/pie.jpeg',
+        },
+        {
+            name: 'Valerie ISHIMWE',
+            role: t('role_secretary'),
+            place: t('council_founding'),
+            image: '/valerie.jpeg',
+        },
+        {
+            name: 'Poliphile NIZEYIMANA',
+            role: t('role_advisor'),
+            place: t('council_founding'),
+            image: '/poliphile.jpeg',
+        },
+        {
+            name: 'Janvier SINDIKUBWABO',
+            role: t('role_exec_sec'),
+            place: t('council_exec'),
+            image: '/janvier.jpeg',
+        },
+    ];
     return (
         <section className="py-[96px] bg-[var(--color-bg-white)]">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-[64px]">
-                    <span className="overline-label">Our People</span>
-                    <h2 className="h2 text-[var(--color-text-primary)] mt-2">Meet the Team</h2>
+                    <span className="overline-label">{t('label')}</span>
+                    <h2 className="h2 text-[var(--color-text-primary)] mt-2">{t('title')}</h2>
                 </div>
 
                 <motion.div 

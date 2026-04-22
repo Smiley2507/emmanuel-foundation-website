@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { staggerContainer, fadeUp } from '@/lib/animations';
+import { useTranslations } from 'next-intl';
 
 export default function HeroSlideshow() {
+    const t = useTranslations('Hero');
     return (
         <section className="relative min-h-[100dvh] md:min-h-[90vh] w-full overflow-hidden flex items-center pt-28 pb-20">
             <motion.div
@@ -16,7 +18,7 @@ export default function HeroSlideshow() {
             >
                 <img
                     src="/bg-1.jpeg"
-                    alt="Jeanine and Emmanuel Foundation Community"
+                    alt="Jeannine and Emmanuel Foundation Community"
                     className="h-full w-full object-cover"
                     loading="eager"
                 />
@@ -33,30 +35,30 @@ export default function HeroSlideshow() {
                     variants={staggerContainer}
                     className="flex flex-col items-start w-full max-w-[640px]"
                 >
-                    <motion.span 
+                    <motion.span
                         variants={fadeUp}
                         className="text-[10px] sm:text-[12px] font-bold tracking-[0.15em] uppercase mb-[8px] sm:mb-[12px] text-white/90"
                     >
-                        Jeanine and Emmanuel Foundation · Rusizi, Rwanda
+                        {t('subtitle')}
                     </motion.span>
 
-                    <motion.h1 variants={fadeUp} className="h1 text-white mb-4 sm:mb-6 max-w-[580px] text-balance">
-                        Driven by Compassion. Empowering Communities. Creating Lasting Impact.
+                    <motion.h1 variants={fadeUp} className="h2 text-white mb-4 sm:mb-6 max-w-[580px] text-balance">
+                        {t('title')}
                     </motion.h1>
 
                     <motion.p variants={fadeUp} className="text-[16px] sm:text-[18px] text-white/85 font-sans leading-relaxed mb-8 sm:mb-10 text-balance">
-                        We work with Rwanda's most vulnerable communities — protecting the environment, strengthening livelihoods, and building a more equitable future.
+                        {t('description')}
                     </motion.p>
 
                     <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                         <Link href="/donate" className="w-full sm:w-auto">
                             <button className="btn-inverse w-full flex justify-center !text-[15px]">
-                                Donate Now
+                                {t('btn_donate')}
                             </button>
                         </Link>
                         <Link href="/projects" className="w-full sm:w-auto">
                             <button className="btn-ghost !border-white !text-white hover:!bg-white hover:!text-[var(--color-primary)] w-full flex justify-center !text-[15px]">
-                                See Our Work
+                                {t('btn_work')}
                             </button>
                         </Link>
                     </motion.div>

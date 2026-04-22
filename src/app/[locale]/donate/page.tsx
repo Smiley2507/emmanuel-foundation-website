@@ -4,20 +4,22 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Heart, Shield, CheckCircle, Clock } from 'lucide-react';
-
-const presetAmounts = [25, 50, 100, 250, 500];
-
-const equivalencies = [
-    { amount: '$25', impact: 'Supports a family\'s hygiene kit for one month' },
-    { amount: '$50', impact: 'Plants 50 trees in Rusizi District' },
-    { amount: '$100', impact: 'Sponsors one youth vocational training session' },
-    { amount: '$500', impact: 'Funds one community health outreach day' },
-];
+import { useTranslations } from 'next-intl';
 
 export default function DonatePage() {
+    const t = useTranslations('Donate');
     const [selectedAmount, setSelectedAmount] = useState<number | null>(50);
     const [customAmount, setCustomAmount] = useState('');
     const [email, setEmail] = useState('');
+
+    const presetAmounts = [25, 50, 100, 250, 500];
+
+    const equivalencies = [
+        { amount: '$25', impact: t('equiv1_val', { fallback: 'Supports a family\'s hygiene kit for one month' }) },
+        { amount: '$50', impact: t('equiv2_val', { fallback: 'Plants 50 trees in Rusizi District' }) },
+        { amount: '$100', impact: t('equiv3_val', { fallback: 'Sponsors one youth vocational training session' }) },
+        { amount: '$500', impact: t('equiv4_val', { fallback: 'Funds one community health outreach day' }) },
+    ];
 
     const handleAmountSelect = (amount: number) => {
         setSelectedAmount(amount);
@@ -38,7 +40,7 @@ export default function DonatePage() {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <PageHeader title="Donate" subtitle="Every contribution builds something real." />
+            <PageHeader title={t('header_title')} subtitle={t('header_subtitle')} />
 
             <section className="bg-[var(--color-bg-light)]">
                 <div className="flex flex-col xl:flex-row min-h-[800px]">
@@ -58,22 +60,22 @@ export default function DonatePage() {
                         <div className="relative z-10 max-w-[600px] text-white space-y-[40px]">
                             <div className="inline-flex items-center space-x-[12px] bg-white/10 px-[24px] py-[12px] rounded-full border border-white/20">
                                 <Heart className="text-[var(--color-primary-accent)]" size={24} />
-                                <span className="text-white font-serif font-bold text-[18px]">Make an Impact Today</span>
+                                <span className="text-white font-serif font-bold text-[18px]">{t('impact_label')}</span>
                             </div>
 
                             <h2 className="h1 text-white">
-                                Every Contribution Builds Something Real
+                                {t('impact_title')}
                             </h2>
 
                             <p className="body-large text-white/90">
-                                Jeanine and Emmanuel Foundation is at the start of its journey. Your donation directly funds our first integrated programme in Rusizi District — reaching over 12,000 people through environmental conservation, community health, education, and water resilience initiatives. Early supporters like you are the reason this work begins.
+                                {t('impact_desc')}
                             </p>
 
                             <div className="space-y-[32px] pt-[24px]">
                                 {[
-                                    { icon: Shield, title: 'Secure & Private', text: 'All transactions are encrypted and processed by Stripe.' },
-                                    { icon: Heart, title: 'Direct Impact', text: '100% of your donation goes directly to our local programmes.' },
-                                    { icon: Clock, title: 'Recurring Options', text: 'Support our long-term sustainability with monthly gifts.' }
+                                    { icon: Shield, title: t('feat1_title'), text: t('feat1_desc') },
+                                    { icon: Heart, title: t('feat2_title'), text: t('feat2_desc') },
+                                    { icon: Clock, title: t('feat3_title'), text: t('feat3_desc') }
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-[20px]">
                                         <div className="w-[48px] h-[48px] bg-white/10 backdrop-blur-sm rounded-[var(--radius-ui)] flex items-center justify-center flex-shrink-0 text-white border border-white/20">
@@ -99,7 +101,7 @@ export default function DonatePage() {
                         >
                             <form onSubmit={handleSubmit} className="space-y-[40px]">
                                 <div>
-                                    <h3 className="h3 text-[var(--color-text-primary)] mb-[24px]">Choose an amount</h3>
+                                    <h3 className="h3 text-[var(--color-text-primary)] mb-[24px]">{t('form_title')}</h3>
                                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-[16px]">
                                         {presetAmounts.map((amount) => (
                                             <button
@@ -120,7 +122,7 @@ export default function DonatePage() {
 
                                 <div>
                                     <label htmlFor="customAmount" className="overline-label mb-[12px] block text-[var(--color-text-secondary)]">
-                                        Enter your own Amount
+                                        {t('form_custom_label')}
                                     </label>
                                     <div className="relative">
                                         <span className="absolute left-[24px] top-1/2 -translate-y-1/2 text-[18px] font-bold text-gray-500">$</span>
@@ -130,7 +132,7 @@ export default function DonatePage() {
                                             value={customAmount}
                                             onChange={(e) => handleCustomAmountChange(e.target.value)}
                                             className="w-full pl-[52px] pr-[24px] py-[16px] rounded-[var(--radius-ui)] bg-[var(--color-bg-white)] border-2 border-gray-200 focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[18px] font-bold placeholder:font-medium placeholder:text-gray-400 text-[var(--color-text-primary)] shadow-sm"
-                                            placeholder="Enter amount"
+                                            placeholder={t('form_custom_ph')}
                                             min="1"
                                         />
                                     </div>
@@ -138,7 +140,7 @@ export default function DonatePage() {
 
                                 <div>
                                     <label htmlFor="email" className="overline-label mb-[12px] block">
-                                        Enter your email address
+                                        {t('form_email_label')}
                                     </label>
                                     <input
                                         type="email"
@@ -147,7 +149,7 @@ export default function DonatePage() {
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
                                         className="w-full px-[24px] py-[16px] rounded-[8px] bg-[var(--color-bg-light)] border-2 border-transparent focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[18px] font-medium placeholder:text-gray-400 text-[var(--color-text-primary)]"
-                                        placeholder="your.email@example.com"
+                                        placeholder={t('form_email_ph')}
                                     />
                                 </div>
 
@@ -156,16 +158,16 @@ export default function DonatePage() {
                                     disabled={!email || (!selectedAmount && !customAmount)}
                                     className="btn-primary w-full py-[20px] text-[20px] disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    Continue to Donate
+                                    {t('form_btn')}
                                 </button>
 
                                 {/* Trust Block */}
                                 <div className="border-t border-gray-200 pt-[24px] space-y-[12px]">
                                     {[
-                                        'Secure payment processed by Stripe',
-                                        'Donations accepted in USD — international donors may easily process payments through their local banks',
-                                        'Jeanine and Emmanuel Foundation is a registered public-interest foundation in Rwanda',
-                                        'Questions? Write to us before donating — we\'re happy to answer',
+                                        t('trust1'),
+                                        t('trust2'),
+                                        t('trust3'),
+                                        t('trust4')
                                     ].map((item) => (
                                         <div key={item} className="flex items-start gap-[8px] text-[14px] text-[var(--color-text-secondary)] font-medium">
                                             <CheckCircle size={16} className="text-[var(--color-primary)] mt-[2px] shrink-0" />
@@ -184,8 +186,8 @@ export default function DonatePage() {
             <section className="py-[96px] bg-[var(--color-bg-white)]">
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-[64px]">
-                        <span className="overline-label">Your Impact</span>
-                        <h2 className="h2 text-[var(--color-text-primary)] mt-2">Where Your Support Goes</h2>
+                        <span className="overline-label">{t('where_label')}</span>
+                        <h2 className="h2 text-[var(--color-text-primary)] mt-2">{t('where_title')}</h2>
                     </div>
 
                     <motion.div
@@ -199,10 +201,10 @@ export default function DonatePage() {
                             <Shield className="text-[var(--color-primary-vibrant)]" size={40} />
                         </div>
                         <p className="body-large text-[var(--color-text-secondary)]">
-                            We are finalising our programme budget for Rusizi District. As soon as it is confirmed, we will publish a complete, transparent breakdown of how donations are allocated. In the meantime, all funds received are held in trust for programme activities.
+                            {t('where_desc')}
                         </p>
                         <p className="mt-[24px] text-[16px] text-gray-500 font-medium tracking-wide">
-                            Have questions? Contact us at <span className="text-[var(--color-primary)] font-bold">info@emmanuelfoundation.org</span>
+                            {t('where_contact', { email: 'info@emmanuelfoundation.org' })}
                         </p>
                     </motion.div>
                 </div>

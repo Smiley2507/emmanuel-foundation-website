@@ -22,8 +22,8 @@ const fraunces = Fraunces({
 
 
 export const metadata: Metadata = {
-  title: "Jeanine and Emmanuel Foundation | Empowering Communities Across Rwanda",
-  description: "Jeanine and Emmanuel Foundation works with vulnerable communities across Rwanda — protecting the environment, strengthening livelihoods, and building a more equitable future.",
+  title: "Jeannine and Emmanuel Foundation | Empowering Communities Across Rwanda",
+  description: "Jeannine and Emmanuel Foundation works with vulnerable communities across Rwanda — protecting the environment, strengthening livelihoods, and building a more equitable future.",
   icons: {
     icon: '/Vector.png',
   },

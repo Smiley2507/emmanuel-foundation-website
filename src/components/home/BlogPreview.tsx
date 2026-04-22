@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from '@/lib/navigation';
 import { urlFor } from '@/sanity/lib/image';
 import { staggerContainer, fadeUp } from '@/lib/animations';
+import { useTranslations } from 'next-intl';
 
 interface Post {
     title: string;
@@ -21,6 +22,7 @@ interface BlogPreviewProps {
 }
 
 export function BlogPreview({ posts }: BlogPreviewProps) {
+    const t = useTranslations('BlogPreview');
     const realPosts = posts.filter(
         (post) => !post.title.toLowerCase().includes('test') && !post.title.toLowerCase().includes('lorem')
     ).slice(0, 3);
@@ -30,7 +32,7 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
         if (post.body && post.body[0] && post.body[0].children && post.body[0].children[0]) {
             return post.body[0].children[0].text.substring(0, 150) + '...';
         }
-        return 'Read the full story to learn more about our latest updates.';
+        return t('default_excerpt');
     };
 
     if (realPosts.length === 0) return null;
@@ -46,9 +48,9 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <span className="overline-label">Latest Updates</span>
+                        <span className="overline-label">{t('label')}</span>
                         <h2 className="h2 text-[var(--color-text-primary)] mt-2">
-                            News &amp; Stories
+                            {t('title')}
                         </h2>
                     </motion.div>
 
@@ -60,7 +62,7 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
                     >
                         <Link href="/blog">
                             <button className="btn-ghost">
-                                View News
+                                {t('btn_view')}
                             </button>
                         </Link>
                     </motion.div>

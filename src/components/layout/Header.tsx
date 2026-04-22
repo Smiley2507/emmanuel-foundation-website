@@ -45,92 +45,92 @@ export default function Header() {
 
     return (
         <>
-            <header 
+            <header
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 h-[64px] md:h-[72px] transition-all duration-300",
-                isTransparent 
-                    ? "bg-transparent" 
-                    : "bg-white/85 shadow-md backdrop-blur-md"
-            )}
-        >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-                <div className="flex justify-between items-center h-full">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center group">
-                        <img
-                            src={isTransparent ? "/logov3.png" : "/logov3-black.png"}
-                            alt="Jeanine and Emmanuel Foundation"
-                            className={cn(
-                                "h-8 sm:h-10 w-auto max-w-[60vw] sm:max-w-none object-contain transition-all",
-                                isTransparent ? "brightness-0 invert" : ""
-                            )}
-                        />
-                    </Link>
+                    isTransparent
+                        ? "bg-transparent"
+                        : "bg-white/85 shadow-md backdrop-blur-md"
+                )}
+            >
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+                    <div className="flex justify-between items-center h-full">
+                        {/* Logo */}
+                        <Link href="/" className="flex items-center group">
+                            <img
+                                src={isTransparent ? "/logov3.png" : "/logov3-black.png"}
+                                alt="Jeannine and Emmanuel Foundation"
+                                className={cn(
+                                    "h-8 sm:h-10 w-auto max-w-[60vw] sm:max-w-none object-contain transition-all",
+                                    isTransparent ? "brightness-0 invert" : ""
+                                )}
+                            />
+                        </Link>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center">
-                        <nav className="flex items-center space-x-[32px]">
-                            {navItems.map((item) => {
-                                const isActive = pathname === item.href;
-                                return (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        className={cn(
-                                            "font-sans text-[15px] font-medium transition-colors h-[72px] flex items-center border-b-2",
-                                            isActive 
-                                                ? (isTransparent ? "text-white border-white" : "text-[var(--color-text-primary)] border-[var(--color-primary)]")
-                                                : (isTransparent ? "text-white/80 border-transparent hover:text-white" : "text-[var(--color-text-secondary)] border-transparent hover:text-[var(--color-primary)]")
-                                        )}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                );
-                            })}
-                        </nav>
+                        {/* Desktop Navigation */}
+                        <div className="hidden md:flex items-center">
+                            <nav className="flex items-center space-x-[32px]">
+                                {navItems.map((item) => {
+                                    const isActive = pathname === item.href;
+                                    return (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            className={cn(
+                                                "font-sans text-[15px] font-medium transition-colors h-[72px] flex items-center border-b-2",
+                                                isActive
+                                                    ? (isTransparent ? "text-white border-white" : "text-[var(--color-text-primary)] border-[var(--color-primary)]")
+                                                    : (isTransparent ? "text-white/80 border-transparent hover:text-white" : "text-[var(--color-text-secondary)] border-transparent hover:text-[var(--color-primary)]")
+                                            )}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    );
+                                })}
+                            </nav>
 
-                        {/* Language Switcher */}
-                        <div className={cn("flex items-center space-x-2 border-l ml-[32px] pl-[32px] transition-colors", isTransparent ? "border-white/30" : "border-[var(--color-border)]")}>
-                            {routing.locales.map((l, idx) => (
-                                <div key={l} className="flex items-center">
-                                    <Link
-                                        href={pathname}
-                                        locale={l}
-                                        className={cn(
-                                            "text-[13px] transition-colors",
-                                            currentLocale === l 
-                                                ? (isTransparent ? "font-bold text-white" : "font-bold text-[var(--color-text-primary)]") 
-                                                : (isTransparent ? "font-medium text-white/70 hover:text-white" : "font-medium text-[var(--color-text-muted)] hover:text-[var(--color-primary)]")
+                            {/* Language Switcher */}
+                            <div className={cn("flex items-center space-x-2 border-l ml-[32px] pl-[32px] transition-colors", isTransparent ? "border-white/30" : "border-[var(--color-border)]")}>
+                                {routing.locales.map((l, idx) => (
+                                    <div key={l} className="flex items-center">
+                                        <Link
+                                            href={pathname}
+                                            locale={l}
+                                            className={cn(
+                                                "text-[13px] transition-colors",
+                                                currentLocale === l
+                                                    ? (isTransparent ? "font-bold text-white" : "font-bold text-[var(--color-text-primary)]")
+                                                    : (isTransparent ? "font-medium text-white/70 hover:text-white" : "font-medium text-[var(--color-text-muted)] hover:text-[var(--color-primary)]")
+                                            )}
+                                        >
+                                            {l.toUpperCase()}
+                                        </Link>
+                                        {idx < routing.locales.length - 1 && (
+                                            <span className={cn("mx-2 text-[13px] transition-colors", isTransparent ? "text-white/30" : "text-[var(--color-border)]")}>|</span>
                                         )}
-                                    >
-                                        {l.toUpperCase()}
-                                    </Link>
-                                    {idx < routing.locales.length - 1 && (
-                                        <span className={cn("mx-2 text-[13px] transition-colors", isTransparent ? "text-white/30" : "text-[var(--color-border)]")}>|</span>
-                                    )}
-                                </div>
-                            ))}
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Donate Button */}
+                            <Link href="/donate" className="ml-6">
+                                <button className={cn("flex items-center justify-center !py-[10px] !px-[22px]", isTransparent ? "btn-inverse" : "btn-primary")}>
+                                    {t('donate')}
+                                </button>
+                            </Link>
                         </div>
 
-                        {/* Donate Button */}
-                        <Link href="/donate" className="ml-6">
-                            <button className={cn("flex items-center justify-center !py-[10px] !px-[22px]", isTransparent ? "btn-inverse" : "btn-primary")}>
-                                Donate Now
-                            </button>
-                        </Link>
+                        {/* Mobile Menu Button */}
+                        <button
+                            className={cn("md:hidden p-2 -mr-2 sm:mr-0 focus-visible:outline-none transition-colors", isTransparent ? "text-white" : "text-[var(--color-text-primary)]")}
+                            onClick={() => setIsMenuOpen(true)}
+                            aria-label="Open menu"
+                        >
+                            <Menu size={24} />
+                        </button>
                     </div>
-
-                    {/* Mobile Menu Button */}
-                    <button
-                        className={cn("md:hidden p-2 -mr-2 sm:mr-0 focus-visible:outline-none transition-colors", isTransparent ? "text-white" : "text-[var(--color-text-primary)]")}
-                        onClick={() => setIsMenuOpen(true)}
-                        aria-label="Open menu"
-                    >
-                        <Menu size={24} />
-                    </button>
                 </div>
-            </div>
-        </header>
+            </header>
 
             {/* Mobile Navigation overlay */}
             <AnimatePresence>
@@ -144,7 +144,7 @@ export default function Header() {
                             className="fixed inset-0 bg-[var(--color-bg-overlay)] z-[60]"
                             onClick={() => setIsMenuOpen(false)}
                         />
-                        
+
                         {/* Drawer */}
                         <motion.div
                             initial={{ x: '100%' }}
@@ -191,8 +191,8 @@ export default function Header() {
                                                 locale={l}
                                                 className={cn(
                                                     "text-[14px] transition-colors",
-                                                    currentLocale === l 
-                                                        ? "font-bold text-[var(--color-text-primary)]" 
+                                                    currentLocale === l
+                                                        ? "font-bold text-[var(--color-text-primary)]"
                                                         : "font-medium text-[var(--color-text-muted)]"
                                                 )}
                                                 onClick={() => setIsMenuOpen(false)}
@@ -207,7 +207,7 @@ export default function Header() {
                                 </div>
                                 <Link href="/donate" className="w-full block" onClick={() => setIsMenuOpen(false)}>
                                     <button className="btn-primary w-full shadow-md">
-                                        Donate Now
+                                        {t('donate')}
                                     </button>
                                 </Link>
                             </div>

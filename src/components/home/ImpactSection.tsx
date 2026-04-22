@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { Link } from '@/lib/navigation';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 import { scaleIn, staggerContainer, fadeUp } from '@/lib/animations';
+import { useTranslations } from 'next-intl';
 
 export function ImpactSection() {
+    const t = useTranslations('Impact');
     return (
         <AnimateOnScroll variants={scaleIn}>
             <section className="py-[96px] bg-[var(--color-bg-dark)] relative overflow-hidden">
@@ -21,22 +23,22 @@ export function ImpactSection() {
                         className="flex flex-col items-center"
                     >
                         <motion.h2 variants={fadeUp} className="h2 text-white mb-[24px]">
-                            Join Us in Building a Better Future
+                            {t('title')}
                         </motion.h2>
                         
                         <motion.p variants={fadeUp} className="body-large text-white/85 mb-[40px]">
-                            As a new foundation, every contribution matters. Whether you donate, volunteer, or simply share our mission — you are helping build the foundation of something that will outlast all of us. Join us in Rusizi District and beyond.
+                            {t('desc')}
                         </motion.p>
                         
                         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-[16px]">
                             <Link href="/donate">
                                 <button className="btn-primary">
-                                    Support Our Mission
+                                    {t('btn_support')}
                                 </button>
                             </Link>
                             <Link href="/contact">
                                 <button className="btn-inverse !bg-transparent !border-white !text-white hover:!bg-white/10">
-                                    Partner With Us
+                                    {t('btn_partner')}
                                 </button>
                             </Link>
                         </motion.div>
