@@ -4,22 +4,20 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Heart, Shield, CheckCircle, Clock } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import PaymentMethodSelector from '@/components/donate/PaymentMethodSelector';
+import DonationAmountPicker from '@/components/donate/DonationAmountPicker';
+import StripePaymentForm from '@/components/donate/StripePaymentForm';
+import MoMoPaymentForm from '@/components/donate/MoMoPaymentForm';
+
+type PaymentMethod = 'stripe' | 'momo';
 
 export default function DonatePage() {
     const t = useTranslations('Donate');
-    const [selectedAmount, setSelectedAmount] = useState<number | null>(50);
+    const locale = useLocale();
+    const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('stripe');
+    const [selectedAmount, setSelectedAmount] = useState<number | null>(10000);
     const [customAmount, setCustomAmount] = useState('');
-    const [email, setEmail] = useState('');
-
-    const presetAmounts = [25, 50, 100, 250, 500];
-
-    const equivalencies = [
-        { amount: '$25', impact: t('equiv1_val', { fallback: 'Supports a family\'s hygiene kit for one month' }) },
-        { amount: '$50', impact: t('equiv2_val', { fallback: 'Plants 50 trees in Rusizi District' }) },
-        { amount: '$100', impact: t('equiv3_val', { fallback: 'Sponsors one youth vocational training session' }) },
-        { amount: '$500', impact: t('equiv4_val', { fallback: 'Funds one community health outreach day' }) },
-    ];
 
     const handleAmountSelect = (amount: number) => {
         setSelectedAmount(amount);
@@ -31,12 +29,7 @@ export default function DonatePage() {
         setSelectedAmount(null);
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        const finalAmount = selectedAmount || parseFloat(customAmount);
-        console.log('Donation:', { amount: finalAmount, email });
-        // TODO: Integrate with Stripe Checkout
-    };
+    const finalAmount = selectedAmount || (customAmount ? parseFloat(customAmount) : null);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -97,85 +90,58 @@ export default function DonatePage() {
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8 }}
-                            className="w-full max-w-[600px] ui-card p-[32px] md:p-[48px]"
+                            className="w-full max-w-[600px] ui-card p-[28px] md:p-[40px]"
+                            style={{ transform: 'none' }} // prevent ui-card hover transform
                         >
-                            <form onSubmit={handleSubmit} className="space-y-[40px]">
-                                <div>
-                                    <h3 className="h3 text-[var(--color-text-primary)] mb-[24px]">{t('form_title')}</h3>
-                                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-[16px]">
-                                        {presetAmounts.map((amount) => (
-                                            <button
-                                                key={amount}
-                                                type="button"
-                                                onClick={() => handleAmountSelect(amount)}
-                                                className={`py-[16px] px-[16px] rounded-[var(--radius-ui)] font-serif font-bold text-[18px] transition-all duration-300 border ${
-                                                    selectedAmount === amount
-                                                    ? 'bg-[var(--color-primary-vibrant)] text-white border-[var(--color-primary-vibrant)] shadow-md'
-                                                    : 'bg-white text-[var(--color-text-primary)] border-gray-200 hover:border-[var(--color-primary-vibrant)] hover:text-[var(--color-primary-vibrant)]'
-                                                }`}
-                                            >
-                                                {amount.toLocaleString()} USD
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
+                            <div className="space-y-[32px]">
+                                {/* Payment Method Selector */}
+                                <PaymentMethodSelector
+                                    selected={paymentMethod}
+                                    onChange={setPaymentMethod}
+                                />
 
-                                <div>
-                                    <label htmlFor="customAmount" className="overline-label mb-[12px] block text-[var(--color-text-secondary)]">
-                                        {t('form_custom_label')}
-                                    </label>
-                                    <div className="relative">
-                                        <span className="absolute left-[24px] top-1/2 -translate-y-1/2 text-[18px] font-bold text-gray-500">$</span>
-                                        <input
-                                            type="number"
-                                            id="customAmount"
-                                            value={customAmount}
-                                            onChange={(e) => handleCustomAmountChange(e.target.value)}
-                                            className="w-full pl-[52px] pr-[24px] py-[16px] rounded-[var(--radius-ui)] bg-[var(--color-bg-white)] border-2 border-gray-200 focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[18px] font-bold placeholder:font-medium placeholder:text-gray-400 text-[var(--color-text-primary)] shadow-sm"
-                                            placeholder={t('form_custom_ph')}
-                                            min="1"
-                                        />
-                                    </div>
-                                </div>
+                                {/* Divider */}
+                                <div className="border-t border-gray-100" />
 
-                                <div>
-                                    <label htmlFor="email" className="overline-label mb-[12px] block">
-                                        {t('form_email_label')}
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                        className="w-full px-[24px] py-[16px] rounded-[8px] bg-[var(--color-bg-light)] border-2 border-transparent focus:border-[var(--color-primary)] focus:bg-white focus:outline-none transition-all text-[18px] font-medium placeholder:text-gray-400 text-[var(--color-text-primary)]"
-                                        placeholder={t('form_email_ph')}
+                                {/* Amount Picker */}
+                                <DonationAmountPicker
+                                    selectedAmount={selectedAmount}
+                                    customAmount={customAmount}
+                                    onAmountSelect={handleAmountSelect}
+                                    onCustomAmountChange={handleCustomAmountChange}
+                                    currency="RWF"
+                                />
+
+                                {/* Divider */}
+                                <div className="border-t border-gray-100" />
+
+                                {/* Payment-specific form */}
+                                {paymentMethod === 'stripe' ? (
+                                    <StripePaymentForm
+                                        amount={finalAmount}
+                                        locale={locale}
                                     />
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    disabled={!email || (!selectedAmount && !customAmount)}
-                                    className="btn-primary w-full py-[20px] text-[20px] disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    {t('form_btn')}
-                                </button>
+                                ) : (
+                                    <MoMoPaymentForm
+                                        amount={finalAmount}
+                                    />
+                                )}
 
                                 {/* Trust Block */}
-                                <div className="border-t border-gray-200 pt-[24px] space-y-[12px]">
+                                <div className="border-t border-gray-200 pt-[20px] space-y-[10px]">
                                     {[
-                                        t('trust1'),
-                                        t('trust2'),
+                                        paymentMethod === 'stripe' ? t('trust1') : t('trust_momo'),
+                                        t('trust2_rwf'),
                                         t('trust3'),
                                         t('trust4')
                                     ].map((item) => (
-                                        <div key={item} className="flex items-start gap-[8px] text-[14px] text-[var(--color-text-secondary)] font-medium">
-                                            <CheckCircle size={16} className="text-[var(--color-primary)] mt-[2px] shrink-0" />
+                                        <div key={item} className="flex items-start gap-[8px] text-[13px] text-[var(--color-text-secondary)] font-medium">
+                                            <CheckCircle size={15} className="text-[var(--color-primary)] mt-[2px] shrink-0" />
                                             <span>{item}</span>
                                         </div>
                                     ))}
                                 </div>
-                            </form>
+                            </div>
                         </motion.div>
                     </div>
 
