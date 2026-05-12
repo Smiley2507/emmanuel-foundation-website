@@ -14,22 +14,22 @@ export default function ProjectsPage() {
         {
             key: 'p1',
             activityCount: 4,
-            image: '/community-1.jpg',
+            image: '/community-2.jpg',
         },
         {
             key: 'p2',
             activityCount: 6,
-            image: '/bg-2.jpeg',
+            image: '/plant-tree.jpg',
         },
         {
             key: 'p3',
             activityCount: 5,
-            image: '/bg-1.jpeg',
+            image: '/kid-edu-2.jpg',
         },
         {
             key: 'p4',
             activityCount: 4,
-            image: '/farmers.jpg',
+            image: '/bg-1.jpeg',
         },
         {
             key: 'p5',
@@ -39,12 +39,12 @@ export default function ProjectsPage() {
         {
             key: 'p6',
             activityCount: 4,
-            image: '/bg-2.jpeg',
+            image: '/youth-empower.jpg',
         },
         {
             key: 'p7',
             activityCount: 4,
-            image: '/bg-1.jpeg',
+            image: '/africa-sport.jpg',
         },
     ];
 
