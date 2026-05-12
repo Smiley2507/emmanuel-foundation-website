@@ -112,12 +112,12 @@ export default function Header() {
                                 ))}
                             </div>
 
-                            {/* Donate Button */}
-                            <Link href="/donate" className="ml-6">
+                            {/* Donate Button - Hidden until integration is complete */}
+                            {/* <Link href="/donate" className="ml-6">
                                 <button className={cn("flex items-center justify-center !py-[10px] !px-[22px]", isTransparent ? "btn-inverse" : "btn-primary")}>
                                     {t('donate')}
                                 </button>
-                            </Link>
+                            </Link> */}
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -205,11 +205,11 @@ export default function Header() {
                                         </div>
                                     ))}
                                 </div>
-                                <Link href="/donate" className="w-full block" onClick={() => setIsMenuOpen(false)}>
+                                {/* <Link href="/donate" className="w-full block" onClick={() => setIsMenuOpen(false)}>
                                     <button className="btn-primary w-full shadow-md">
                                         {t('donate')}
                                     </button>
-                                </Link>
+                                </Link> */}
                             </div>
                         </motion.div>
                     </div>

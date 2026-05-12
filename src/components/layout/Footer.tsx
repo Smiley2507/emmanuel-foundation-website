@@ -52,11 +52,11 @@ export default function Footer() {
                         <p className="text-[15px] text-[#a1a1a1] leading-relaxed">
                             {t('about_desc')}
                         </p>
-                        <Link href="/donate" className="inline-block pt-2">
+                        {/* <Link href="/donate" className="inline-block pt-2">
                             <button className="btn-inverse text-sm !px-6 !py-3">
                                 {t('btn_donate')}
                             </button>
-                        </Link>
+                        </Link> */}
                     </div>
 
                     {/* Quick Links */}
@@ -87,7 +87,7 @@ export default function Footer() {
                         <h4 className="text-[14px] font-bold uppercase tracking-widest mb-6 opacity-90">{t('support_us')}</h4>
                         <ul className="space-y-3">
                             {[
-                                { name: t('link_support_donate'), href: '/donate' },
+                                {/* { name: t('link_support_donate'), href: '/donate' }, */}
                                 { name: t('link_volunteer'), href: '/contact' },
                                 { name: t('link_partnerships'), href: '/contact' },
                                 { name: t('link_work'), href: '/contact' }
