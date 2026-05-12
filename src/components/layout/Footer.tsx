@@ -87,7 +87,7 @@ export default function Footer() {
                         <h4 className="text-[14px] font-bold uppercase tracking-widest mb-6 opacity-90">{t('support_us')}</h4>
                         <ul className="space-y-3">
                             {[
-                                {/* { name: t('link_support_donate'), href: '/donate' }, */}
+                                // { name: t('link_support_donate'), href: '/donate' },
                                 { name: t('link_volunteer'), href: '/contact' },
                                 { name: t('link_partnerships'), href: '/contact' },
                                 { name: t('link_work'), href: '/contact' }

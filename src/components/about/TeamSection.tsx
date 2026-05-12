@@ -12,7 +12,7 @@ export function TeamSection() {
             name: 'Emmanuel NGENDAHAYO',
             role: t('role_founder'),
             place: t('council_guardian'),
-            image: '/emanuel.png',
+            image: '/emmanuel.jpeg',
         },
         {
             name: 'Dr. Marie Solange UWINEZA',
