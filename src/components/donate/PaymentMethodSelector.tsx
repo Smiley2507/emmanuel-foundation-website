@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { CreditCard, Smartphone } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-type PaymentMethod = 'stripe' | 'momo';
+type PaymentMethod = 'card' | 'momo';
 
 interface PaymentMethodSelectorProps {
   selected: PaymentMethod;
@@ -16,7 +16,7 @@ export default function PaymentMethodSelector({ selected, onChange }: PaymentMet
 
   const methods = [
     {
-      id: 'stripe' as PaymentMethod,
+      id: 'card' as PaymentMethod,
       icon: CreditCard,
       title: t('method_card'),
       desc: t('method_card_desc'),

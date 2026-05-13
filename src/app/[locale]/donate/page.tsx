@@ -7,15 +7,13 @@ import { Heart, Shield, CheckCircle, Clock } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 import PaymentMethodSelector from '@/components/donate/PaymentMethodSelector';
 import DonationAmountPicker from '@/components/donate/DonationAmountPicker';
-import StripePaymentForm from '@/components/donate/StripePaymentForm';
-import MoMoPaymentForm from '@/components/donate/MoMoPaymentForm';
-
-type PaymentMethod = 'stripe' | 'momo';
+import FlutterwavePaymentForm from '@/components/donate/FlutterwavePaymentForm';
+type PaymentMethod = 'card' | 'momo';
 
 export default function DonatePage() {
     const t = useTranslations('Donate');
     const locale = useLocale();
-    const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('stripe');
+    const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('card');
     const [selectedAmount, setSelectedAmount] = useState<number | null>(10000);
     const [customAmount, setCustomAmount] = useState('');
 
@@ -115,22 +113,17 @@ export default function DonatePage() {
                                 {/* Divider */}
                                 <div className="border-t border-gray-100" />
 
-                                {/* Payment-specific form */}
-                                {paymentMethod === 'stripe' ? (
-                                    <StripePaymentForm
-                                        amount={finalAmount}
-                                        locale={locale}
-                                    />
-                                ) : (
-                                    <MoMoPaymentForm
-                                        amount={finalAmount}
-                                    />
-                                )}
+                                {/* Unified Flutterwave Form */}
+                                <FlutterwavePaymentForm
+                                    amount={finalAmount}
+                                    paymentMethod={paymentMethod}
+                                    locale={locale}
+                                />
 
                                 {/* Trust Block */}
                                 <div className="border-t border-gray-200 pt-[20px] space-y-[10px]">
                                     {[
-                                        paymentMethod === 'stripe' ? t('trust1') : t('trust_momo'),
+                                        t('trust_generic'),
                                         t('trust2_rwf'),
                                         t('trust3'),
                                         t('trust4')
