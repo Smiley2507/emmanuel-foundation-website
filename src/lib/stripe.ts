@@ -1,9 +1,12 @@
 import Stripe from 'stripe';
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('STRIPE_SECRET_KEY is not set in environment variables');
-}
+const key = process.env.STRIPE_SECRET_KEY || '';
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  typescript: true,
-});
+// We don't throw here to avoid build failures if keys are missing in Vercel during build time.
+// Real validation happens when we try to use it in API routes.
+export const stripe = key 
+  ? new Stripe(key, {
+      typescript: true,
+      apiVersion: '2025-01-27.acacia' as any, // Use latest stable or the one you have
+    })
+  : null;
