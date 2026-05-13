@@ -9,43 +9,43 @@ export function TeamSection() {
     
     const teamMembers = [
         {
-            name: 'Emmanuel NGENDAHAYO',
+            name: t('member_name_founder'),
             role: t('role_founder'),
             place: t('council_guardian'),
             image: '/emmanuel.jpeg',
         },
         {
-            name: 'Dr. Marie Solange UWINEZA',
+            name: t('member_name_president'),
             role: t('role_president'),
             place: t('council_founding'),
             image: '/solange.jpeg',
         },
         {
-            name: 'Abbee Maurice TUYIZERE',
+            name: t('member_name_vp'),
             role: t('role_vp'),
             place: t('council_founding'),
             image: '/maurice.jpeg',
         },
         {
-            name: 'Pie UKURIKIYIMFURA',
+            name: t('member_name_treasurer'),
             role: t('role_treasurer'),
             place: t('council_founding'),
             image: '/pie.jpeg',
         },
         {
-            name: 'Valerie ISHIMWE',
+            name: t('member_name_secretary'),
             role: t('role_secretary'),
             place: t('council_founding'),
             image: '/valerie.jpeg',
         },
         {
-            name: 'Poliphile NIZEYIMANA',
+            name: t('member_name_advisor'),
             role: t('role_advisor'),
             place: t('council_founding'),
             image: '/poliphile.jpeg',
         },
         {
-            name: 'Janvier SINDIKUBWABO',
+            name: t('member_name_exec_sec'),
             role: t('role_exec_sec'),
             place: t('council_exec'),
             image: '/janvier.jpeg',
