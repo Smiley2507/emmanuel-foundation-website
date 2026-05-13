@@ -26,7 +26,7 @@
         "desc_mission": "La Fondation Jeannine et Emmanuel a été créée pour servir les populations les plus vulnérables du Rwanda — celles vivant dans la pauvreté, les femmes, les enfants, les jeunes, les personnes âgées et les groupes socialement défavorisés. Notre action couvre la protection de l'environnement, l'éducation, la santé communautaire et la gestion durable de l'eau, toujours en partenariat avec les communautés que nous servons.",
         "btn_story": "Découvrir notre histoire",
         "label_who": "Qui Nous Sommes",
-        "quote_who": "\"Guidés par la compassion. Enracinés dans la communauté. Centrés sur un impact durable.\"",
+        "quote_who": "\"Guidés par la Compassion. Émanciper les Communautés. Créer un Impact Durable.\"",
         "desc_who": "La Fondation Jeannine et Emmanuel (JEF) est une fondation d'intérêt public à but non lucratif établie pour promouvoir le bien-être communautaire, protéger l'environnement et soutenir le développement durable à travers le Rwanda. Guidés par les valeurs de dignité humaine, d'intégrité, de partenariat et d'équité, nous œuvrons auprès des groupes vulnérables afin de générer un impact social pérenne.",
         "btn_about": "En savoir plus sur la Fondation"
     },
@@ -46,6 +46,8 @@
         "stat1_label": "Programmes actifs",
         "stat2_label": "Bénéficiaires ciblés",
         "stat3_label": "Durée du 1er projet",
+        "stat3_prefix": "",
+        "stat3_suffix": " mois",
         "stat4_label": "Fondée au Rwanda",
         "stat4_prefix": "Est. "
     },
@@ -87,7 +89,7 @@
     },
     "About": {
         "header_title": "À Propos",
-        "header_subtitle": "Guidés par la compassion. Enracinés dans la communauté. Centrés sur un impact durable.",
+        "header_subtitle": "Guidés par la Compassion. Émanciper les Communautés. Créer un Impact Durable.",
         "who_label": "Qui Nous Sommes",
         "who_title": "Une fondation bâtie sur la compassion, l'action et l'impact.",
         "who_desc1": "La Fondation Jeannine et Emmanuel (JEF) est une fondation d'intérêt public à but non lucratif établie pour promouvoir le bien-être communautaire, protéger l'environnement et soutenir le développement durable à travers le Rwanda.",

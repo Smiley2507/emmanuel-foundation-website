@@ -26,7 +26,7 @@
         "desc_mission": "Umuryango wa Jeannine na Emmanuel washinzwe kugira ngo ufashwe abatishoboye kurusha abandi mu Rwanda — ababayeho mu bukene, abagore n'abana, urubyiruko, abageze mu zabukuru, ndetse n'amatsinda y'abantu basigaye inyuma. Dukora ibikorwa byo kubungabunga ibidukikije, uburezi, ubuzima rusange, n'imicungire irambye y'amazi, dufatanyije n'abaturage dukorera.",
         "btn_story": "Soma Amateka Yacu",
         "label_who": "Abo Turi Bo",
-        "quote_who": "\"Kuyoborwa n'impuhwe. Gushinga imizi mu baturage. Kwibanda ku mpinduka zirambye.\"",
+        "quote_who": "\"Kuyoborwa n'impuhwe. Guteza imbere abaturage. Guharanira impinduka zirambye.\"",
         "desc_who": "Umuryango wa Jeannine na Emmanuel (JEF) ni umuryango udaharanira inyungu washinzwe hagamijwe guteza imbere imibereho myiza y'abaturage, kubungabunga ibidukikije, no gushyigikira iterambere rirambye mu Rwanda. Twaashinzwe dushingiye ku ndangagaciro z'agaciro k'ikiremwamuntu, ubunyangamugayo, ubufatanye, n'ubusabane, dukorana n'amatsinda y'abatishoboye — harimo abafite amikoro make, abagore n'abana bari mu bukene, ndetse n'abandi basigaye inyuma.",
         "btn_about": "Menya Byinshi ku Muryango"
     },
@@ -46,6 +46,8 @@
         "stat1_label": "Porogaramu ziri gukorwa",
         "stat2_label": "Abagenerwabikorwa",
         "stat3_label": "Igihe umushinga wa mbere uzamara",
+        "stat3_prefix": "Amezi ",
+        "stat3_suffix": "",
         "stat4_label": "Yashinzwe mu Rwanda",
         "stat4_prefix": "Est. "
     },
@@ -87,7 +89,7 @@
     },
     "About": {
         "header_title": "Abo Turi Bo",
-        "header_subtitle": "Kuyoborwa n'impuhwe. Gushinga imizi mu baturage. Kwibanda ku mpinduka zirambye.",
+        "header_subtitle": "Kuyoborwa n'impuhwe. Guteza imbere abaturage. Guharanira impinduka zirambye.",
         "who_label": "Abo Turi Bo",
         "who_title": "Umuryango ushingiye ku mpuhwe, ibikorwa, n'impinduka.",
         "who_desc1": "Umuryango wa Jeannine na Emmanuel (JEF) ni umuryango udaharanira inyungu washinzwe hagamijwe guteza imbere imibereho myiza y'abaturage, kubungabunga ibidukikije, no gushyigikira iterambere rirambye mu Rwanda.",

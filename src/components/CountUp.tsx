@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useInView } from 'framer-motion'
 
-export function CountUp({ end, suffix = '' }: { end: number, suffix?: string }) {
+export function CountUp({ end, prefix = '', suffix = '' }: { end: number, prefix?: string, suffix?: string }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
   const [count, setCount] = useState(0)
@@ -25,5 +25,5 @@ export function CountUp({ end, suffix = '' }: { end: number, suffix?: string }) 
     return () => clearInterval(timer)
   }, [isInView, end])
 
-  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>
+  return <span ref={ref}>{prefix}{count.toLocaleString()}{suffix}</span>
 }

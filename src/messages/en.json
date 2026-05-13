@@ -26,7 +26,7 @@
         "desc_mission": "Jeannine and Emmanuel Foundation was established to serve Rwanda's most vulnerable — those living in poverty, women and children, youth, the elderly, and socially disadvantaged groups. We work across environmental conservation, education, community health, and sustainable water management, always in partnership with the communities we serve.",
         "btn_story": "Discover Our Story",
         "label_who": "Who We Are",
-        "quote_who": "\"Driven by compassion. Rooted in community. Focused on lasting impact.\"",
+        "quote_who": "\"Driven by Compassion. Empowering Communities. Creating Lasting Impact.\"",
         "desc_who": "Jeannine and Emmanuel Foundation (JEF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda. Guided by values of human dignity, integrity, partnership, and equity, we work with vulnerable groups — including people with limited financial resources, women and children in poverty, youth, adolescents, and socially disadvantaged communities — to generate lasting social impact.",
         "btn_about": "Learn About the Foundation"
     },
@@ -46,6 +46,8 @@
         "stat1_label": "Active Programmes",
         "stat2_label": "Targeted beneficiaries",
         "stat3_label": "Duration of first project",
+        "stat3_prefix": "",
+        "stat3_suffix": " months",
         "stat4_label": "Founded in Rwanda",
         "stat4_prefix": "Est. "
     },
@@ -87,7 +89,7 @@
     },
     "About": {
         "header_title": "About Us",
-        "header_subtitle": "Driven by compassion. Rooted in community. Focused on lasting impact.",
+        "header_subtitle": "Driven by Compassion. Empowering Communities. Creating Lasting Impact.",
         "who_label": "Who We Are",
         "who_title": "A foundation built on compassion, action, and impact.",
         "who_desc1": "Jeannine and Emmanuel Foundation (EF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda.",

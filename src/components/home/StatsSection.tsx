@@ -12,8 +12,8 @@ export default function StatsSection() {
     const stats = [
         { value: 7, label: t('stat1_label') },
         { value: 12000, suffix: '+', label: t('stat2_label') },
-        { value: 24, suffix: ' months', label: t('stat3_label') },
-        { value: 2024, prefix: t('stat4_prefix'), label: t('stat4_label') },
+        { value: 24, prefix: t('stat3_prefix'), suffix: t('stat3_suffix'), label: t('stat3_label') },
+        { value: 2024, label_prefix: t('stat4_prefix'), label: t('stat4_label') },
     ];
 
     const sectionRef = useRef(null);
@@ -43,8 +43,8 @@ export default function StatsSection() {
                             className="flex flex-col items-center lg:items-start text-center lg:text-left"
                         >
                             <span className="text-[40px] md:text-[56px] lg:text-[64px] font-fraunces font-bold text-[var(--color-primary-vibrant)] leading-none mb-3 tracking-tighter">
-                                {stat.prefix && <span className="text-[15px] align-top mt-2 inline-block mr-1 opacity-60 font-fraunces">{stat.prefix}</span>}
-                                <CountUp end={stat.value} suffix={stat.suffix} />
+                                {stat.label_prefix && <span className="text-[15px] align-top mt-2 inline-block mr-1 opacity-60 font-fraunces">{stat.label_prefix}</span>}
+                                <CountUp end={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                             </span>
                             <span className="text-[12px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] opacity-80 max-w-[200px]">
                                 {stat.label}
