@@ -129,14 +129,21 @@ export default function ContactPage() {
                             viewport={{ once: true }}
                             className="w-full max-w-[500px]"
                         >
-                            <form className="space-y-[32px]">
+                            <form action="https://formsubmit.co/info@emmanuelfoundation.org" method="POST" className="space-y-[32px]">
+                                {/* FormSubmit Configuration */}
+                                <input type="hidden" name="_subject" value="New Contact Form Submission - JEF Rwanda" />
+                                <input type="hidden" name="_template" value="table" />
+                                <input type="hidden" name="_honey" style={{ display: 'none' }} />
+                                
                                 <div>
                                     <label htmlFor="fullname" className="overline-label mb-[12px] block">{t('form_name')}</label>
                                     <input
                                         type="text"
                                         id="fullname"
+                                        name="name"
                                         className="input-field"
                                         placeholder={t('form_name_ph')}
+                                        required
                                     />
                                 </div>
 
@@ -145,8 +152,10 @@ export default function ContactPage() {
                                     <input
                                         type="email"
                                         id="email"
+                                        name="email"
                                         className="input-field"
                                         placeholder={t('form_email_ph')}
+                                        required
                                     />
                                 </div>
 
@@ -154,7 +163,9 @@ export default function ContactPage() {
                                     <label htmlFor="subject" className="overline-label mb-[12px] block">{t('form_subject')}</label>
                                     <select
                                         id="subject"
+                                        name="subject"
                                         className="input-field appearance-none cursor-pointer"
+                                        required
                                     >
                                         <option value="">{t('form_subject_ph')}</option>
                                         <option value="donation">{t('form_subject_opt1')}</option>
@@ -169,9 +180,11 @@ export default function ContactPage() {
                                     <label htmlFor="message" className="overline-label mb-[12px] block">{t('form_message')}</label>
                                     <textarea
                                         id="message"
+                                        name="message"
                                         rows={5}
                                         className="input-field h-[160px] resize-none"
                                         placeholder={t('form_message_ph')}
+                                        required
                                     />
                                 </div>
 

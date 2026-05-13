@@ -13,31 +13,7 @@ export default function Footer() {
     return (
         <footer className="bg-[var(--color-bg-dark)] text-white pt-16 pb-8 font-sans overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Newsletter Block (Fat Footer) */}
-                <div className="mb-20 bg-white/5 border border-white/10 rounded-[var(--radius-ui)] p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl">
-                    <div className="absolute top-0 right-0 -mr-24 -mt-24 w-72 h-72 bg-[var(--color-primary-vibrant)] rounded-full blur-[100px] opacity-40 pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-72 h-72 bg-[var(--color-primary)] rounded-full blur-[100px] opacity-30 pointer-events-none" />
 
-                    <div className="relative z-10 max-w-xl text-center lg:text-left">
-                        <h3 className="h3 text-white mb-2 font-fraunces">{t('newsletter_title')}</h3>
-                        <p className="body-base text-white/70">
-                            {t('newsletter_desc')}
-                        </p>
-                    </div>
-                    <div className="relative z-10 w-full lg:w-auto flex-1 max-w-md">
-                        <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
-                            <input
-                                type="email"
-                                placeholder={t('newsletter_placeholder')}
-                                className="w-full px-5 py-4 bg-white/10 border border-white/10 rounded-[8px] text-white placeholder:text-white/40 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all"
-                                required
-                            />
-                            <button type="submit" className="bg-white text-[var(--color-primary-dark)] px-8 py-4 rounded-[8px] font-bold hover:bg-white/90 transition-all shrink-0 shadow-lg shadow-white/10">
-                                {t('newsletter_btn')}
-                            </button>
-                        </form>
-                    </div>
-                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Brand Section */}
