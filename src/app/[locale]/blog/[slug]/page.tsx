@@ -8,6 +8,9 @@ import { PortableText } from '@/components/blog/PortableText';
 import { ReadingProgress } from '@/components/blog/ReadingProgress';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 60;
+
 interface BlogPostPageProps {
     params: Promise<{ slug: string }>;
 }
