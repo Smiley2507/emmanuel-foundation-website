@@ -79,12 +79,6 @@ export function TeamSection() {
                                     className="w-full h-full object-cover transition-all duration-700 hover:scale-[1.05]"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary-dark)]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                
-                                <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                                    <span className="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[12px] font-bold text-white uppercase tracking-widest border border-white/20">
-                                        {member.place}
-                                    </span>
-                                </div>
                             </div>
                             <div className="text-center w-full">
                                 <h3 className="h4 text-[var(--color-text-primary)] mb-[4px]">{member.name}</h3>
