@@ -47,7 +47,7 @@ export default function AboutPage() {
                 <div className="flex flex-col lg:flex-row">
                     <div className="w-full lg:w-1/2 min-h-[600px]">
                         <img
-                            src="/bg-2.jpeg"
+                            src="/bg-1.jpeg"
                             alt="Who we are"
                             className="w-full h-full object-cover"
                         />
@@ -159,7 +159,7 @@ export default function AboutPage() {
                 <div className="flex flex-col lg:flex-row">
                     <div className="w-full lg:w-1/2 min-h-[480px]">
                         <img
-                            src="/bg-1.jpeg"
+                            src="/happy.jpg"
                             alt="Providing support"
                             className="w-full h-full object-cover"
                         />
