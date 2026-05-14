@@ -27,7 +27,9 @@ async function getRelatedPosts(postId: string, categories: string[]) {
 }
 
 function formatDate(dateString: string) {
+    if (!dateString) return '';
     const date = new Date(dateString);
+    if (isNaN(date.getTime())) return '';
     return date.toLocaleDateString('en-US', {
         day: 'numeric',
         month: 'long',
@@ -42,14 +44,29 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const { slug } = await params;
-    const post = await getPost(slug);
+    let post;
+    try {
+        post = await getPost(slug);
+    } catch (error) {
+        console.error('Error fetching post:', error);
+        throw error;
+    }
 
     if (!post) {
         notFound();
     }
 
-    const categorySlug = post.categories?.[0]?.slug?.current || [];
-    const relatedPosts = await getRelatedPosts(post._id, [categorySlug]);
+    const categorySlug = post.categories?.[0]?.slug?.current;
+    let relatedPosts = [];
+    
+    if (categorySlug) {
+        try {
+            relatedPosts = await getRelatedPosts(post._id, [categorySlug]);
+        } catch (error) {
+            console.error('Error fetching related posts:', error);
+            relatedPosts = [];
+        }
+    }
 
     return (
         <div className="flex flex-col min-h-screen font-sans">
