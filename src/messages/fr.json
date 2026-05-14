@@ -28,7 +28,10 @@
         "label_who": "Qui Nous Sommes",
         "quote_who": "\"Guidés par la Compassion. Émanciper les Communautés. Créer un Impact Durable.\"",
         "desc_who": "La Fondation Jeannine et Emmanuel (JEF) est une fondation d'intérêt public à but non lucratif établie pour promouvoir le bien-être communautaire, protéger l'environnement et soutenir le développement durable à travers le Rwanda. Guidés par les valeurs de dignité humaine, d'intégrité, de partenariat et d'équité, nous œuvrons auprès des groupes vulnérables afin de générer un impact social pérenne.",
-        "btn_about": "En savoir plus sur la Fondation"
+        "btn_about": "En savoir plus sur la Fondation",
+        "collage_label1": "Bien-être Communautaire",
+        "collage_label2": "Protection de l'Environnement",
+        "collage_label3": "Durabilité"
     },
     "FocusAreas": {
         "top_label": "Nos Domaines d'Intervention",

@@ -28,7 +28,10 @@
         "label_who": "Who We Are",
         "quote_who": "\"Driven by Compassion. Empowering Communities. Creating Lasting Impact.\"",
         "desc_who": "Jeannine and Emmanuel Foundation (JEF) is a public-interest, non-profit foundation established to promote community well-being, protect the environment, and support sustainable development across Rwanda. Guided by values of human dignity, integrity, partnership, and equity, we work with vulnerable groups — including people with limited financial resources, women and children in poverty, youth, adolescents, and socially disadvantaged communities — to generate lasting social impact.",
-        "btn_about": "Learn About the Foundation"
+        "btn_about": "Learn About the Foundation",
+        "collage_label1": "Community Wellbeing",
+        "collage_label2": "Environmental Protection",
+        "collage_label3": "Sustainability"
     },
     "FocusAreas": {
         "top_label": "Our Focus Areas",

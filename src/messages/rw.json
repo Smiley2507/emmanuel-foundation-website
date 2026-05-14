@@ -28,7 +28,10 @@
         "label_who": "Abo Turi Bo",
         "quote_who": "\"Kuyoborwa n'impuhwe. Guteza imbere abaturage. Guharanira impinduka zirambye.\"",
         "desc_who": "Umuryango wa Jeannine na Emmanuel (JEF) ni umuryango udaharanira inyungu washinzwe hagamijwe guteza imbere imibereho myiza y'abaturage, kubungabunga ibidukikije, no gushyigikira iterambere rirambye mu Rwanda. Twaashinzwe dushingiye ku ndangagaciro z'agaciro k'ikiremwamuntu, ubunyangamugayo, ubufatanye, n'ubusabane, dukorana n'amatsinda y'abatishoboye — harimo abafite amikoro make, abagore n'abana bari mu bukene, ndetse n'abandi basigaye inyuma.",
-        "btn_about": "Menya Byinshi ku Muryango"
+        "btn_about": "Menya Byinshi ku Muryango",
+        "collage_label1": "Imibereho y'Abaturage",
+        "collage_label2": "Kubungabunga Ibidukikije",
+        "collage_label3": "Iterambere Rirambye"
     },
     "FocusAreas": {
         "top_label": "Ibyo Twibandaho",
