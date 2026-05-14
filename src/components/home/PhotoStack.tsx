@@ -4,10 +4,10 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const photos = [
-    { src: '/community-2.jpg', alt: 'Community Wellbeing' },
-    { src: '/plant-tree.jpg', alt: 'Environmental Protection' },
+    { src: '/rwanda-community-2.jpg', alt: 'Community Wellbeing' },
+    { src: '/planting-tree-1.jpg', alt: 'Environmental Protection' },
     { src: '/farmers.jpg', alt: 'Sustainability' },
-    { src: '/3kids.jpg', alt: 'Children of Rwanda' },
+    { src: '/kid-edu-1.jpg', alt: 'Children of Rwanda' },
     { src: '/happy.jpg', alt: 'Community Joy' },
 ];
 
