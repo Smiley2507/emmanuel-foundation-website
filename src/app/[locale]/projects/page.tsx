@@ -210,7 +210,7 @@ export default function ProjectsPage() {
                                 </div>
                                 <div className="space-y-[48px] order-1 lg:order-2">
                                     <div className="space-y-[32px]">
-                                        <h4 className="overline-label text-[var(--color-primary-light)]">{t('activities_label')}</h4>
+                                        <h4 className="overline-label text-[var(--color-primary-light)]">{t('rusizi_summary_label')}</h4>
                                         <div className="space-y-6">
                                             {[1, 2, 3].map((i) => (
                                                 <p key={i} className="body-large text-white/80 leading-relaxed">
