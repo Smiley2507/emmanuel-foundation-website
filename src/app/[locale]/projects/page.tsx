@@ -182,7 +182,7 @@ export default function ProjectsPage() {
                                 </div>
                                 <div className="relative aspect-[4/5] lg:aspect-auto lg:h-[600px] rounded-[24px] overflow-hidden group shadow-2xl">
                                     <img
-                                        src="/bg-1.jpeg"
+                                        src="/bg-3.jpeg"
                                         alt="Rusizi District project"
                                         className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
                                     />
@@ -202,7 +202,7 @@ export default function ProjectsPage() {
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[64px] items-center">
                                 <div className="relative aspect-[4/5] lg:aspect-auto lg:h-[600px] rounded-[24px] overflow-hidden group shadow-2xl order-2 lg:order-1">
                                     <img
-                                        src="/community-1.jpg"
+                                        src="/waste-management.jpg"
                                         alt="Rusizi Community"
                                         className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
                                     />

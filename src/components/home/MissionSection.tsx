@@ -67,7 +67,7 @@ export function MissionSection() {
                     <AnimateOnScroll variants={slideInRight}>
                         <div className="relative h-[280px] lg:h-[480px] rounded-[12px] overflow-hidden w-full order-1 lg:order-2">
                             <img
-                                src="/bg-3.jpeg"
+                                src="/3kids.jpg"
                                 alt="About Jeannine and Emmanuel Foundation"
                                 className="w-full h-full object-cover"
                             />
