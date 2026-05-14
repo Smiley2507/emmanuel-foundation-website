@@ -22,7 +22,7 @@ export function PhotoStack() {
     }, []);
 
     useEffect(() => {
-        const timer = setInterval(advance, 3000);
+        const timer = setInterval(advance, 4000);
         return () => clearInterval(timer);
     }, [advance]);
 

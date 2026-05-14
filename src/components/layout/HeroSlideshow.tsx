@@ -17,7 +17,7 @@ export default function HeroSlideshow() {
                 className="absolute inset-0"
             >
                 <img
-                    src="/bg-1.jpeg"
+                    src="/rwanda-community-1.jpg"
                     alt="Jeannine and Emmanuel Foundation Community"
                     className="h-full w-full object-cover"
                     loading="eager"
