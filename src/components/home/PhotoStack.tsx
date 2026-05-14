@@ -11,8 +11,8 @@ const photos = [
     { src: '/happy.jpg', alt: 'Community Joy' },
 ];
 
-// Slight random rotations for the "stacked" look
-const stackRotations = [-3, 2, -1.5, 1, -2.5];
+// Subtle, realistic rotations like photos casually placed
+const stackRotations = [-2.5, 1.8, -1.2, 2.2, -1.8];
 
 export function PhotoStack() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,11 +22,10 @@ export function PhotoStack() {
     }, []);
 
     useEffect(() => {
-        const timer = setInterval(advance, 5000);
+        const timer = setInterval(advance, 3000);
         return () => clearInterval(timer);
     }, [advance]);
 
-    // Get the visible stack (current + next 2 behind it)
     const getStackOrder = () => {
         const indices = [];
         for (let i = 0; i < photos.length; i++) {
@@ -38,31 +37,30 @@ export function PhotoStack() {
     const stack = getStackOrder();
 
     return (
-        <div className="relative w-full h-[380px] sm:h-[440px] lg:h-[520px] flex items-center justify-center">
-            {/* Shadow base to ground the stack */}
-            <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-[70%] h-8 bg-black/10 rounded-full blur-xl" />
+        <div className="relative w-full h-[420px] sm:h-[480px] lg:h-[560px] flex items-center justify-center">
+            {/* Soft ground shadow */}
+            <div className="absolute bottom-[4%] left-1/2 -translate-x-1/2 w-[75%] h-6 bg-black/8 rounded-full blur-2xl" />
 
-            {/* Render bottom-to-top: last items rendered on top */}
             {stack.slice(0, 4).reverse().map((photoIndex, renderIndex) => {
-                const depthIndex = 3 - renderIndex; // 0 = top, 3 = bottom
+                const depthIndex = 3 - renderIndex; // 0 = top, 3 = deepest
                 const isTop = depthIndex === 0;
                 const rotation = stackRotations[photoIndex % stackRotations.length];
-                const scale = 1 - depthIndex * 0.04;
-                const yOffset = depthIndex * 12;
-                const xOffset = depthIndex * 4;
+                const scale = 1 - depthIndex * 0.03;
+                const yOffset = depthIndex * 8;
+                const xOffset = depthIndex * 3;
 
                 return (
                     <AnimatePresence key={`presence-${photoIndex}`} mode="popLayout">
                         <motion.div
                             key={`photo-${photoIndex}-${currentIndex}`}
-                            initial={isTop ? { 
-                                opacity: 0, 
-                                scale: 0.95, 
-                                y: 20, 
-                                rotate: rotation * 2 
+                            initial={isTop ? {
+                                opacity: 0,
+                                scale: 0.97,
+                                y: 12,
+                                rotate: rotation,
                             } : false}
                             animate={{
-                                opacity: 1 - depthIndex * 0.15,
+                                opacity: 1 - depthIndex * 0.12,
                                 scale,
                                 y: yOffset,
                                 x: xOffset,
@@ -71,32 +69,35 @@ export function PhotoStack() {
                             }}
                             exit={{
                                 opacity: 0,
-                                scale: 1.05,
-                                y: -60,
-                                x: 80,
-                                rotate: 15,
+                                scale: 1.02,
+                                y: -40,
+                                x: 60,
+                                rotate: 8,
                                 zIndex: 20,
-                                transition: { duration: 0.6, ease: 'easeInOut' },
+                                transition: {
+                                    duration: 0.9,
+                                    ease: [0.25, 0.1, 0.25, 1],
+                                },
                             }}
                             transition={{
-                                duration: 0.7,
+                                duration: 0.85,
                                 ease: [0.22, 1, 0.36, 1],
                             }}
                             className="absolute inset-0 flex items-center justify-center"
                             style={{ zIndex: 10 - depthIndex }}
                         >
-                            <div 
-                                className="relative w-[85%] sm:w-[80%] h-[90%] rounded-[1.5rem] overflow-hidden shadow-2xl bg-white p-3"
+                            <div
+                                className="relative w-[92%] sm:w-[88%] h-[94%] rounded-[1.25rem] overflow-hidden bg-white p-[6px]"
                                 style={{
-                                    boxShadow: isTop 
-                                        ? '0 25px 60px rgba(0,0,0,0.2), 0 10px 20px rgba(0,0,0,0.1)' 
-                                        : '0 15px 40px rgba(0,0,0,0.15)',
+                                    boxShadow: isTop
+                                        ? '0 20px 50px rgba(0,0,0,0.15), 0 8px 16px rgba(0,0,0,0.08)'
+                                        : `0 ${10 + depthIndex * 4}px ${25 + depthIndex * 8}px rgba(0,0,0,${0.08 + depthIndex * 0.03})`,
                                 }}
                             >
                                 <img
                                     src={photos[photoIndex].src}
                                     alt={photos[photoIndex].alt}
-                                    className="w-full h-full object-cover rounded-[1rem]"
+                                    className="w-full h-full object-cover rounded-[0.9rem]"
                                     loading={depthIndex < 2 ? 'eager' : 'lazy'}
                                 />
                             </div>
@@ -105,16 +106,16 @@ export function PhotoStack() {
                 );
             })}
 
-            {/* Progress dots */}
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+            {/* Progress indicator */}
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex gap-[6px] z-30">
                 {photos.map((_, i) => (
                     <button
                         key={i}
                         onClick={() => setCurrentIndex(i)}
-                        className={`w-2 h-2 rounded-full transition-all duration-500 ${
+                        className={`h-[5px] rounded-full transition-all duration-700 ease-out ${
                             i === currentIndex
-                                ? 'bg-[var(--color-primary-vibrant)] w-6'
-                                : 'bg-[var(--color-primary-vibrant)]/30 hover:bg-[var(--color-primary-vibrant)]/50'
+                                ? 'bg-[var(--color-primary-vibrant)] w-7'
+                                : 'bg-[var(--color-primary-vibrant)]/25 w-[5px] hover:bg-[var(--color-primary-vibrant)]/40'
                         }`}
                         aria-label={`View photo ${i + 1}`}
                     />
