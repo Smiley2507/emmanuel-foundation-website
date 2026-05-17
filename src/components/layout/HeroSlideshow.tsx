@@ -13,8 +13,8 @@ const SLIDES = [
         alt: 'JEF community members working together in Rwanda',
     },
     {
-        src: '/community-2.jpg',
-        alt: 'JEF Foundation community outreach programme',
+        src: '/foundation-1.jpeg',
+        alt: 'Jeannine and Emmanuel Foundation — community programme',
     },
     {
         src: '/kid-edu-1.jpg',
@@ -25,8 +25,8 @@ const SLIDES = [
         alt: 'JEF environmental conservation — tree planting in Rwanda',
     },
     {
-        src: '/hands.jpg',
-        alt: 'Hands joined together — partnership and community spirit',
+        src: '/foundation-2.jpeg',
+        alt: 'Jeannine and Emmanuel Foundation — field activities',
     },
 ];
 
