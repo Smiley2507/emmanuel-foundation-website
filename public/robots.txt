@@ -1,0 +1,12 @@
+# robots.txt — Jeannine and Emmanuel Foundation
+# https://www.jef-foundation.org/
+
+User-agent: *
+Allow: /
+
+# Block Next.js internals and API routes from indexing
+Disallow: /api/
+Disallow: /_next/
+Disallow: /studio/
+
+Sitemap: https://www.jef-foundation.org/sitemap.xml

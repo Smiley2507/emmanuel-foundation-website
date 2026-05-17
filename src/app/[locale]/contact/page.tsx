@@ -89,8 +89,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <span className="overline-label mb-[4px] block">{t('info_email')}</span>
-                                        <a href="mailto:info@emmanuelfoundation.org" className="text-[18px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors">
-                                            info@emmanuelfoundation.org
+                                        <a href="mailto:info@jef-foundation.org" className="text-[18px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors">
+                                            info@jef-foundation.org
                                         </a>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@ export default function ContactPage() {
                             viewport={{ once: true }}
                             className="w-full max-w-[500px]"
                         >
-                            <form action="https://formsubmit.co/info@emmanuelfoundation.org" method="POST" className="space-y-[32px]">
+                            <form action="https://formsubmit.co/info@jef-foundation.org" method="POST" className="space-y-[32px]">
                                 {/* FormSubmit Configuration */}
                                 <input type="hidden" name="_subject" value="New Contact Form Submission - JEF Rwanda" />
                                 <input type="hidden" name="_template" value="table" />

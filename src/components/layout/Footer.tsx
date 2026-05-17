@@ -85,8 +85,8 @@ export default function Footer() {
                         <h4 className="text-[14px] font-bold uppercase tracking-widest mb-6 opacity-90">{t('connect')}</h4>
                         <p className="text-[#a1a1a1] text-[15px] mb-4">
                             {t('connect_location')}<br />
-                            <a href="mailto:info@emmanuelfoundation.org" className="hover:text-white transition-colors mt-2 inline-block">
-                                info@emmanuelfoundation.org
+                            <a href="mailto:info@jef-foundation.org" className="hover:text-white transition-colors mt-2 inline-block">
+                                info@jef-foundation.org
                             </a>
                         </p>
                     </div>

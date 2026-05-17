@@ -22,10 +22,62 @@ const fraunces = Fraunces({
 
 
 export const metadata: Metadata = {
-  title: "Jeannine and Emmanuel Foundation | Empowering Communities Across Rwanda",
-  description: "Jeannine and Emmanuel Foundation works with vulnerable communities across Rwanda — protecting the environment, strengthening livelihoods, and building a more equitable future.",
+  metadataBase: new URL('https://www.jef-foundation.org'),
+  title: {
+    default: 'Jeannine and Emmanuel Foundation | Empowering Communities Across Rwanda',
+    template: '%s | JEF Rwanda',
+  },
+  description:
+    'Jeannine and Emmanuel Foundation (JEF) works with Rwanda\'s most vulnerable communities — protecting the environment, strengthening livelihoods, and building a more equitable future in Rusizi District and beyond.',
+  keywords: [
+    'Jeannine and Emmanuel Foundation',
+    'JEF Rwanda',
+    'Rwanda NGO',
+    'community development Rwanda',
+    'environmental conservation Rwanda',
+    'nonprofit Rwanda',
+    'humanitarian aid Rwanda',
+    'Rusizi District',
+    'youth empowerment Rwanda',
+    'Rwanda education foundation',
+  ],
+  authors: [{ name: 'Jeannine and Emmanuel Foundation', url: 'https://www.jef-foundation.org' }],
+  creator: 'Jeannine and Emmanuel Foundation',
+  publisher: 'Jeannine and Emmanuel Foundation',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    alternateLocale: ['fr_FR', 'rw_RW'],
+    url: 'https://www.jef-foundation.org',
+    siteName: 'Jeannine and Emmanuel Foundation',
+    title: 'Jeannine and Emmanuel Foundation | Empowering Communities Across Rwanda',
+    description:
+      'JEF works with Rwanda\'s most vulnerable communities — protecting the environment, strengthening livelihoods, and building an equitable future.',
+    images: [
+      {
+        url: '/rwanda-community-1.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'JEF Rwanda community members working together',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jeannine and Emmanuel Foundation | Rwanda',
+    description:
+      'JEF works with Rwanda\'s most vulnerable communities — protecting the environment and building equitable futures.',
+    images: ['/rwanda-community-1.jpg'],
+  },
   icons: {
     icon: '/Vector.png',
+    shortcut: '/Vector.png',
+    apple: '/Vector.png',
   },
 };
 

@@ -163,7 +163,7 @@ export default function DonatePage() {
                             {t('where_desc')}
                         </p>
                         <p className="mt-[24px] text-[16px] text-gray-500 font-medium tracking-wide">
-                            {t('where_contact', { email: 'info@emmanuelfoundation.org' })}
+                            {t('where_contact', { email: 'info@jef-foundation.org' })}
                         </p>
                     </motion.div>
                 </div>
