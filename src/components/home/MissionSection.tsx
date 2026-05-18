@@ -4,7 +4,7 @@ import { Link } from '@/lib/navigation';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 import { slideInLeft, slideInRight } from '@/lib/animations';
 import { useTranslations } from 'next-intl';
-import { PhotoStack } from './PhotoStack';
+
 
 export function MissionSection() {
     const t = useTranslations('Mission');
@@ -15,9 +15,16 @@ export function MissionSection() {
                 <div className="bg-blob bg-blob-primary top-[-5%] left-[-5%] w-[400px] h-[400px]" />
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-[48px] items-center relative z-10">
                     
-                    {/* Photo Stack Left */}
+                    {/* Collage Image Left */}
                     <AnimateOnScroll variants={slideInLeft}>
-                        <PhotoStack />
+                        <div className="relative w-full h-[340px] sm:h-[420px] lg:h-[520px] rounded-[var(--radius-ui)] overflow-hidden shadow-xl">
+                            <img
+                                src="/jef-collage.png"
+                                alt="Jeannine and Emmanuel Foundation — community impact collage"
+                                className="w-full h-full object-cover"
+                                loading="eager"
+                            />
+                        </div>
                     </AnimateOnScroll>
 
                     {/* Content Right */}
