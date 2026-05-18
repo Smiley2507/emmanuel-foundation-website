@@ -17,7 +17,7 @@ export function MissionSection() {
                     
                     {/* Collage Image Left */}
                     <AnimateOnScroll variants={slideInLeft}>
-                        <div className="relative w-full h-[340px] sm:h-[420px] lg:h-[520px] rounded-[var(--radius-ui)] overflow-hidden shadow-xl">
+                        <div className="relative w-full h-[340px] sm:h-[420px] lg:h-[520px] rounded-[var(--radius-ui)] overflow-hidden">
                             <img
                                 src="/jef-collage.png"
                                 alt="Jeannine and Emmanuel Foundation — community impact collage"
