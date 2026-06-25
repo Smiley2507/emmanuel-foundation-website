@@ -60,10 +60,10 @@ export const metadata: Metadata = {
       'JEF works with Rwanda\'s most vulnerable communities — protecting the environment, strengthening livelihoods, and building an equitable future.',
     images: [
       {
-        url: '/rwanda-community-1.jpg',
+        url: '/images/og-preview.jpg',
         width: 1200,
         height: 630,
-        alt: 'JEF Rwanda community members working together',
+        alt: 'JEF staff team at a community field event in Rwanda',
       },
     ],
   },
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: 'Jeannine and Emmanuel Foundation | Rwanda',
     description:
       'JEF works with Rwanda\'s most vulnerable communities — protecting the environment and building equitable futures.',
-    images: ['/rwanda-community-1.jpg'],
+    images: ['/images/og-preview.jpg'],
   },
   icons: {
     icon: '/Vector.png',

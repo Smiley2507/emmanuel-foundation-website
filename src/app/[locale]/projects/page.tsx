@@ -14,37 +14,37 @@ export default function ProjectsPage() {
         {
             key: 'p1',
             activityCount: 4,
-            image: '/community-2.jpg',
+            image: '/images/project-community.jpg',
         },
         {
             key: 'p2',
             activityCount: 6,
-            image: '/plant-tree.jpg',
+            image: '/images/project-environment.jpg',
         },
         {
             key: 'p3',
             activityCount: 5,
-            image: '/kid-edu-2.jpg',
+            image: '/images/project-education.jpg',
         },
         {
             key: 'p4',
             activityCount: 4,
-            image: '/bg-1.jpeg',
+            image: '/images/project-resilience.jpg',
         },
         {
             key: 'p5',
             activityCount: 4,
-            image: '/community-1.jpg',
+            image: '/images/project-social.jpg',
         },
         {
             key: 'p6',
             activityCount: 4,
-            image: '/youth-empower.jpg',
+            image: '/images/project-youth.jpg',
         },
         {
             key: 'p7',
             activityCount: 4,
-            image: '/africa-sport.jpg',
+            image: '/images/project-sport.jpg',
         },
     ];
 
@@ -64,8 +64,8 @@ export default function ProjectsPage() {
                 <div className="flex flex-col lg:flex-row-reverse relative z-10">
                     <div className="w-full lg:w-1/2 min-h-[480px]">
                         <img
-                            src="/farmers.jpg"
-                            alt="Programs overview"
+                            src="/images/projects-intro.jpg"
+                            alt="JEF youth football programme with staff and community members"
                             className="w-full h-full object-cover"
                         />
                     </div>
@@ -182,8 +182,8 @@ export default function ProjectsPage() {
                                 </div>
                                 <div className="relative aspect-[4/5] lg:aspect-auto lg:h-[600px] rounded-[24px] overflow-hidden group shadow-2xl">
                                     <img
-                                        src="/bg-3.jpeg"
-                                        alt="Rusizi District project"
+                                        src="/images/project-impact-bw.jpg"
+                                        alt="Community gathering at a JEF sports tournament in Rwanda"
                                         className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-dark)]/60 via-transparent to-transparent" />
@@ -202,8 +202,8 @@ export default function ProjectsPage() {
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[64px] items-center">
                                 <div className="relative aspect-[4/5] lg:aspect-auto lg:h-[600px] rounded-[24px] overflow-hidden group shadow-2xl order-2 lg:order-1">
                                     <img
-                                        src="/waste-management.jpg"
-                                        alt="Rusizi Community"
+                                        src="/images/project-community-program.jpg"
+                                        alt="JEF staff with youth football team at a community programme"
                                         className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-dark)]/60 via-transparent to-transparent" />

@@ -9,24 +9,24 @@ import { useState, useEffect, useCallback } from 'react';
 
 const SLIDES = [
     {
-        src: '/rwanda-community-1.jpg',
-        alt: 'JEF community members working together in Rwanda',
+        src: '/images/hero-staff-team.jpg',
+        alt: 'JEF staff team at a community field event in Rwanda',
     },
     {
-        src: '/foundation-1.jpeg',
-        alt: 'Jeannine and Emmanuel Foundation — community programme',
+        src: '/images/hero-youth-football.jpg',
+        alt: 'Youth football team supported by JEF programmes in Rwanda',
     },
     {
-        src: '/kid-edu-1.jpg',
-        alt: 'Children receiving education support through JEF programmes',
+        src: '/images/hero-tournament.jpg',
+        alt: 'Community sports tournament bringing together youth across Rwanda',
     },
     {
-        src: '/planting-tree-1.jpg',
-        alt: 'JEF environmental conservation — tree planting in Rwanda',
+        src: '/images/hero-award-ceremony.jpg',
+        alt: 'JEF presenting a trophy at a community awards ceremony',
     },
     {
-        src: '/foundation-2.jpeg',
-        alt: 'Jeannine and Emmanuel Foundation — field activities',
+        src: '/images/hero-youth-goal.jpg',
+        alt: 'Youth football team posing at the goalpost during a JEF sports programme',
     },
 ];
 

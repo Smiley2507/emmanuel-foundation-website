@@ -71,8 +71,8 @@ export function MissionSection() {
                     <AnimateOnScroll variants={slideInRight}>
                         <div className="relative h-[280px] lg:h-[480px] rounded-[var(--radius-ui)] overflow-hidden w-full order-1 lg:order-2">
                             <img
-                                src="/3kids.jpg"
-                                alt="Who We Are"
+                                src="/images/mission-community.jpg"
+                                alt="JEF team member presenting the foundation's community mission"
                                 className="w-full h-full object-cover"
                             />
                         </div>

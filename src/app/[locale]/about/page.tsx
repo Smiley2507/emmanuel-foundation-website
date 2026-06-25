@@ -47,8 +47,8 @@ export default function AboutPage() {
                 <div className="flex flex-col lg:flex-row">
                     <div className="w-full lg:w-1/2 min-h-[600px]">
                         <img
-                            src="/bg-1.jpeg"
-                            alt="Who we are"
+                            src="/images/about-staff-lineup.jpg"
+                            alt="JEF staff team at a community event in Rwanda"
                             className="w-full h-full object-cover"
                         />
                     </div>
@@ -159,8 +159,8 @@ export default function AboutPage() {
                 <div className="flex flex-col lg:flex-row">
                     <div className="w-full lg:w-1/2 min-h-[480px]">
                         <img
-                            src="/happy.jpg"
-                            alt="Providing support"
+                            src="/images/about-celebration.jpg"
+                            alt="JEF presenting a trophy at a community celebration"
                             className="w-full h-full object-cover"
                         />
                     </div>
@@ -219,8 +219,8 @@ export default function AboutPage() {
                     </div>
                     <div className="w-full lg:w-1/2 min-h-[480px] order-1 lg:order-2">
                         <img
-                            src="/community-1.jpg"
-                            alt="Community driven"
+                            src="/images/about-community-event.jpg"
+                            alt="Large community gathering at a JEF sports tournament"
                             className="w-full h-full object-cover"
                         />
                     </div>

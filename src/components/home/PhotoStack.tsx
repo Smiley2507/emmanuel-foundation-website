@@ -4,11 +4,11 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const photos = [
-    { src: '/rwanda-community-2.jpg', alt: 'Community Wellbeing' },
-    { src: '/planting-tree-1.jpg', alt: 'Environmental Protection' },
-    { src: '/farmers.jpg', alt: 'Sustainability' },
-    { src: '/kid-edu-1.jpg', alt: 'Children of Rwanda' },
-    { src: '/happy.jpg', alt: 'Community Joy' },
+    { src: '/images/stack-staff-portrait.jpg', alt: 'JEF team member at a community field event' },
+    { src: '/images/stack-staff-portrait-2.jpg', alt: 'JEF staff representing the foundation in Rwanda' },
+    { src: '/images/stack-mission-banner.jpg', alt: 'JEF mission — empowering communities and protecting the environment' },
+    { src: '/images/stack-certificate.jpg', alt: 'Young player receiving an award from JEF staff' },
+    { src: '/images/stack-youth-team.jpg', alt: 'Youth football team supported by JEF' },
 ];
 
 // Subtle, realistic rotations like photos casually placed
