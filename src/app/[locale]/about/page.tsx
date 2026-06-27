@@ -6,9 +6,11 @@ import { Target, Eye, Heart, Shield, Leaf, Users } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { TeamSection } from '@/components/about/TeamSection';
 import { useTranslations } from 'next-intl';
+import { VideoFeature } from '@/components/VideoFeature';
 
 export default function AboutPage() {
     const t = useTranslations('About');
+    const videoT = useTranslations('AboutVideo');
     
     const values = [
         {
@@ -80,6 +82,18 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
+
+            <VideoFeature
+                eyebrow={videoT('eyebrow')}
+                title={videoT('title')}
+                description={videoT('description')}
+                youtubeId="QWU8L6wvrh8"
+                youtubeUrl="https://youtu.be/QWU8L6wvrh8?si=WW8DJrbaVNsTfnzR"
+                primaryCta={{ label: videoT('primary_cta'), href: '/donate' }}
+                secondaryCta={{ label: videoT('secondary_cta'), href: '/contact' }}
+                watchLabel={videoT('watch_cta')}
+                iframeTitle={videoT('iframe_title')}
+            />
 
             {/* Mission & Vision */}
             <section className="py-[96px] bg-[var(--color-bg-light)] relative overflow-hidden">

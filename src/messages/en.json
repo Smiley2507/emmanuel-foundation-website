@@ -66,6 +66,24 @@
         "btn_view": "View News",
         "default_excerpt": "Read the full story to learn more about our latest updates."
     },
+    "HomeVideo": {
+        "eyebrow": "Foundation Interview",
+        "title": "Hear the Story Behind Our Work",
+        "description": "Watch the full conversation about why Jeannine and Emmanuel Foundation exists, the communities we serve, and the future we are working to build.",
+        "primary_cta": "Support the Mission",
+        "secondary_cta": "Learn About Us",
+        "watch_cta": "Watch on YouTube",
+        "iframe_title": "Play the Jeannine and Emmanuel Foundation interview"
+    },
+    "AboutVideo": {
+        "eyebrow": "Our Story",
+        "title": "A Conversation About the Foundation",
+        "description": "In this interview, the foundation shares its purpose, values, and commitment to lasting community impact in Rwanda.",
+        "primary_cta": "Support Our Work",
+        "secondary_cta": "Partner With Us",
+        "watch_cta": "Watch on YouTube",
+        "iframe_title": "Play the Jeannine and Emmanuel Foundation interview"
+    },
     "Footer": {
         "newsletter_title": "Join Our Movement",
         "newsletter_desc": "Subscribe to our newsletter to receive updates on our programmes, impact stories, and opportunities to support communities across Rwanda.",

@@ -66,6 +66,24 @@
         "btn_view": "Soma Amakuru",
         "default_excerpt": "Soma inkuru yose ngo umenye byinshi ku makuru yacu aheruka."
     },
+    "HomeVideo": {
+        "eyebrow": "Ikiganiro cy'Umuryango",
+        "title": "Menya inkuru iri inyuma y'ibikorwa byacu",
+        "description": "Reba ikiganiro cyose kivuga impamvu Umuryango Jeannine na Emmanuel wabayeho, abaturage dukorera, n'ejo hazaza twifuza kubaka.",
+        "primary_cta": "Shyigikira inshingano zacu",
+        "secondary_cta": "Menya byinshi kuri twe",
+        "watch_cta": "Reba kuri YouTube",
+        "iframe_title": "Fungura ikiganiro cya Jeannine and Emmanuel Foundation"
+    },
+    "AboutVideo": {
+        "eyebrow": "Inkuru yacu",
+        "title": "Ikiganiro ku Muryango",
+        "description": "Muri iki kiganiro, umuryango usobanura intego zawo, indangagaciro zawo, n'umuhate wo kuzana impinduka zirambye mu baturage b'u Rwanda.",
+        "primary_cta": "Shyigikira ibikorwa byacu",
+        "secondary_cta": "Ba umufatanyabikorwa",
+        "watch_cta": "Reba kuri YouTube",
+        "iframe_title": "Fungura ikiganiro cya Jeannine and Emmanuel Foundation"
+    },
     "Footer": {
         "newsletter_title": "Wifatanya N'umuryango Wacu",
         "newsletter_desc": "Iyandikishe kugira ngo ujye ubona amakuru agezweho ku mishinga yacu, inkuru z'iterambere, ndetse n'amahirwe yo gushyigikira imiryango mu Rwanda.",

@@ -66,6 +66,24 @@
         "btn_view": "Voir les actualités",
         "default_excerpt": "Lisez l'article complet pour en savoir plus sur nos dernières actualités."
     },
+    "HomeVideo": {
+        "eyebrow": "Interview de la Fondation",
+        "title": "Découvrez l'histoire derrière notre action",
+        "description": "Regardez l'entretien complet sur la raison d'être de la Fondation Jeannine et Emmanuel, les communautés que nous servons et l'avenir que nous voulons construire.",
+        "primary_cta": "Soutenir la mission",
+        "secondary_cta": "En savoir plus sur nous",
+        "watch_cta": "Regarder sur YouTube",
+        "iframe_title": "Lire l'interview de la Fondation Jeannine et Emmanuel"
+    },
+    "AboutVideo": {
+        "eyebrow": "Notre Histoire",
+        "title": "Une conversation sur la Fondation",
+        "description": "Dans cet entretien, la Fondation partage sa raison d'être, ses valeurs et son engagement pour un impact communautaire durable au Rwanda.",
+        "primary_cta": "Soutenir notre travail",
+        "secondary_cta": "Devenir partenaire",
+        "watch_cta": "Regarder sur YouTube",
+        "iframe_title": "Lire l'interview de la Fondation Jeannine et Emmanuel"
+    },
     "Footer": {
         "newsletter_title": "Rejoignez Notre Mouvement",
         "newsletter_desc": "Abonnez-vous à notre newsletter pour recevoir des mises à jour sur nos programmes, nos histoires d'impact et les opportunités de soutenir les communautés au Rwanda.",
