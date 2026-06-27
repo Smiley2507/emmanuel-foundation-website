@@ -28,14 +28,9 @@ export default async function Home() {
       <HeroSlideshow />
       <MissionSection />
       <VideoFeature
-        eyebrow={t('eyebrow')}
         title={t('title')}
         description={t('description')}
         youtubeId="QWU8L6wvrh8"
-        youtubeUrl="https://youtu.be/QWU8L6wvrh8?si=WW8DJrbaVNsTfnzR"
-        primaryCta={{ label: t('primary_cta'), href: '/donate' }}
-        secondaryCta={{ label: t('secondary_cta'), href: '/about' }}
-        watchLabel={t('watch_cta')}
         iframeTitle={t('iframe_title')}
       />
       <FocusAreas />

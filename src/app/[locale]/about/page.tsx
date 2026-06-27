@@ -84,14 +84,9 @@ export default function AboutPage() {
             </section>
 
             <VideoFeature
-                eyebrow={videoT('eyebrow')}
                 title={videoT('title')}
                 description={videoT('description')}
                 youtubeId="QWU8L6wvrh8"
-                youtubeUrl="https://youtu.be/QWU8L6wvrh8?si=WW8DJrbaVNsTfnzR"
-                primaryCta={{ label: videoT('primary_cta'), href: '/donate' }}
-                secondaryCta={{ label: videoT('secondary_cta'), href: '/contact' }}
-                watchLabel={videoT('watch_cta')}
                 iframeTitle={videoT('iframe_title')}
             />
 
